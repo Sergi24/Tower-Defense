@@ -553,7 +553,7 @@ Transform:
   m_GameObject: {fileID: 1149463607937254}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5.18, y: 0.65, z: -32.36}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 4554032053053694}
   - {fileID: 4696626040976484}
@@ -826,6 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocitatMoviment: 2
+  rangAtac: 4
 --- !u!137 &137530189295001778
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

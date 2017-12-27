@@ -7,38 +7,57 @@ public class CaballeroController : MonoBehaviour {
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
     private GameObject destination;
+    private GameObject[] objectius;
     private bool objectiveReached = false;
     public float velocitatMoviment;
+    public float rangAtac;
 
     // Use this for initialization
     void Start()
     {
         agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator = this.gameObject.GetComponent<Animator>();
-        destination = GameObject.Find("Player");
-        agent.destination = destination.transform.position;
-        //	agent.Move();
+        //agent.Move();
     }
 
     void Update()
     {
-        if (agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathComplete && agent.remainingDistance < 4)
+        objectius = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (objectius.Length != 0)
         {
-            animator.SetBool("Attack", true);
-            agent.speed = 0;
-            objectiveReached = true;
-        }
-        else
-        {
-            animator.SetBool("Attack", false);
-            if (objectiveReached)
+            //Buscar objectiu mes proper
+            float minim = 100f;
+            destination = objectius[0];
+            for (int i = 0; i < objectius.Length; i++)
             {
-                Invoke("tornarAMoure", 0.5f);
-                objectiveReached = false;
+                if ((objectius[i].transform.position - transform.position).magnitude < minim)
+                {
+                    minim = (objectius[i].transform.position - transform.position).magnitude;
+                    destination = objectius[i];
+                }
+            }
+            agent.destination = destination.transform.position;
+
+            //Saber si atacar ja
+            if (agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathComplete && agent.remainingDistance < rangAtac)
+            {
+                animator.SetBool("Attack", true);
+                agent.speed = 0;
+                objectiveReached = true;
+            }
+            else
+            {
+                animator.SetBool("Attack", false);
+                if (objectiveReached)
+                {
+                    Invoke("tornarAMoure", 0.5f);
+                    objectiveReached = false;
+                }
             }
         }
-        destination = GameObject.Find("Player");
-        agent.destination = destination.transform.position;
+
+
 
     }
     void tornarAMoure()
