@@ -5,15 +5,31 @@ using UnityEngine;
 public class ArrowsInstantiator : MonoBehaviour {
 
     public GameObject fletxa;
+    public float velocitatDisparo;
+    private GameObject[] objectius;
 
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("crearFletxa", 2, 2);
+        InvokeRepeating("crearFletxa", velocitatDisparo, velocitatDisparo);
     }
 
     void crearFletxa()
     {
-        Instantiate(fletxa, transform.position, transform.rotation);
+        objectius = GameObject.FindGameObjectsWithTag("Enemy");
+        if (objectius.Length != 0)
+        {
+            int i = 0;
+            bool trobat = false;
+            while (i < objectius.Length&&!trobat)
+            {
+                if (objectius[i].GetComponent<SoldierController>().getVida() > 0)
+                {
+                    Instantiate(fletxa, transform.position, Quaternion.LookRotation(objectius[i].transform.position- transform.position));
+                    trobat = true;
+                }
+                i++;
+            }
+        }
     }
 }

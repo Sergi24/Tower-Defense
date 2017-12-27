@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class MovArrow : MonoBehaviour
 {
-    private Rigidbody rb;
-    private GameObject[] objectiu;
-    private GameObject destination;
-
+    private GameObject[] objectius;
+    private GameObject destination = null;
+    private bool stopArrow = false;
     public float destroyTime;
-    private double lifeTime = 5;//segundos hasta eliminar flecha
 
     public float moveSpeed; //velocidad de movimiento 
     public float rotationSpeed; //Velocidad de rotación 
@@ -24,46 +22,34 @@ public class MovArrow : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        objectiu = GameObject.FindGameObjectsWithTag("Enemy");
+        objectius = GameObject.FindGameObjectsWithTag("Enemy");
 
         //buscar objectiu mes proper
-        Vector3 minim = new Vector3(100f, 100f, 100f);
-        destination = objectiu[0];
-        for (int i = 0; i < objectiu.Length; i++)
+        float minim = 100f;
+        for (int i = 0; i < objectius.Length; i++)
         {
-            if ((transform.position - objectiu[i].transform.position).magnitude < minim.magnitude)
+            if ((transform.position - objectius[i].transform.position).magnitude < minim)
             {
-                minim = transform.position - objectiu[i].transform.position;
-                destination = objectiu[i];
+                minim = (transform.position - objectius[i].transform.position).magnitude;
+                destination = objectius[i];
             }
         }
 
         Invoke("DestruirFletxa", destroyTime);
-        Debug.Log(Time.time, this);
 }
 
-    // Update is called once per frame
-    /*  void FixedUpdate()
-      {
-          //  transform.Translate(new Vector3(0, 0, -velocitatFletxa * Time.deltaTime));
-          rb.AddForce(0, 0, velocitatFletxa);
-          transform.Rotate(1f, 0, 0);
-      }
-      */
     void Update()
     {
-        //Rotacion para mirar hacia el target(objetivo a seguir) 
-        if (destination != null)
+        if (!stopArrow)
         {
-            Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 1, destination.transform.position.z);
-            myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
-            Quaternion.LookRotation(puntoDeChoque - myTransform.position), rotationSpeed * Time.deltaTime);
-
+            //Rotacion para mirar hacia el target(objetivo a seguir) 
+            if (destination != null)
+            {
+                Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 1, destination.transform.position.z);
+                myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
+                Quaternion.LookRotation(puntoDeChoque - myTransform.position), rotationSpeed * Time.deltaTime);
+            }
             //Movimiento en dirección del target 
-            myTransform.position += transform.forward * moveSpeed * Time.deltaTime;
-        }else
-        {
             myTransform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
   
@@ -74,13 +60,15 @@ public class MovArrow : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<SoldierController>().restarVida();
         }
-        Destroy(gameObject);
+        stopArrow = true;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        Destroy(gameObject, 0.2f);
     }
 
 }

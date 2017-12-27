@@ -65,13 +65,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1277063285714112}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.56, y: 5.17, z: 1.69}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 5.17, z: 0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4686990709664908}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4477129688559782
 Transform:
   m_ObjectHideFlags: 1
@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347276335232540}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.56551534, y: 0.49999997, z: -14.11}
+  m_LocalPosition: {x: 3, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4477129688559782}
@@ -153,3 +153,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fletxa: {fileID: 161162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+  velocitatDisparo: 3

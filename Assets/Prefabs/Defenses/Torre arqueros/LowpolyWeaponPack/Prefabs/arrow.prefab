@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2361162}
   - component: {fileID: 114837027936498502}
   - component: {fileID: 54111897277963704}
-  - component: {fileID: 9561162}
   - component: {fileID: 65697214677196906}
   m_Layer: 0
   m_Name: arrow
@@ -75,23 +74,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161162}
   m_Mesh: {fileID: 4300002, guid: 2be991922693ac44d98698fb3a7f426f, type: 3}
---- !u!95 &9561162
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161162}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2be991922693ac44d98698fb3a7f426f, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -142,5 +124,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 3
-  moveSpeed: 3
-  rotationSpeed: 4
+  moveSpeed: 5
+  rotationSpeed: 10
