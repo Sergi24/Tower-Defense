@@ -34,7 +34,6 @@ public class MovArrow : MonoBehaviour
                 destination = objectius[i];
             }
         }
-
         Invoke("DestruirFletxa", destroyTime);
 }
 
