@@ -13,7 +13,8 @@ public class SoldierController : MonoBehaviour {
 	void Start () {
 		agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
 		animator = this.gameObject.GetComponent<Animator>();
-		agent.destination = destination.transform.position;
+        destination = GameObject.Find("Player");
+        agent.destination = destination.transform.position;
 		//	agent.Move();
 	}
 

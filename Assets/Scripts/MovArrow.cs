@@ -10,6 +10,9 @@ public class MovArrow : MonoBehaviour
     private GameObject[] objectiu;
     private GameObject destination;
 
+    private double destroyTime;
+    private double lifeTime = 5;//segundos hasta eliminar flecha
+
     private float moveSpeed = 3; //velocidad de movimiento 
     private float rotationSpeed = 3f; //Velocidad de rotación 
 
@@ -37,7 +40,10 @@ public class MovArrow : MonoBehaviour
                 destination = objectiu[i];
             }
         }
-    }
+
+        destroyTime = Time.time + lifeTime;
+        Debug.Log(Time.time, this);
+}
 
     // Update is called once per frame
     /*  void FixedUpdate()
@@ -56,6 +62,10 @@ public class MovArrow : MonoBehaviour
 
         //Movimiento en dirección del target 
         myTransform.position += myTransform.up * moveSpeed * Time.deltaTime;
+
+        //Destruir después de x tiempo
+       if (Time.time >= destroyTime) DestroyObject(gameObject);
+
     }
 
 }
