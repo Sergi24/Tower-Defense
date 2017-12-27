@@ -6,6 +6,8 @@ public class ArrowsInstantiator : MonoBehaviour {
 
     public GameObject fletxa;
     public float velocitatDisparo;
+    public int rangTorre;
+
     private GameObject[] objectius;
 
     // Use this for initialization
@@ -25,8 +27,11 @@ public class ArrowsInstantiator : MonoBehaviour {
             {
                 if (objectius[i].GetComponent<SoldierController>().getVida() > 0)
                 {
-                    Instantiate(fletxa, transform.position, Quaternion.LookRotation(objectius[i].transform.position- transform.position));
-                    trobat = true;
+                    if ((objectius[i].transform.position - transform.position).magnitude < rangTorre)
+                    {
+                        Instantiate(fletxa, transform.position, Quaternion.LookRotation(objectius[i].transform.position - transform.position));
+                        trobat = true;
+                    }
                 }
                 i++;
             }

@@ -5,18 +5,19 @@ using UnityEngine;
 public class EnemyInstantiator : MonoBehaviour {
 
     public GameObject enemy;
+    public int velocitatGeneracio;
 
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("crearEnemic", 1, 1);
+        InvokeRepeating("crearEnemic", velocitatGeneracio, velocitatGeneracio);
     }
 
     void crearEnemic()
     {
-        if (Random.Range(1, 5) == 3)
-           {
+   //     if (Random.Range(1, 5) == 3)
+    //       {
                Instantiate(enemy, transform.position, transform.rotation);
-           }
+    //       }
     }
 }
