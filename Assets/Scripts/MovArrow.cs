@@ -27,15 +27,17 @@ public class MovArrow : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         objectiu = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //buscar objectiu mes proper
-        Vector3 minim = new Vector3(100f, 100f, 100f);
-        destination = objectiu[0];
-        for (int i = 0; i < objectiu.Length; i++)
-        {
-            if ((transform.position - objectiu[i].transform.position).magnitude < minim.magnitude)
+        if (objectiu.Length > 0) {
+            //buscar objectiu mes proper
+            Vector3 minim = new Vector3(100f, 100f, 100f);
+            destination = objectiu[0];
+            for (int i = 0; i < objectiu.Length; i++)
             {
-                minim = transform.position - objectiu[i].transform.position;
-                destination = objectiu[i];
+                if ((transform.position - objectiu[i].transform.position).magnitude < minim.magnitude)
+                {
+                    minim = transform.position - objectiu[i].transform.position;
+                    destination = objectiu[i];
+                }
             }
         }
 
