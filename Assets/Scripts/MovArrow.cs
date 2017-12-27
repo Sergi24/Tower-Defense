@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class MovArrow : MonoBehaviour
 {
-
-    public float velocitatFletxa = 10f;
     private Rigidbody rb;
     private GameObject[] objectiu;
     private GameObject destination;
 
-    private double destroyTime;
+    public float destroyTime;
     private double lifeTime = 5;//segundos hasta eliminar flecha
 
-    private float moveSpeed = 3; //velocidad de movimiento 
-    private float rotationSpeed = 3f; //Velocidad de rotación 
+    public float moveSpeed; //velocidad de movimiento 
+    public float rotationSpeed; //Velocidad de rotación 
 
     Transform myTransform;
 
@@ -27,21 +25,21 @@ public class MovArrow : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        objectiu = GameObject.FindGameObjectsWithTag("Player");
+        objectiu = GameObject.FindGameObjectsWithTag("Enemy");
 
         //buscar objectiu mes proper
-        Vector3 maxim = new Vector3(10f, 10f, 10f);
+        Vector3 minim = new Vector3(100f, 100f, 100f);
         destination = objectiu[0];
         for (int i = 0; i < objectiu.Length; i++)
         {
-            if ((transform.position - objectiu[i].transform.position).magnitude > maxim.magnitude)
+            if ((transform.position - objectiu[i].transform.position).magnitude < minim.magnitude)
             {
-                maxim = transform.position - objectiu[i].transform.position;
+                minim = transform.position - objectiu[i].transform.position;
                 destination = objectiu[i];
             }
         }
 
-        destroyTime = Time.time + lifeTime;
+        Invoke("DestruirFletxa", destroyTime);
         Debug.Log(Time.time, this);
 }
 
@@ -56,16 +54,33 @@ public class MovArrow : MonoBehaviour
     void Update()
     {
         //Rotacion para mirar hacia el target(objetivo a seguir) 
-        Quaternion.Euler(transform.rotation.x + 90, transform.rotation.y, transform.rotation.z);
-        myTransform.rotation = Quaternion.Slerp(Quaternion.Euler(transform.rotation.x - 90, transform.rotation.y, transform.rotation.z),
-        Quaternion.LookRotation(destination.transform.position - myTransform.position), rotationSpeed * Time.deltaTime);
+        if (destination != null)
+        {
+            Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 1, destination.transform.position.z);
+            myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
+            Quaternion.LookRotation(puntoDeChoque - myTransform.position), rotationSpeed * Time.deltaTime);
 
-        //Movimiento en dirección del target 
-        myTransform.position += myTransform.up * moveSpeed * Time.deltaTime;
+            //Movimiento en dirección del target 
+            myTransform.position += transform.forward * moveSpeed * Time.deltaTime;
+        }else
+        {
+            myTransform.position += transform.forward * moveSpeed * Time.deltaTime;
+        }
+  
+}
 
-        //Destruir después de x tiempo
-       if (Time.time >= destroyTime) DestroyObject(gameObject);
+    void DestruirFletxa()
+    {
+        Destroy(gameObject);
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+        }
+        Destroy(gameObject);
     }
 
 }

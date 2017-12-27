@@ -8,6 +8,7 @@ public class SoldierController : MonoBehaviour {
 	private Animator animator;
 	private GameObject destination;
 	private bool objectiveReached = false;
+    public float velocitatMoviment;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,7 @@ public class SoldierController : MonoBehaviour {
 		else {
 			animator.SetBool("Attack", false);
 			if(objectiveReached) {
-				Invoke("tornarAMoure", 0);
+				Invoke("tornarAMoure", 0.5f);
 				objectiveReached=false;
 			}
 		}
@@ -36,6 +37,6 @@ public class SoldierController : MonoBehaviour {
 
 	}
 	void tornarAMoure(){
-		agent.speed=2.5f;
+		agent.speed= velocitatMoviment;
 	}
 }
