@@ -35,9 +35,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4686990709664908}
+  - component: {fileID: 65423669999904136}
   m_Layer: 0
   m_Name: torre_arqueros_madera
-  m_TagString: Untagged
+  m_TagString: Defensa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347276335232540}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: -9}
+  m_LocalPosition: {x: 2.4290166, y: 1.0115738, z: -56.933647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4477129688559782}
@@ -141,6 +142,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630180108636336}
   m_Mesh: {fileID: 4300000, guid: 10d52c9d9aa1baf43811907b63659845, type: 3}
+--- !u!65 &65423669999904136
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347276335232540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.396046, y: 3.1566553, z: 1.3661041}
+  m_Center: {x: 0.007148564, y: 1.4736695, z: -0.08421707}
 --- !u!114 &114487076546609758
 MonoBehaviour:
   m_ObjectHideFlags: 1
