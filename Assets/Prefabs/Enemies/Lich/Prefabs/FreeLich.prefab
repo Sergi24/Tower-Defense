@@ -939,10 +939,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaLich: 5
   velocitatMoviment: 1
+  maximBusqueda: 10
   rangAtac: 8
   velocitatAtac: 90
   instantiatorBall: {fileID: 1610877735787856}
-  rotationSpeed: 5
+  rotationSpeed: 10
 --- !u!136 &136712434082083430
 CapsuleCollider:
   m_ObjectHideFlags: 1
