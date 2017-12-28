@@ -829,6 +829,7 @@ MonoBehaviour:
   velocitatMoviment: 2
   rangAtac: 4
   vidaCaballer: 4
+  rotationSpeed: 6
 --- !u!136 &136589027581664108
 CapsuleCollider:
   m_ObjectHideFlags: 1
