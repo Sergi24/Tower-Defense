@@ -54,6 +54,7 @@ public class MovBall : MonoBehaviour
 
     void fixarVelocitat()
     {
+        gameObject.GetComponent<SphereCollider>().enabled = true;
         velocitat = moveSpeed;
     }
 

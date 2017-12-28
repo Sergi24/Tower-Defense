@@ -7,56 +7,63 @@ public class LichController : MonoBehaviour, HealthInterface
 
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
-    private GameObject destination;
     public int vidaLich;
     private bool lichMort = false;
-    private bool objectiveReached = false;
     public float velocitatMoviment;
+    public float maximBusqueda;
+    private float minim;
     public int rangAtac;
     public int velocitatAtac;
     public GameObject instantiatorBall;
     private GameObject[] objectius;
     public float rotationSpeed; //Velocidad de rotación 
     private int contador = 0;
+    private bool destinationNova;
+    private Vector3 destination;
 
     // Use this for initialization
     void Start()
     {
         agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.destination = GameObject.Find("Player").transform.position;
         agent.speed = velocitatMoviment;
         animator = this.gameObject.GetComponent<Animator>();
-        agent.destination = GameObject.Find("Player").transform.position;
-        agent.Move(new Vector3(0f, 0f, 0f));
+        animator.SetBool("Attack", false);
+        animator.SetBool("Death", false);
+        // agent.Move(new Vector3(0f, 0f, 0f));
     }
    
     void Update()
     {
         if (!lichMort)
         {
+            destinationNova = false;
             objectius = GameObject.FindGameObjectsWithTag("Defensa");
-
             if (objectius.Length != 0)
             {
                 //buscar objectiu mes proper
-                float minim = 100f;
+                minim = maximBusqueda;
                 for (int i = 0; i < objectius.Length; i++)
                 {
-                    if ((transform.position - objectius[i].transform.position).magnitude < minim)
+                    if ((objectius[i].transform.position - transform.position).magnitude < minim)
                     {
-                        minim = (transform.position - objectius[i].transform.position).magnitude;
-                        destination = objectius[i];
+                        if (objectius[i].GetComponent<HealthInterface>().getVida() > 0)
+                        {
+                            destinationNova = true;
+                            minim = (transform.position - objectius[i].transform.position).magnitude;
+                            destination = objectius[i].transform.position;
+                        }
                     }
                 }
+                if (destinationNova) agent.SetDestination(destination);
+                else agent.SetDestination(GameObject.Find("Player").transform.position);
 
-                if (agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathComplete && agent.remainingDistance < rangAtac)
+                if (agent.remainingDistance < rangAtac)
                 {
-                    if (!objectiveReached)
-                    {
-                        animator.SetBool("Attack", true);
-                        agent.speed = 0;
-                        objectiveReached = true;
-                    }
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
+                    animator.SetBool("Attack", true);
+                    agent.speed = 0;
+
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(agent.destination - transform.position), Time.deltaTime * rotationSpeed);
 
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
                     {
@@ -76,13 +83,12 @@ public class LichController : MonoBehaviour, HealthInterface
                 else
                 {
                     animator.SetBool("Attack", false);
-                    if (objectiveReached)
-                    {
-                        Invoke("tornarAMoure", 0.5f);
-                        objectiveReached = false;
-                    }
+                    Invoke("tornarAMoure", 0.5f);
                 }
-                agent.destination = destination.transform.position;
+            }
+            else
+            {
+                animator.SetBool("Attack", false);
             }
         }
     }
