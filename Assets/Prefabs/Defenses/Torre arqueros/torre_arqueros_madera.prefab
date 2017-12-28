@@ -34,21 +34,14 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-<<<<<<< HEAD
+
   - component: {fileID: 4973972054128116}
   - component: {fileID: 33705016488095488}
   - component: {fileID: 23653272542203360}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
-=======
-  - component: {fileID: 4686990709664908}
-  - component: {fileID: 65423669999904136}
-  - component: {fileID: 114161284466191432}
-  m_Layer: 0
-  m_Name: torre_arqueros_madera
-  m_TagString: Defensa
->>>>>>> 267193758f9098bca6ed79e95e74552f1905edcc
+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,11 +96,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540812732034418}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
+
   m_LocalPosition: {x: -0, y: 0, z: 0}
-=======
-  m_LocalPosition: {x: 2.4290166, y: 1.0115738, z: -56.933647}
->>>>>>> 267193758f9098bca6ed79e95e74552f1905edcc
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4062375000169532}
@@ -154,35 +145,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540812732034418}
   m_Mesh: {fileID: 4300000, guid: 10d52c9d9aa1baf43811907b63659845, type: 3}
-<<<<<<< HEAD
+
 --- !u!114 &114533260626604570
-=======
---- !u!65 &65423669999904136
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1347276335232540}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.396046, y: 3.1566553, z: 1.3661041}
-  m_Center: {x: 0.007148564, y: 1.4736695, z: -0.08421707}
---- !u!114 &114161284466191432
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1347276335232540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2f543a566a7644eb2bdf888edef941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaTorre: 6
---- !u!114 &114487076546609758
->>>>>>> 267193758f9098bca6ed79e95e74552f1905edcc
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -191,8 +155,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7b2cbc5f30571545a1f3f645e3f6030, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   fletxa: {fileID: 161162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
   velocitatDisparo: 3
   rangTorre: 20
