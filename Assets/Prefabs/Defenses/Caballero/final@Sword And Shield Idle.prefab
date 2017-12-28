@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 114447842773934102}
   m_Layer: 0
   m_Name: final@Sword And Shield Idle
-  m_TagString: Untagged
+  m_TagString: Defensa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

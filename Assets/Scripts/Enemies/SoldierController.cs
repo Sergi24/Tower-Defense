@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierController : MonoBehaviour
+public class SoldierController : MonoBehaviour, HealthInterface
 {
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -43,7 +43,10 @@ public class SoldierController : MonoBehaviour
                     objectiveReached = false;
                 }
             }
+<<<<<<< HEAD:Assets/Scripts/SoldierController.cs
             //destination = GameObject.Find("Player");
+=======
+>>>>>>> 267193758f9098bca6ed79e95e74552f1905edcc:Assets/Scripts/Enemies/SoldierController.cs
             agent.destination = destination.transform.position;
         }
 
@@ -60,6 +63,7 @@ public class SoldierController : MonoBehaviour
         vidaSoldat -= 1;
         if (vidaSoldat == 0)
         {
+            soldatMort = true;
             animator.SetBool("Death", true);
             agent.speed = 0;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;

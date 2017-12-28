@@ -25,7 +25,7 @@ public class ArrowsInstantiator : MonoBehaviour {
             bool trobat = false;
             while (i < objectius.Length&&!trobat)
             {
-                if (objectius[i].GetComponent<SoldierController>().getVida() > 0)
+                if (objectius[i].GetComponent<HealthInterface>().getVida() > 0)
                 {
                     if ((objectius[i].transform.position - transform.position).magnitude < rangTorre)
                     {

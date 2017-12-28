@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletController : MonoBehaviour {
+public class SkeletController : MonoBehaviour, HealthInterface {
 
 	private UnityEngine.AI.NavMeshAgent agent;
 	private Animator animator;
 	public GameObject destination;
+    public int vidaEsquelet;
 	private bool objectiveReached = false;
 
 	// Use this for initialization
 	void Start () {
 		agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
 		animator = this.gameObject.GetComponent<Animator>();
+        destination = GameObject.Find("Player");
 		agent.destination = destination.transform.position;
 	//	agent.Move();
 	}
@@ -37,4 +39,17 @@ public class SkeletController : MonoBehaviour {
 		agent.speed=3.5f;
 	}
 
+    public void restarVida()
+    {
+        vidaEsquelet -= 1;
+        if (vidaEsquelet == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public int getVida()
+    {
+        return vidaEsquelet;
+    }
 }
