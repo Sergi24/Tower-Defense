@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierController : MonoBehaviour
+public class SoldierController : MonoBehaviour, EnemyInterface
 {
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -43,7 +43,6 @@ public class SoldierController : MonoBehaviour
                     objectiveReached = false;
                 }
             }
-            destination = GameObject.Find("Player");
             agent.destination = destination.transform.position;
         }
 
@@ -60,6 +59,7 @@ public class SoldierController : MonoBehaviour
         vidaSoldat -= 1;
         if (vidaSoldat == 0)
         {
+            soldatMort = true;
             animator.SetBool("Death", true);
             agent.speed = 0;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;

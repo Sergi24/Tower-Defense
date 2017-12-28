@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 95733418117298824}
   - component: {fileID: 195499972368092944}
   - component: {fileID: 114042585975819896}
+  - component: {fileID: 136235088429031720}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -824,7 +825,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1116095234603528}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.12, y: 1.54, z: -13}
+  m_LocalPosition: {x: -2.3812914, y: 1.0115738, z: -46.887035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4212339879229822}
@@ -1000,7 +1001,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6e51e9a7f87da4b8fef78f2f57cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 0}
+  destination: {fileID: 1290622014874386, guid: c94a6bf492b7c5141a5e84b915ee4362,
+    type: 2}
+  vidaEsquelet: 1
+--- !u!136 &136235088429031720
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116095234603528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.40140617
+  m_Height: 3.0363622
+  m_Direction: 1
+  m_Center: {x: -0.024906278, y: 1.0181811, z: -0}
 --- !u!137 &137967986038846140
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1080,7 +1096,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1116095234603528}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1089,7 +1105,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 2.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

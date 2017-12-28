@@ -53,3 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
   velocitatGeneracio: 2
+  retardInicial: 2
+  numRandom: 3

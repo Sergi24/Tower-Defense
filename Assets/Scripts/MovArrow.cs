@@ -63,7 +63,7 @@ public class MovArrow : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<SoldierController>().restarVida();
+            collision.gameObject.GetComponent<EnemyInterface>().restarVida();
         }
         stopArrow = true;
         gameObject.GetComponent<BoxCollider>().enabled = false;
