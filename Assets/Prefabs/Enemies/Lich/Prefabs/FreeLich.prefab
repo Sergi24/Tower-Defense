@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1995996500218932, guid: 13e802c776da5f94a81d722412b06268, type: 2}
-  velocitatDisparo: 3
+  velocitatDisparo: 4
   rangAvast: 7
 --- !u!114 &114705456738151300
 MonoBehaviour:

@@ -6,7 +6,6 @@ public class BallInstantiator : MonoBehaviour {
 
     public GameObject ball;
     public float velocitatDisparo;
-    public int rangAvast;
 
     private GameObject[] objectius;
 

@@ -8,16 +8,10 @@ public class MovArrow : MonoBehaviour
     private GameObject destination = null;
     private bool stopArrow = false;
     public float destroyTime;
+    Rigidbody rb;
 
     public float moveSpeed; //velocidad de movimiento 
     public float rotationSpeed; //Velocidad de rotación 
-
-    Transform myTransform;
-
-    void Awake()
-    {
-        myTransform = transform;
-    }
 
     // Use this for initialization
     void Start()
@@ -35,6 +29,7 @@ public class MovArrow : MonoBehaviour
             }
         }
         Invoke("DestruirFletxa", destroyTime);
+        rb = GetComponent<Rigidbody>();
 }
 
     void Update()
@@ -45,14 +40,13 @@ public class MovArrow : MonoBehaviour
             if (destination != null)
             {
                 Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 1, destination.transform.position.z);
-                myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
-                Quaternion.LookRotation(puntoDeChoque - myTransform.position), rotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation,
+                Quaternion.LookRotation(puntoDeChoque - transform.position), rotationSpeed * Time.deltaTime);
             }
             //Movimiento en dirección del target 
-            myTransform.position += transform.forward * moveSpeed * Time.deltaTime;
+            transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
-  
-}
+    }
 
     void DestruirFletxa()
     {
@@ -67,6 +61,7 @@ public class MovArrow : MonoBehaviour
         }
         stopArrow = true;
         gameObject.GetComponent<BoxCollider>().enabled = false;
+        rb.useGravity = true;
         Destroy(gameObject, 0.2f);
     }
 
