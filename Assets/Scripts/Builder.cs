@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Builder : MonoBehaviour {
 
@@ -8,15 +9,19 @@ public class Builder : MonoBehaviour {
     private Color initialColor;
     private Renderer rend;
     private GameObject defense;
+    private BuildManager buildManager;
     
 	void Start () {
         rend = GetComponent<Renderer>();
         initialColor = rend.material.color;
+        buildManager = BuildManager.instance;
 
     }
 
     void OnMouseDown() {
-        if (defense == null) {
+        if (buildManager.GetDefenseToBuild() == null) return;
+
+        if ((defense == null) && (!IsBelowUI())) {
             GameObject defenseToBuild = BuildManager.instance.GetDefenseToBuild();
             defense = (GameObject) Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
         }
@@ -24,7 +29,7 @@ public class Builder : MonoBehaviour {
 
 	
     void OnMouseEnter() {
-        if (defense == null) {
+        if ((defense == null) && (!IsBelowUI())) {
             rend.material.color = hoverColor;
         }
     }
@@ -33,6 +38,13 @@ public class Builder : MonoBehaviour {
         if (defense == null) {
             rend.material.color = initialColor;
         }
+    }
+    public bool IsBelowUI() {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        System.Collections.Generic.List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+        return results.Count > 0;
     }
 
 }

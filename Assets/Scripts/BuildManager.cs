@@ -11,15 +11,17 @@ public class BuildManager : MonoBehaviour {
         instance = this;
     }
 
-    public GameObject basicDefensePrefab;
-        
-	void Start () {
-        defenseToBuild = basicDefensePrefab;
-	}
+    public GameObject arrowTowerPrefab;
+    public GameObject bombTowerPrefab;
 
     private GameObject defenseToBuild;
 
     public GameObject GetDefenseToBuild() {
         return defenseToBuild;
     }
+
+    public void SetDefenseToBuild(GameObject defense) {
+        defenseToBuild = defense;
+    }
 }
+

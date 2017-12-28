@@ -43,7 +43,7 @@ public class SoldierController : MonoBehaviour
                     objectiveReached = false;
                 }
             }
-            destination = GameObject.Find("Player");
+            //destination = GameObject.Find("Player");
             agent.destination = destination.transform.position;
         }
 
