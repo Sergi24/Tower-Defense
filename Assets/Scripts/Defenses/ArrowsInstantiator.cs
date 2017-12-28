@@ -7,6 +7,7 @@ public class ArrowsInstantiator : MonoBehaviour {
     public GameObject fletxa;
     public float velocitatDisparo;
     public int rangTorre;
+    public bool castillo;
 
     private GameObject[] objectius;
 
@@ -29,6 +30,7 @@ public class ArrowsInstantiator : MonoBehaviour {
                 {
                     if ((objectius[i].transform.position - transform.position).magnitude < rangTorre)
                     {
+                        if (!castillo || objectius[i].transform.position.z<-71)
                         Instantiate(fletxa, transform.position, Quaternion.LookRotation(objectius[i].transform.position - transform.position));
                         trobat = true;
                     }

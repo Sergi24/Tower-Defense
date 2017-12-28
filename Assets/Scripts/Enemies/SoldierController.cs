@@ -43,10 +43,6 @@ public class SoldierController : MonoBehaviour, HealthInterface
                     objectiveReached = false;
                 }
             }
-<<<<<<< HEAD:Assets/Scripts/SoldierController.cs
-            //destination = GameObject.Find("Player");
-=======
->>>>>>> 267193758f9098bca6ed79e95e74552f1905edcc:Assets/Scripts/Enemies/SoldierController.cs
             agent.destination = destination.transform.position;
         }
 

@@ -18,23 +18,7 @@ public class BallInstantiator : MonoBehaviour {
 
     public void crearBola()
     {
-        objectius = GameObject.FindGameObjectsWithTag("Defensa");
-        if (objectius.Length != 0)
-        {
-            int i = 0;
-            bool trobat = false;
-            while (i < objectius.Length && !trobat)
-            {
-            //    if (objectius[i].GetComponent<EnemyInterface>().getVida() > 0)
-            //    {
-                    if ((objectius[i].transform.position - transform.position).magnitude < rangAvast)
-                   {
-                        Instantiate(ball, transform.position, Quaternion.LookRotation(objectius[i].transform.position - transform.position));
-                        trobat = true;
-                    }
-           //     }
-                i++;
-            }
-        }
+         Instantiate(ball, transform.position, transform.rotation);
     }
+       
 }

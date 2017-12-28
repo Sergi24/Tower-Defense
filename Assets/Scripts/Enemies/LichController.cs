@@ -13,6 +13,7 @@ public class LichController : MonoBehaviour, HealthInterface
     private bool objectiveReached = false;
     public float velocitatMoviment;
     public int rangAtac;
+    public int velocitatAtac;
     public GameObject instantiatorBall;
     private GameObject[] objectius;
     public float rotationSpeed; //Velocidad de rotación 
@@ -55,7 +56,7 @@ public class LichController : MonoBehaviour, HealthInterface
                         objectiveReached = true;
                     }
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
-                    if (contador > 100)
+                    if (contador > velocitatAtac)
                     {
                         gameObject.GetComponentInChildren<BallInstantiator>().crearBola();
                         contador = 0;

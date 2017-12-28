@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaballeroController : MonoBehaviour {
+public class CaballeroController : MonoBehaviour, HealthInterface {
 
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
@@ -11,6 +11,7 @@ public class CaballeroController : MonoBehaviour {
     private bool objectiveReached = false;
     public float velocitatMoviment;
     public float rangAtac;
+    public int vidaCaballer;
 
     // Use this for initialization
     void Start()
@@ -63,5 +64,19 @@ public class CaballeroController : MonoBehaviour {
     void tornarAMoure()
     {
         agent.speed = velocitatMoviment;
+    }
+
+    public void restarVida()
+    {
+        vidaCaballer -= 1;
+        if (vidaCaballer == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public int getVida()
+    {
+        return vidaCaballer;
     }
 }
