@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
 public class Shop : MonoBehaviour {
+
     BuildManager buildManager;
-    public UnityEngine.UI.Button archerTowerButton;
-    public UnityEngine.UI.Button bombTowerButton;
 
     void Start() {
         buildManager = BuildManager.instance;
@@ -11,14 +10,25 @@ public class Shop : MonoBehaviour {
 
     public void PurchaseArrowTower () {
         buildManager.SetDefenseToBuild(buildManager.arrowTowerPrefab);
-        archerTowerButton.enabled = true;
         Debug.Log("Arrow tower purchased");
     }
 
     public void PurchaseBombTower() {
-        bombTowerButton.enabled = true;
         buildManager.SetDefenseToBuild(buildManager.bombTowerPrefab);
         Debug.Log("Bomb tower purchased");
+    }
+
+    public void PurchaseCatapult() {
+        buildManager.SetDefenseToBuild(buildManager.catapultPrefab);
+        Debug.Log("Catapult purchased");
+    }
+
+    public void PurchaseKnight() {
+        GameObject[] list = GameObject.FindGameObjectsWithTag("CaballeroInstantiator");
+        for (int i = 0; i < list.Length; i++) {
+            list[i].GetComponent<CaballeroInstantiator>().crearCaballero();
+        }
+        Debug.Log("Knight purchased");
     }
 
 

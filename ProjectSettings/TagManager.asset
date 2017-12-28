@@ -8,6 +8,7 @@ TagManager:
   - Defensa
   - Atac
   - Cami
+  - CaballeroInstantiator
   layers:
   - Default
   - TransparentFX

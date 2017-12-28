@@ -13,6 +13,7 @@ public class BuildManager : MonoBehaviour {
 
     public GameObject arrowTowerPrefab;
     public GameObject bombTowerPrefab;
+    public GameObject catapultPrefab;
 
     private GameObject defenseToBuild;
 
