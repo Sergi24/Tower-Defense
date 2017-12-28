@@ -29,7 +29,6 @@ public class BombInstantiator : MonoBehaviour {
                 {
                     if ((objectius[i].transform.position - transform.position).magnitude < rangoTorre)
                     {
-
                         Instantiate(bomba, transform.position, transform.rotation);
                         trobat = true;
                     }

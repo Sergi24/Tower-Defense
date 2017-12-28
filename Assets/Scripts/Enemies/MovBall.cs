@@ -69,10 +69,9 @@ public class MovBall : MonoBehaviour
             other.gameObject.GetComponent<HealthInterface>().restarVida();
             Instantiate(explosion, transform.position, transform.rotation);
         }
-        if (other.gameObject.tag != "Atac")
+        if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")
         {
             stopBola = true;
-            gameObject.GetComponent<SphereCollider>().enabled = false;
             Destroy(gameObject);
         }
     }

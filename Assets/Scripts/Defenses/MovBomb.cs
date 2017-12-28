@@ -25,8 +25,11 @@ public class MovBomb : MonoBehaviour {
         {
             if ((transform.position - objectius[i].transform.position).magnitude < minim)
             {
-                minim = (transform.position - objectius[i].transform.position).magnitude;
-                destination = objectius[i];
+                if (objectius[i].GetComponent<HealthInterface>().getVida() > 0)
+                { 
+                    minim = (transform.position - objectius[i].transform.position).magnitude;
+                    destination = objectius[i];
+                }
             }
         }
         //Rotacion para mirar hacia el target(objetivo a seguir) 

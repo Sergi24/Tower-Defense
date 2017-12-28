@@ -926,7 +926,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 1995996500218932, guid: 13e802c776da5f94a81d722412b06268, type: 2}
   velocitatDisparo: 4
-  rangAvast: 7
 --- !u!114 &114705456738151300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -941,7 +940,7 @@ MonoBehaviour:
   vidaLich: 5
   velocitatMoviment: 1
   rangAtac: 8
-  velocitatAtac: 170
+  velocitatAtac: 90
   instantiatorBall: {fileID: 1610877735787856}
   rotationSpeed: 5
 --- !u!136 &136712434082083430
