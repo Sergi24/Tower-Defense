@@ -21,7 +21,7 @@ public class CaballeroInstantiator : MonoBehaviour {
         }
     }
 
-    void crearCaballero()
+    public void crearCaballero()
     {
         Instantiate(caballero, transform.position, transform.rotation);
     }
