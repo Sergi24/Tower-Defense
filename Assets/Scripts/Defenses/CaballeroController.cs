@@ -12,6 +12,7 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
     public float velocitatMoviment;
     public float rangAtac;
     public int vidaCaballer;
+    public int rotationSpeed;
 
     // Use this for initialization
     void Start()
@@ -43,9 +44,13 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
             //Saber si atacar ja
             if (agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathComplete && agent.remainingDistance < rangAtac)
             {
-                animator.SetBool("Attack", true);
-                agent.speed = 0;
-                objectiveReached = true;
+                if (!objectiveReached)
+                {
+                    animator.SetBool("Attack", true);
+                    agent.speed = 0;
+                    objectiveReached = true;
+                }
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
             }
             else
             {

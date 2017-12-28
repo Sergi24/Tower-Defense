@@ -6,6 +6,7 @@ public class MovBall : MonoBehaviour
 {
     private GameObject[] objectius;
     private GameObject destination = null;
+    public GameObject explosion;
     private bool stopBola = false;
     public float destroyTime;
 
@@ -61,14 +62,17 @@ public class MovBall : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Defensa")
+        if (other.gameObject.tag == "Defensa")
         {
-            collision.gameObject.GetComponent<HealthInterface>().restarVida();
+            other.gameObject.GetComponent<HealthInterface>().restarVida();
+            Instantiate(explosion, transform.position, transform.rotation);
         }
-        stopBola = true;
-        gameObject.GetComponent<SphereCollider>().enabled = false;
-        Destroy(gameObject, 0.1f);
+        if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")
+        {
+            stopBola = true;
+            Destroy(gameObject);
+        }
     }
 }

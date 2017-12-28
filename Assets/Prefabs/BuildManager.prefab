@@ -9,47 +9,49 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1811367318503478}
+  m_RootGameObject: {fileID: 1467104128203374}
   m_IsPrefabParent: 1
---- !u!1 &1811367318503478
+--- !u!1 &1467104128203374
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4546545262413988}
-  - component: {fileID: 114062642302551944}
+  - component: {fileID: 4743344353632448}
+  - component: {fileID: 114765472776785592}
   m_Layer: 0
-  m_Name: CaballeroInstantiator
+  m_Name: BuildManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4546545262413988
+--- !u!4 &4743344353632448
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1811367318503478}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 61.68, y: 2.75, z: -88.45}
+  m_GameObject: {fileID: 1467104128203374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.636745, y: 5.8995743, z: -73.50398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &114062642302551944
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114765472776785592
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1811367318503478}
+  m_GameObject: {fileID: 1467104128203374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45026b82e54de0440a62930ceef9dc01, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c78c18133da5c445bca9268c3b69188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caballero: {fileID: 1149463607937254, guid: b147e033d1acf5f4db678d97dc63f878, type: 2}
-  velocitatAlAguantar: 50
+  arrowTowerPrefab: {fileID: 1347276335232540, guid: b193c8873cf546a4c9c4210ea2503fb4,
+    type: 2}
+  bombTowerPrefab: {fileID: 1675937372395534, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5,
+    type: 2}

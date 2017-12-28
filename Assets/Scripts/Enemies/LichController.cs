@@ -50,19 +50,28 @@ public class LichController : MonoBehaviour, HealthInterface
 
                 if (agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathComplete && agent.remainingDistance < rangAtac)
                 {
-                    if (!objectiveReached) {
+                    if (!objectiveReached)
+                    {
                         animator.SetBool("Attack", true);
                         agent.speed = 0;
                         objectiveReached = true;
                     }
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
-                    if (contador > velocitatAtac)
+
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
                     {
-                        gameObject.GetComponentInChildren<BallInstantiator>().crearBola();
+                        if (contador > velocitatAtac)
+                        {
+                            gameObject.GetComponentInChildren<BallInstantiator>().crearBola();
+                            contador = 0;
+                        }
+                        else contador++;
+                    }
+
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01"))
+                    {
                         contador = 0;
                     }
-                    else contador++;
-                   
                 }
                 else
                 {

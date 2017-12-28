@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 10477408}
   m_Layer: 0
   m_Name: Camino (1)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -202,6 +202,63 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1833760616}
   m_GameObject: {fileID: 10477406}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &18697648
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 461162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 19.281864
+      objectReference: {fileID: 0}
+    - target: {fileID: 461162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.4523392
+      objectReference: {fileID: 0}
+    - target: {fileID: 461162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -61.83151
+      objectReference: {fileID: 0}
+    - target: {fileID: 461162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 461162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 461162, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 65697214677196906, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.03991484
+      objectReference: {fileID: 0}
+    - target: {fileID: 65697214677196906, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0.026408684
+      objectReference: {fileID: 0}
+    - target: {fileID: 65697214677196906, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.0006007811
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2d1b67d2f85c20a4ca9d95a82a0814ef, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &48553631
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +273,7 @@ GameObject:
   - component: {fileID: 48553633}
   m_Layer: 0
   m_Name: Camino (1)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -432,6 +489,48 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1001 &108868071
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4255957783807088, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 17.722721
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255957783807088, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.0115738
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255957783807088, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -52.119858
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255957783807088, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255957783807088, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255957783807088, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255957783807088, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255957783807088, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &115767977
 Prefab:
   m_ObjectHideFlags: 0
@@ -593,6 +692,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -659,6 +762,10 @@ Prefab:
     - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
       propertyPath: m_NavMeshLayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
@@ -1032,7 +1139,7 @@ GameObject:
   - component: {fileID: 182619871}
   m_Layer: 0
   m_Name: Camino (12)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1249,7 +1356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
       propertyPath: m_Name
@@ -1272,7 +1379,7 @@ GameObject:
   - component: {fileID: 227823663}
   m_Layer: 0
   m_Name: Camino (5)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1347,6 +1454,72 @@ MeshFilter:
   m_PrefabInternal: {fileID: 896907989}
   m_GameObject: {fileID: 227823661}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &228585584
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2101682157}
+    m_Modifications:
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811367318503478, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_Name
+      value: CaballeroInstantiator2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &232056443
 Prefab:
   m_ObjectHideFlags: 0
@@ -1536,7 +1709,7 @@ Transform:
   - {fileID: 1508087724}
   - {fileID: 1815920758}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &253105635
 GameObject:
@@ -1552,7 +1725,7 @@ GameObject:
   - component: {fileID: 253105637}
   m_Layer: 0
   m_Name: Camino (14)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -1736,6 +1909,10 @@ Prefab:
     - target: {fileID: 4871006509479520, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
       propertyPath: m_LocalScale.z
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
@@ -1960,6 +2137,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -2179,6 +2360,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -2190,6 +2375,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 380791903}
+  - component: {fileID: 380791904}
   m_Layer: 0
   m_Name: Camino
   m_TagString: Untagged
@@ -2226,8 +2412,23 @@ Transform:
   - {fileID: 253105636}
   - {fileID: 1845929362}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &380791904
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 380791902}
+  serializedVersion: 2
+  m_Mass: 60
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &386613882
 Prefab:
   m_ObjectHideFlags: 0
@@ -2357,7 +2558,7 @@ GameObject:
   - component: {fileID: 433256247}
   m_Layer: 0
   m_Name: Camino (7)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -2639,7 +2840,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
@@ -2708,7 +2909,7 @@ Prefab:
     - target: {fileID: 114848860231859542, guid: 278b236495039ae4580d1cecbe9356f3,
         type: 2}
       propertyPath: retardInicial
-      value: 40
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 278b236495039ae4580d1cecbe9356f3, type: 2}
@@ -2842,7 +3043,7 @@ GameObject:
   - component: {fileID: 504673885}
   m_Layer: 0
   m_Name: Camino (11)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -3357,6 +3558,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -3478,7 +3683,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &622498988
 Prefab:
@@ -3645,6 +3850,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -3749,6 +3958,115 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &692309525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 692309527}
+  - component: {fileID: 692309526}
+  m_Layer: 0
+  m_Name: MusicaFons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &692309526
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 692309525}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 05af649221ab0864baf9d0948506f549, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.06
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &692309527
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 692309525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &695366441
 Prefab:
   m_ObjectHideFlags: 0
@@ -3841,7 +4159,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
       propertyPath: m_Name
@@ -3887,7 +4205,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4364679654177430, guid: b147e033d1acf5f4db678d97dc63f878, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b147e033d1acf5f4db678d97dc63f878, type: 2}
@@ -4482,6 +4800,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4a07358b12ff5e04eba58e40f01f323f, type: 2}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -4499,7 +4821,7 @@ GameObject:
   - component: {fileID: 849878271}
   m_Layer: 0
   m_Name: Camino (1)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -4799,7 +5121,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &871766244
 Prefab:
@@ -4905,6 +5227,10 @@ Prefab:
     - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
       propertyPath: m_NavMeshLayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
@@ -5247,6 +5573,10 @@ Prefab:
     - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
       propertyPath: m_NavMeshLayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
@@ -5595,7 +5925,7 @@ GameObject:
   - component: {fileID: 1057570560}
   m_Layer: 0
   m_Name: Camino (6)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -5945,50 +6275,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4668625365832330, guid: 9d89f2f4afc55f04bb55e686119227fb,
     type: 2}
   m_PrefabInternal: {fileID: 1107082167}
---- !u!1 &1111094460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1111094462}
-  - component: {fileID: 1111094461}
-  m_Layer: 0
-  m_Name: BuildManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1111094461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111094460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c78c18133da5c445bca9268c3b69188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowTowerPrefab: {fileID: 1347276335232540, guid: b193c8873cf546a4c9c4210ea2503fb4,
-    type: 2}
-  bombTowerPrefab: {fileID: 1675937372395534, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5,
-    type: 2}
---- !u!4 &1111094462
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1111094460}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.636745, y: 5.8995743, z: -73.50398}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154768599
 GameObject:
   m_ObjectHideFlags: 0
@@ -6003,7 +6289,7 @@ GameObject:
   - component: {fileID: 1154768601}
   m_Layer: 0
   m_Name: Camino (8)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -6245,7 +6531,7 @@ GameObject:
   - component: {fileID: 1225990580}
   m_Layer: 0
   m_Name: Camino (3)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -6650,6 +6936,60 @@ Transform:
   m_PrefabParentObject: {fileID: 4668625365832330, guid: 9d89f2f4afc55f04bb55e686119227fb,
     type: 2}
   m_PrefabInternal: {fileID: 1294096786}
+--- !u!1001 &1306180946
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 33.80453
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.0115738
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -66.87145
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.44452354
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.8957672
+      objectReference: {fileID: 0}
+    - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_Name
+      value: FreeLich (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386391480957456, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386391480957456, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1330212970
 Prefab:
   m_ObjectHideFlags: 0
@@ -6852,7 +7192,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 100048, guid: 272ec112bddec644a8af6599107e74f7, type: 2}
       propertyPath: m_Name
@@ -6898,7 +7238,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ed3e345f07e89940ae0c1e00eeb7d1d, type: 2}
@@ -6940,7 +7280,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4569447576219030, guid: c94a6bf492b7c5141a5e84b915ee4362, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 136517888886700736, guid: c94a6bf492b7c5141a5e84b915ee4362,
         type: 2}
@@ -7006,6 +7346,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d8f5d1d298d6c13499308a4cc3d2bb6e, type: 2}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -7119,6 +7463,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4668625365832330, guid: 9d89f2f4afc55f04bb55e686119227fb,
     type: 2}
   m_PrefabInternal: {fileID: 1435426929}
+--- !u!1001 &1459088366
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4743344353632448, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 31.636745
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743344353632448, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.8995743
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743344353632448, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -73.50398
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743344353632448, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743344353632448, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743344353632448, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743344353632448, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743344353632448, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d7bf7cccecc2bce4c8adb1618354d502, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1464595166
 Prefab:
   m_ObjectHideFlags: 0
@@ -7224,6 +7610,10 @@ Prefab:
     - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
       propertyPath: m_NavMeshLayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
@@ -7582,7 +7972,7 @@ GameObject:
   - component: {fileID: 1549744217}
   m_Layer: 0
   m_Name: Camino (1)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -7708,6 +8098,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -7765,6 +8159,10 @@ Prefab:
     - target: {fileID: 4871006509479520, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
       propertyPath: m_LocalScale.z
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
@@ -7856,7 +8254,7 @@ RectTransform:
   m_Children:
   - {fileID: 1184845194}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8052,7 +8450,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4400633881871534, guid: 8db38d0e17624c14fbf27d142251aaa3, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8db38d0e17624c14fbf27d142251aaa3, type: 2}
@@ -8513,7 +8911,7 @@ Transform:
   - {fileID: 133193793}
   - {fileID: 475988898}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793722748
 GameObject:
@@ -8529,7 +8927,7 @@ GameObject:
   - component: {fileID: 1793722750}
   m_Layer: 0
   m_Name: Camino (2)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -8833,6 +9231,10 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
   m_IsPrefabParent: 0
@@ -8905,7 +9307,7 @@ GameObject:
   - component: {fileID: 1845929363}
   m_Layer: 0
   m_Name: Camino (15)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -8980,6 +9382,58 @@ MeshFilter:
   m_PrefabInternal: {fileID: 270890104}
   m_GameObject: {fileID: 1845929361}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1854052204
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4546617351530814, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 22.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546617351530814, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546617351530814, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -52.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546617351530814, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546617351530814, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546617351530814, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546617351530814, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546617351530814, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 54951829649383474, guid: ab818a342158ec940b57bb76f8275c21,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114443945617771354, guid: ab818a342158ec940b57bb76f8275c21,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1872783975
 GameObject:
   m_ObjectHideFlags: 0
@@ -8994,7 +9448,7 @@ GameObject:
   - component: {fileID: 1872783977}
   m_Layer: 0
   m_Name: Camino (9)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -9133,7 +9587,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 42.237686
+      value: 61.68
       objectReference: {fileID: 0}
     - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9141,7 +9595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -51.109352
+      value: -88.07
       objectReference: {fileID: 0}
     - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
       propertyPath: m_LocalRotation.x
@@ -9149,7 +9603,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
       propertyPath: m_LocalRotation.z
@@ -9161,7 +9615,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1f9e46fa2e872a4287a0d74421a7587, type: 2}
@@ -9730,7 +10184,7 @@ GameObject:
   - component: {fileID: 2065419285}
   m_Layer: 0
   m_Name: Camino (4)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -9874,7 +10328,7 @@ GameObject:
   - component: {fileID: 2081865317}
   m_Layer: 0
   m_Name: Camino (1)
-  m_TagString: Untagged
+  m_TagString: Cami
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -10004,6 +10458,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4668625365832330, guid: 9d89f2f4afc55f04bb55e686119227fb,
     type: 2}
   m_PrefabInternal: {fileID: 2083337411}
+--- !u!4 &2101682157 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4546545262413988, guid: c1f9e46fa2e872a4287a0d74421a7587,
+    type: 2}
+  m_PrefabInternal: {fileID: 1883931243}
 --- !u!1001 &2122003238
 Prefab:
   m_ObjectHideFlags: 0
@@ -10117,6 +10576,10 @@ Prefab:
     - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
       propertyPath: m_NavMeshLayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269909446914384, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
+      propertyPath: m_TagString
+      value: Cami
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6649b6e39fdd1eb48a6e28a62a34a73d, type: 2}
