@@ -6,9 +6,9 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
 
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator animator;
+    private AudioSource asource;
     private GameObject destination;
     private GameObject[] objectius;
-    private bool objectiveReached = false;
     public float velocitatMoviment;
     public int velocitatAtac;
     public float rangAtac;
@@ -18,11 +18,13 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
     private int contador = 0;
     private bool attack01 = false;
     private bool canviAtac;
+   
 
     // Use this for initialization
     void Start()
     {
         agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        asource = gameObject.GetComponent<AudioSource>();
         animator = this.gameObject.GetComponent<Animator>();
         animator.SetBool("Attack", false);
         animator.SetBool("Death", false);
@@ -56,14 +58,10 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
                 agent.destination = destination.transform.position;
 
                 //Si s'ataca ja
-                if (agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathComplete && agent.remainingDistance < rangAtac)
+                if (agent.remainingDistance < rangAtac)
                 {
-                    if (!objectiveReached)
-                    {
-                        animator.SetBool("Attack", true);
-                        agent.speed = 0;
-                        objectiveReached = true;
-                    }
+                    animator.SetBool("Attack", true);
+                    agent.speed = 0;
 
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
 
@@ -96,11 +94,13 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
                         if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01") && !attack01)
                         {
                             destination.GetComponent<HealthInterface>().restarVida();
+                            asource.Play();
                             attack01 = true;
                             canviAtac = true;
                         }
                         if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02") && attack01) {
                             destination.GetComponent<HealthInterface>().restarVida();
+                            asource.Play();
                             attack01 = false;
                             canviAtac = true;
                         }
@@ -111,11 +111,7 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
                 else //si no s'ataca
                 {
                     animator.SetBool("Attack", false);
-                    if (objectiveReached)
-                    {
-                        Invoke("tornarAMoure", 0.5f);
-                        objectiveReached = false;
-                    }
+                    Invoke("tornarAMoure", 0.5f);
                 }
             }
             else
