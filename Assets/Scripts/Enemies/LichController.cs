@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LichController : MonoBehaviour, EnemyInterface
+public class LichController : MonoBehaviour, HealthInterface
 {
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -13,8 +13,10 @@ public class LichController : MonoBehaviour, EnemyInterface
     private bool objectiveReached = false;
     public float velocitatMoviment;
     public int rangAtac;
+    public GameObject instantiatorBall;
     private GameObject[] objectius;
     public float rotationSpeed; //Velocidad de rotación 
+    private int contador = 0;
 
     // Use this for initialization
     void Start()
@@ -51,11 +53,15 @@ public class LichController : MonoBehaviour, EnemyInterface
                         animator.SetBool("Attack", true);
                         agent.speed = 0;
                         objectiveReached = true;
-                        //  transform.Rotate(Vector3.right * 4 * Time.deltaTime);
-                        //transform.rotation = Quaternion.FromToRotation(transform.position, destination.transform.position);
-                       // transform.Rotate(new Vector3(0f, 90f, 0f));
                     }
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
+                    if (contador > 100)
+                    {
+                        gameObject.GetComponentInChildren<BallInstantiator>().crearBola();
+                        contador = 0;
+                    }
+                    else contador++;
+                   
                 }
                 else
                 {

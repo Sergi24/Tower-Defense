@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletController : MonoBehaviour, EnemyInterface {
+public class SkeletController : MonoBehaviour, HealthInterface {
 
 	private UnityEngine.AI.NavMeshAgent agent;
 	private Animator animator;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierController : MonoBehaviour, EnemyInterface
+public class SoldierController : MonoBehaviour, HealthInterface
 {
 
     private UnityEngine.AI.NavMeshAgent agent;

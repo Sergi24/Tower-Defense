@@ -2,27 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovArrow : MonoBehaviour
+public class MovBall : MonoBehaviour
 {
     private GameObject[] objectius;
     private GameObject destination = null;
-    private bool stopArrow = false;
+    private bool stopBola = false;
     public float destroyTime;
 
     public float moveSpeed; //velocidad de movimiento 
+    private float velocitat;
+    public int tempsEspera;
     public float rotationSpeed; //Velocidad de rotación 
-
-    Transform myTransform;
-
-    void Awake()
-    {
-        myTransform = transform;
-    }
 
     // Use this for initialization
     void Start()
     {
-        objectius = GameObject.FindGameObjectsWithTag("Enemy");
+        objectius = GameObject.FindGameObjectsWithTag("Defensa");
 
         //buscar objectiu mes proper
         float minim = 100f;
@@ -34,40 +29,46 @@ public class MovArrow : MonoBehaviour
                 destination = objectius[i];
             }
         }
-        Invoke("DestruirFletxa", destroyTime);
-}
+        velocitat = 0;
+        Invoke("fixarVelocitat", tempsEspera);
+        Invoke("DestruirBola", destroyTime);
+    }
 
     void Update()
     {
-        if (!stopArrow)
+        if (!stopBola)
         {
             //Rotacion para mirar hacia el target(objetivo a seguir) 
             if (destination != null)
             {
                 Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 1, destination.transform.position.z);
-                myTransform.rotation = Quaternion.Slerp(myTransform.rotation,
-                Quaternion.LookRotation(puntoDeChoque - myTransform.position), rotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation,
+                Quaternion.LookRotation(puntoDeChoque - transform.position), rotationSpeed * Time.deltaTime);
             }
             //Movimiento en dirección del target 
-            myTransform.position += transform.forward * moveSpeed * Time.deltaTime;
+            transform.position += transform.forward * velocitat * Time.deltaTime;
         }
-  
-}
 
-    void DestruirFletxa()
+    }
+
+    void fixarVelocitat()
+    {
+        velocitat = moveSpeed;
+    }
+
+    void DestruirBola()
     {
         Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Defensa")
         {
-            collision.gameObject.GetComponent<EnemyInterface>().restarVida();
+            collision.gameObject.GetComponent<HealthInterface>().restarVida();
         }
-        stopArrow = true;
-        gameObject.GetComponent<BoxCollider>().enabled = false;
-        Destroy(gameObject, 0.2f);
+        stopBola = true;
+        gameObject.GetComponent<SphereCollider>().enabled = false;
+        Destroy(gameObject, 0.1f);
     }
-
 }

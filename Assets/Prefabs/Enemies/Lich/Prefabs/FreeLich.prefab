@@ -723,7 +723,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: -0.44452354, z: 0, w: 0.8957672}
-  m_LocalPosition: {x: 16.82, y: 1.0115738, z: -61.73}
+  m_LocalPosition: {x: 16.87344, y: 1.0115738, z: -62.000782}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400046}
@@ -892,6 +892,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4386391480957456}
+  - component: {fileID: 114356057259843082}
   m_Layer: 0
   m_Name: BallInstantiator
   m_TagString: Untagged
@@ -912,6 +913,20 @@ Transform:
   m_Father: {fileID: 400048}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114356057259843082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610877735787856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb6487b27cb28fa488bf340e4a844a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 1995996500218932, guid: 13e802c776da5f94a81d722412b06268, type: 2}
+  velocitatDisparo: 3
+  rangAvast: 7
 --- !u!114 &114705456738151300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -925,7 +940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaLich: 5
   velocitatMoviment: 1
-  rangAtac: 10
+  rangAtac: 8
+  instantiatorBall: {fileID: 1610877735787856}
   rotationSpeed: 5
 --- !u!136 &136712434082083430
 CapsuleCollider:

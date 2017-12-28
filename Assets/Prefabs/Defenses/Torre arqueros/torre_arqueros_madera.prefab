@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4686990709664908}
   - component: {fileID: 65423669999904136}
+  - component: {fileID: 114161284466191432}
   m_Layer: 0
   m_Name: torre_arqueros_madera
   m_TagString: Defensa
@@ -154,6 +155,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.396046, y: 3.1566553, z: 1.3661041}
   m_Center: {x: 0.007148564, y: 1.4736695, z: -0.08421707}
+--- !u!114 &114161284466191432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347276335232540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2f543a566a7644eb2bdf888edef941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaTorre: 6
 --- !u!114 &114487076546609758
 MonoBehaviour:
   m_ObjectHideFlags: 1

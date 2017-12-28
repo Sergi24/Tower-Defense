@@ -20,8 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4774809450848762}
   - component: {fileID: 33331705330560856}
+  - component: {fileID: 114578369732284964}
   - component: {fileID: 135675986137795620}
   - component: {fileID: 23198753303419860}
+  - component: {fileID: 54674198498459910}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995996500218932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.63, y: 1.95, z: -60.86}
+  m_LocalPosition: {x: 13.067649, y: 2.14, z: -62.076054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,6 +85,36 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995996500218932}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54674198498459910
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995996500218932}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &114578369732284964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995996500218932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccadc53e95e9b940a799f5bdb3e21c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 6
+  moveSpeed: 2
+  tempsEspera: 1
+  rotationSpeed: 1
 --- !u!135 &135675986137795620
 SphereCollider:
   m_ObjectHideFlags: 1

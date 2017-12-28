@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface EnemyInterface {
+public interface HealthInterface {
 
     void restarVida();
     int getVida();
