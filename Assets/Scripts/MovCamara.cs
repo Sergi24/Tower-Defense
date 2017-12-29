@@ -7,10 +7,10 @@ public class MovCamara : MonoBehaviour {
 	public int velocitatCamara = 6;
     public int limitBaix = 12;
     public int limitDalt = 40;
-    public int limitDreta = 100;
-    public int limitEsquerra = 0;
-    public int limitEndavant = 0;
-    public int limitEndarrera = -1000;
+    public int limitDreta = 70;
+    public int limitEsquerra = 4;
+    public int limitEndavant = -47;
+    public int limitEndarrera = -100;
 
     // Update is called once per frame
     void Update () {

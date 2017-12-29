@@ -111,7 +111,7 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
                 else //si no s'ataca
                 {
                     animator.SetBool("Attack", false);
-                    Invoke("tornarAMoure", 0.5f);
+                    Invoke("tornarAMoure", 0f);
                 }
             }
             else

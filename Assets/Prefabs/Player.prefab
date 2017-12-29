@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4569447576219030}
   - component: {fileID: 33802719505205004}
-  - component: {fileID: 136517888886700736}
   - component: {fileID: 23095218402732762}
-  - component: {fileID: 114332494961060128}
+  - component: {fileID: 65397221459107940}
+  - component: {fileID: 114003140496483728}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290622014874386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.02, y: 1.9, z: -32.34}
+  m_LocalPosition: {x: 62.67, y: 2.53, z: -84.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290622014874386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -84,7 +84,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290622014874386}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114332494961060128
+--- !u!65 &65397221459107940
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290622014874386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5892639, y: 4.680523, z: 7.0068207}
+  m_Center: {x: 0.20536804, y: 1.3402612, z: -0.031806946}
+--- !u!114 &114003140496483728
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -92,20 +104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1290622014874386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902034694cf03744989bb2b0939bb09b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c8b250da0682d94687930927a6d27f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocitatJugador: 5
---- !u!136 &136517888886700736
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1290622014874386}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  vidaCastell: 100

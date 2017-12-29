@@ -6,6 +6,8 @@ public class MovArrow : MonoBehaviour
 {
     private GameObject[] objectius;
     private GameObject destination = null;
+    private GameObject destinationEnemic;
+    private GameObject destinationDrac;
     private bool stopArrow = false;
     public float destroyTime;
     Rigidbody rb;
@@ -16,7 +18,26 @@ public class MovArrow : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        objectius = GameObject.FindGameObjectsWithTag("Enemy");
+        rb = GetComponent<Rigidbody>();
+
+        float distanciaEnemic = funcioCerca("Enemy");
+        if (destination != null) destinationEnemic = destination;
+        float distanciaDrac = funcioCerca("Dragon");
+        if (destination != null) destinationDrac = destination;
+
+        if (distanciaDrac < distanciaEnemic)
+        {
+            transform.Translate(Vector3.up * 3);
+            destination = destinationDrac;
+        } else destination = destinationEnemic;
+
+        Invoke("DestruirFletxa", destroyTime);
+    }
+
+    private float funcioCerca(string tag)
+    {
+        float distancia = 1000f;
+        objectius = GameObject.FindGameObjectsWithTag(tag);
 
         //buscar objectiu mes proper
         float minim = 100f;
@@ -26,18 +47,19 @@ public class MovArrow : MonoBehaviour
             {
                 minim = (transform.position - objectius[i].transform.position).magnitude;
                 destination = objectius[i];
+                distancia = (transform.position - objectius[i].transform.position).magnitude;
             }
         }
-        Invoke("DestruirFletxa", destroyTime);
-        rb = GetComponent<Rigidbody>();
-}
+        
+        return distancia;
+    }
 
     void Update()
     {
         if (!stopArrow)
         {
             //Rotacion para mirar hacia el target(objetivo a seguir) 
-            if (destination != null)
+            if (destination != null && destination.GetComponent<HealthInterface>().getVida()>0)
             {
                 Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 1, destination.transform.position.z);
                 transform.rotation = Quaternion.Slerp(transform.rotation,
@@ -55,7 +77,7 @@ public class MovArrow : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "Dragon")
         {
             collision.gameObject.GetComponent<HealthInterface>().restarVida();
         }

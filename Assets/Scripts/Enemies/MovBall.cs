@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovBall : MonoBehaviour
 {
@@ -69,6 +70,8 @@ public class MovBall : MonoBehaviour
         {
             other.gameObject.GetComponent<HealthInterface>().restarVida();
             Instantiate(explosion, transform.position, transform.rotation);
+
+            GameObject.Find("Player").GetComponent<CastleHealth>().restarVida();
         }
         if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")
         {
