@@ -39,8 +39,17 @@ public class SoldierController : MonoBehaviour, HealthInterface
                 animator.SetBool("Attack", false);
                 if (objectiveReached)
                 {
-                    Invoke("tornarAMoure", 0.5f);
-                    objectiveReached = false;
+                        Invoke("tornarAMoure", 0.5f);
+                        objectiveReached = false;
+                }
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
+                {
+                    parar();
+                    animator.SetBool("Hit", false);
+                }
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit")&& !animator.GetBool("Hit"))
+                {
+                    tornarAMoure();
                 }
             }
             agent.destination = destination.transform.position;
@@ -51,7 +60,12 @@ public class SoldierController : MonoBehaviour, HealthInterface
     {
         agent.speed = velocitatMoviment;
         animator.SetBool("Run", true);
-        animator.SetBool("Hit", false);
+    }
+
+    void parar()
+    {
+        agent.speed = 0;
+        animator.SetBool("Run", false);
     }
 
     public void restarVida()
@@ -69,12 +83,10 @@ public class SoldierController : MonoBehaviour, HealthInterface
         }
         else
         {
-            if (!animator.GetBool("Hit"))
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
             {
                 animator.SetBool("Hit", true);
-                animator.SetBool("Run", false);
-                agent.speed = 0;
-                Invoke("tornarAMoure", 1f);
+                parar();
             }
         }
     }

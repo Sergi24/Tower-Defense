@@ -27,6 +27,7 @@ public class Builder : MonoBehaviour {
             {
                 GameObject defenseToBuild = BuildManager.instance.GetDefenseToBuild();
                 defense = (GameObject)Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
+                rend.material.color = initialColor;
             }
         }
     }

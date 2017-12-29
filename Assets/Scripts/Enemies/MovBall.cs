@@ -33,7 +33,7 @@ public class MovBall : MonoBehaviour
         }
         velocitat = 0;
         Invoke("fixarVelocitat", tempsEspera);
-        Invoke("DestruirBola", destroyTime);
+        Invoke("destruirBola", destroyTime);
     }
 
     void Update()
@@ -59,7 +59,7 @@ public class MovBall : MonoBehaviour
         velocitat = moveSpeed;
     }
 
-    void DestruirBola()
+    void destruirBola()
     {
         Destroy(gameObject);
     }
@@ -70,12 +70,16 @@ public class MovBall : MonoBehaviour
         {
             other.gameObject.GetComponent<HealthInterface>().restarVida();
             Instantiate(explosion, transform.position, transform.rotation);
-
-            GameObject.Find("Player").GetComponent<CastleHealth>().restarVida();
         }
         if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")
         {
             stopBola = true;
+            Destroy(gameObject);
+        }
+        if (other.gameObject.tag == "Player")
+        {
+            GameObject.Find("Player").GetComponent<CastleHealth>().restarVida();
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

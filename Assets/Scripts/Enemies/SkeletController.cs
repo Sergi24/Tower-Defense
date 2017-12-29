@@ -9,9 +9,10 @@ public class SkeletController : MonoBehaviour, HealthInterface {
 	public GameObject destination;
     public int vidaEsquelet;
 	private bool objectiveReached = false;
+    public float velocitatMoviment;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
 		animator = this.gameObject.GetComponent<Animator>();
         destination = GameObject.Find("Player");
@@ -20,7 +21,7 @@ public class SkeletController : MonoBehaviour, HealthInterface {
 	}
 	
 	void Update () {
-		if (agent.pathStatus==UnityEngine.AI.NavMeshPathStatus.PathComplete&&agent.remainingDistance<3) {
+		if (agent.remainingDistance<3) {
 			animator.SetBool("Attack", true);
 			agent.speed=0;
 			objectiveReached=true;
@@ -36,7 +37,7 @@ public class SkeletController : MonoBehaviour, HealthInterface {
 	
 	}
 	void tornarAMoure(){
-		agent.speed=3.5f;
+		agent.speed=velocitatMoviment;
 	}
 
     public void restarVida()
