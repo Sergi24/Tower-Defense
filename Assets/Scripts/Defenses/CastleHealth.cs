@@ -7,15 +7,19 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
 
     public int vidaCastell;
     public int diners;
-    private Text textVida;
-    private Text textDiners;
+
+    public Slider barraVida;
+    private TMPro.TextMeshProUGUI textVida;
+    private TMPro.TextMeshProUGUI textDiners;
 
     void Start()
     {
-        textVida = GameObject.Find("Vida").GetComponent<Text>();
+        barraVida.value = vidaCastell;
+
+        textVida = GameObject.Find("Vida").GetComponent<TMPro.TextMeshProUGUI>();
         textVida.text = vidaCastell.ToString();
 
-        textDiners = GameObject.Find("Diners").GetComponent<Text>();
+        textDiners = GameObject.Find("Diners").GetComponent<TMPro.TextMeshProUGUI>();
         textDiners.text = diners.ToString();
     }
 
@@ -28,10 +32,13 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
     {
         vidaCastell -= 1;
         textVida.text = (vidaCastell.ToString());
+
+        barraVida.value = vidaCastell;
         if (vidaCastell == 0)
         {
           //  Destroy(gameObject);
         }
+        barraVida.value = vidaCastell;
     }
 
     public bool restarDiners(int dinersARestar)

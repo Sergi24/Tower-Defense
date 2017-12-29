@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomba: {fileID: 1312887404792014, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
-  velocidadDisparo: 5
+  velocidadDisparo: 10
   rangoTorre: 10
 --- !u!114 &114784371967744506
 MonoBehaviour:
