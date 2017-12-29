@@ -68,7 +68,6 @@ public class MovBall : MonoBehaviour
     {
         if (other.gameObject.tag == "Defensa")
         {
-            other.gameObject.GetComponent<HealthInterface>().restarVida();
             Instantiate(explosion, transform.position, transform.rotation);
         }
         if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")

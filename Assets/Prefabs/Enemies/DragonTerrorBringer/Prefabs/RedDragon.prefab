@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 54388753565971056}
   - component: {fileID: 82700623751036406}
   - component: {fileID: 82147504678158502}
+  - component: {fileID: 114260479859079822}
   m_Layer: 0
   m_Name: RedDragon
   m_TagString: Dragon
@@ -1916,7 +1917,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156970}
-  m_LocalRotation: {x: -0.34885344, y: 0.61206126, z: 0.2627751, w: 0.6592659}
+  m_LocalRotation: {x: -0.34885347, y: 0.6120613, z: 0.26277512, w: 0.65926594}
   m_LocalPosition: {x: -162.46858, y: 1.4210855e-14, z: 2.220446e-14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2832,6 +2833,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114260479859079822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cd5092b6fe8fd4e91bd7c29668737a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  maximBusqueda: 0
+  velocitatMoviment: 2
+  velocitatAtac: 0
 --- !u!195 &195755533152132696
 NavMeshAgent:
   m_ObjectHideFlags: 1

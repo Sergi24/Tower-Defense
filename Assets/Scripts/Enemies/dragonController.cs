@@ -68,7 +68,7 @@ public class dragonController : EnemyGeneralControl, HealthInterface
                 }
             }
 
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
             {
                 agent.speed = velocitatMoviment + 1;
             }else agent.speed = velocitatMoviment;

@@ -31,7 +31,7 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
     public void restarVida()
     {
         vidaCastell -= 1;
-        textVida.text = (vidaCastell.ToString());
+        textVida.text = vidaCastell.ToString();
 
         barraVida.value = vidaCastell;
         if (vidaCastell == 0)
@@ -43,7 +43,7 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
 
     public bool restarDiners(int dinersARestar)
     {
-        if (diners - dinersARestar > 0)
+        if (diners - dinersARestar >= 0)
         {
             diners -= dinersARestar;
             textDiners.text = diners.ToString();
