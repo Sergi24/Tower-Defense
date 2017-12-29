@@ -26,6 +26,7 @@ public class dragonController : MonoBehaviour, HealthInterface
 
     private bool dracMort = false;
     private Rigidbody rb;
+    public float velocitatMoviment;
 
 
     void Awake () 
@@ -60,15 +61,20 @@ public class dragonController : MonoBehaviour, HealthInterface
         if (!dracMort)
         {
             agent.SetDestination(destination.transform.position);
-         //   transform.Translate(transform.up*5);
-            FlyForward();
-        }else if (transform.position.y < 0.9f)
+            
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
+            {
+                agent.speed = velocitatMoviment + 1;
+            }else agent.speed = velocitatMoviment;
+            //   transform.Translate(transform.up*5);
+            //     FlyForward();
+        }//MORT
+        else if (transform.position.y < 0.9f)
         {
             rb.useGravity = false;
             rb.isKinematic = true;
         }
     }
-
 
     public void Scream ()
 	{

@@ -1004,6 +1004,7 @@ MonoBehaviour:
   destination: {fileID: 1290622014874386, guid: c94a6bf492b7c5141a5e84b915ee4362,
     type: 2}
   vidaEsquelet: 1
+  velocitatMoviment: 4
 --- !u!136 &136235088429031720
 CapsuleCollider:
   m_ObjectHideFlags: 1
