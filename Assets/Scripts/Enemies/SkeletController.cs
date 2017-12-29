@@ -44,6 +44,7 @@ public class SkeletController : MonoBehaviour, HealthInterface {
         vidaEsquelet -= 1;
         if (vidaEsquelet == 0)
         {
+            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(1);
             Destroy(gameObject);
         }
     }

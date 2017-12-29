@@ -6,12 +6,17 @@ using UnityEngine.UI;
 public class CastleHealth : MonoBehaviour, HealthInterface {
 
     public int vidaCastell;
-    private Text text;
+    public int diners;
+    private Text textVida;
+    private Text textDiners;
 
     void Start()
     {
-        text = GameObject.Find("Vida").GetComponent<Text>();
-        text.text = "Vida: " + vidaCastell.ToString();
+        textVida = GameObject.Find("Vida").GetComponent<Text>();
+        textVida.text = vidaCastell.ToString();
+
+        textDiners = GameObject.Find("Diners").GetComponent<Text>();
+        textDiners.text = diners.ToString();
     }
 
     public int getVida()
@@ -22,10 +27,27 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
     public void restarVida()
     {
         vidaCastell -= 1;
-        text.text = (vidaCastell.ToString());
+        textVida.text = (vidaCastell.ToString());
         if (vidaCastell == 0)
         {
           //  Destroy(gameObject);
         }
+    }
+
+    public bool restarDiners(int dinersARestar)
+    {
+        if (diners - dinersARestar > 0)
+        {
+            diners -= dinersARestar;
+            textDiners.text = diners.ToString();
+            return true;
+        }
+        else return false;
+    }
+
+    public void sumarDiners(int dinersASumar)
+    {
+        diners += dinersASumar;
+        textDiners.text = diners.ToString();
     }
 }

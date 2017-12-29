@@ -64,6 +64,7 @@ public class SoldierController : MonoBehaviour, HealthInterface
             agent.speed = 0;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
+            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(2);
             Destroy(gameObject, 3);
         }
         else

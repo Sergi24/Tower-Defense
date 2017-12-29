@@ -3,6 +3,7 @@
 public class BuildManager : MonoBehaviour {
 
     public static BuildManager instance;
+    private int defensePrice;
 
     void Awake() {
         if (instance != null) {
@@ -21,8 +22,15 @@ public class BuildManager : MonoBehaviour {
         return defenseToBuild;
     }
 
-    public void SetDefenseToBuild(GameObject defense) {
-        defenseToBuild = defense;
+    public int GetDefensePrice()
+    {
+        return defensePrice;
     }
+
+    public void SetDefenseToBuild(GameObject defense, int price) {
+        defenseToBuild = defense;
+        defensePrice = price;
+    }
+
 }
 

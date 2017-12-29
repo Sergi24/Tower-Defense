@@ -160,6 +160,7 @@ public class dragonController : MonoBehaviour, HealthInterface
             agent.enabled = false;
             rb.useGravity = true;
             Die();
+            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(15);
             Destroy(gameObject, 7f);
         }
     }

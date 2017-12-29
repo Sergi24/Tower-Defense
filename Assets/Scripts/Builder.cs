@@ -10,20 +10,24 @@ public class Builder : MonoBehaviour {
     private Renderer rend;
     private GameObject defense;
     private BuildManager buildManager;
-    
-	void Start () {
+    private CastleHealth castleHealth;
+
+    void Start () {
         rend = GetComponent<Renderer>();
         initialColor = rend.material.color;
         buildManager = BuildManager.instance;
-
+        castleHealth = GameObject.Find("Player").GetComponent<CastleHealth>();
     }
 
     void OnMouseDown() {
         if (buildManager.GetDefenseToBuild() == null) return;
 
         if ((defense == null) && (!IsBelowUI())) {
-            GameObject defenseToBuild = BuildManager.instance.GetDefenseToBuild();
-            defense = (GameObject) Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
+            if (castleHealth.restarDiners(buildManager.GetDefensePrice()))
+            {
+                GameObject defenseToBuild = BuildManager.instance.GetDefenseToBuild();
+                defense = (GameObject)Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
+            }
         }
     }
 

@@ -107,6 +107,7 @@ public class LichController : MonoBehaviour, HealthInterface
             agent.speed = 0;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
+            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(3);
             Destroy(gameObject, 3);
         }
     }
