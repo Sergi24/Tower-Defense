@@ -27,7 +27,6 @@ public class MovArrow : MonoBehaviour
 
         if (distanciaDrac < distanciaEnemic)
         {
-            transform.Translate(Vector3.up * 3);
             destination = destinationDrac;
         } else destination = destinationEnemic;
 
@@ -61,7 +60,9 @@ public class MovArrow : MonoBehaviour
             //Rotacion para mirar hacia el target(objetivo a seguir) 
             if (destination != null && destination.GetComponent<HealthInterface>().getVida()>0)
             {
-                Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 1, destination.transform.position.z);
+                Vector3 puntoDeChoque;
+                if (destination.tag == "Dragon") puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 4, destination.transform.position.z);
+                else puntoDeChoque = new Vector3(destination.transform.position.x, destination.transform.position.y + 1, destination.transform.position.z);
                 transform.rotation = Quaternion.Slerp(transform.rotation,
                 Quaternion.LookRotation(puntoDeChoque - transform.position), rotationSpeed * Time.deltaTime);
             }

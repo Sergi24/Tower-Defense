@@ -46,12 +46,15 @@ public void PurchaseCatapult()
 
 public void PurchaseKnight()
 {
-    GameObject[] list = GameObject.FindGameObjectsWithTag("CaballeroInstantiator");
-    for (int i = 0; i < list.Length; i++) {
-        list[i].GetComponent<CaballeroInstantiator>().crearCaballero();
+    if (GameObject.Find("Player").GetComponent<CastleHealth>().restarDiners(200))
+    {
+        GameObject[] list = GameObject.FindGameObjectsWithTag("CaballeroInstantiator");
+        for (int i = 0; i < list.Length; i++)
+        {
+            list[i].GetComponent<CaballeroInstantiator>().crearCaballero();
+        }
+        SelectButton("clean pressed buttons");
     }
-    GameObject.Find("Player").GetComponent<CastleHealth>().restarDiners(200);
-    SelectButton("clean pressed buttons");
 }
 
 void SelectButton(string buttonName)

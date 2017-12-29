@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierController : MonoBehaviour, HealthInterface
+public class SoldierController : EnemyGeneralControl , HealthInterface
 {
-
-    private UnityEngine.AI.NavMeshAgent agent;
-    private Animator animator;
-    private GameObject destination;
-    public int vidaSoldat;
     private bool soldatMort = false;
     private bool objectiveReached = false;
-    public float velocitatMoviment;
 
     // Use this for initialization
     void Start()
@@ -19,8 +13,7 @@ public class SoldierController : MonoBehaviour, HealthInterface
         agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = velocitatMoviment;
         animator = this.gameObject.GetComponent<Animator>();
-        destination = GameObject.Find("Player");
-        agent.destination = destination.transform.position;
+        agent.destination = GameObject.Find("Player").transform.position;
         agent.Move(new Vector3(0f, 0f, 0f));
     }
 
@@ -28,7 +21,10 @@ public class SoldierController : MonoBehaviour, HealthInterface
     {
         if (!soldatMort)
         {
-            if (agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathComplete && agent.remainingDistance < 4)
+            findClosestTarget("Caballero", maximBusqueda);
+            agent.destination = destination.transform.position;
+
+            if (agent.remainingDistance < 4)
             {
                 animator.SetBool("Attack", true);
                 agent.speed = 0;
@@ -39,23 +35,22 @@ public class SoldierController : MonoBehaviour, HealthInterface
                 animator.SetBool("Attack", false);
                 if (objectiveReached)
                 {
-                        Invoke("tornarAMoure", 0.5f);
-                        objectiveReached = false;
+                    Invoke("tornarAMoure", 0.5f);
+                    objectiveReached = false;
                 }
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
                 {
                     parar();
                     animator.SetBool("Hit", false);
                 }
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit")&& !animator.GetBool("Hit"))
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit") && !animator.GetBool("Hit"))
                 {
                     tornarAMoure();
                 }
             }
-            agent.destination = destination.transform.position;
         }
-
     }
+
     void tornarAMoure()
     {
         agent.speed = velocitatMoviment;
@@ -70,8 +65,8 @@ public class SoldierController : MonoBehaviour, HealthInterface
 
     public void restarVida()
     {
-        vidaSoldat -= 1;
-        if (vidaSoldat == 0)
+        health -= 1;
+        if (health == 0)
         {
             soldatMort = true;
             animator.SetBool("Death", true);
@@ -93,6 +88,6 @@ public class SoldierController : MonoBehaviour, HealthInterface
 
     public int getVida()
     {
-        return vidaSoldat;
+        return health;
     }
 }

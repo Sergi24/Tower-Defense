@@ -9,6 +9,8 @@ TagManager:
   - Atac
   - Cami
   - CaballeroInstantiator
+  - Dragon
+  - Caballero
   layers:
   - Default
   - TransparentFX

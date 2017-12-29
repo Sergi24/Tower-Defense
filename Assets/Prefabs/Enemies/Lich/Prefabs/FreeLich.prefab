@@ -953,11 +953,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cdb77d1892f002448b90c2d8fe32ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaLich: 5
-  velocitatMoviment: 1
+  health: 8
   maximBusqueda: 10
-  rangAtac: 8
+  velocitatMoviment: 1
   velocitatAtac: 90
+  rangAtac: 8
   instantiatorBall: {fileID: 1610877735787856}
   rotationSpeed: 10
 --- !u!136 &136712434082083430

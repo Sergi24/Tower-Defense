@@ -11,12 +11,21 @@ public class Builder : MonoBehaviour {
     private GameObject defense;
     private BuildManager buildManager;
     private CastleHealth castleHealth;
+    private bool apuntant = false;
 
     void Start () {
         rend = GetComponent<Renderer>();
         initialColor = rend.material.color;
         buildManager = BuildManager.instance;
         castleHealth = GameObject.Find("Player").GetComponent<CastleHealth>();
+    }
+
+    void Update()
+    {
+        if (defense == null && !apuntant)
+        {
+            rend.material.color = initialColor;
+        }
     }
 
     void OnMouseDown() {
@@ -27,7 +36,8 @@ public class Builder : MonoBehaviour {
             {
                 GameObject defenseToBuild = BuildManager.instance.GetDefenseToBuild();
                 defense = (GameObject)Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
-                rend.material.color = initialColor;
+                rend.material.color = hoverColor;
+                apuntant = false;
             }
         }
     }
@@ -35,6 +45,7 @@ public class Builder : MonoBehaviour {
 	
     void OnMouseEnter() {
         if ((defense == null) && (!IsBelowUI())) {
+            apuntant = true;
             rend.material.color = hoverColor;
         }
     }
@@ -42,6 +53,7 @@ public class Builder : MonoBehaviour {
     void OnMouseExit() {
         if (defense == null) {
             rend.material.color = initialColor;
+            apuntant = false;
         }
     }
     public bool IsBelowUI() {

@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 82205612620659604}
   m_Layer: 0
   m_Name: Caballero
-  m_TagString: Defensa
+  m_TagString: Caballero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

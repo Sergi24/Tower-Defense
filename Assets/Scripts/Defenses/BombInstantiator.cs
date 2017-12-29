@@ -13,6 +13,7 @@ public class BombInstantiator : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        crearBomba();
         InvokeRepeating("crearBomba", velocidadDisparo, velocidadDisparo);
     }
 

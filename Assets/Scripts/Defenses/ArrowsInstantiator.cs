@@ -14,6 +14,7 @@ public class ArrowsInstantiator : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        crearFletxa();
         InvokeRepeating("crearFletxa", velocitatDisparo, velocitatDisparo);
     }
 

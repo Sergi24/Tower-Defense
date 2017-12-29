@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 195499972368092944}
   - component: {fileID: 114042585975819896}
   - component: {fileID: 136235088429031720}
+  - component: {fileID: 54917835345771790}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -825,7 +826,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1116095234603528}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.3812914, y: 1.0115738, z: -46.887035}
+  m_LocalPosition: {x: 33.1756, y: 1.0115738, z: -47.55454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4212339879229822}
@@ -973,6 +974,21 @@ Transform:
   m_Father: {fileID: 4895696935209472}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54917835345771790
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116095234603528}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &95733418117298824
 Animator:
   serializedVersion: 3
@@ -1001,10 +1017,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6e51e9a7f87da4b8fef78f2f57cbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 1290622014874386, guid: c94a6bf492b7c5141a5e84b915ee4362,
-    type: 2}
-  vidaEsquelet: 1
+  health: 1
+  maximBusqueda: 4
   velocitatMoviment: 4
+  velocitatAtac: 30
+  rotationSpeed: 5
+  attackRange: 5
+  explosion: {fileID: 1045058233731840, guid: df1a46d3b515e0b4595e55b0572a30cc, type: 2}
 --- !u!136 &136235088429031720
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1097,7 +1116,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1116095234603528}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.7
+  m_Radius: 0.74
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

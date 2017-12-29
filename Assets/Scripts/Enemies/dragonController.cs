@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class dragonController : MonoBehaviour, HealthInterface 
+public class dragonController : EnemyGeneralControl, HealthInterface 
 {
-	public Animator anim;
-    private UnityEngine.AI.NavMeshAgent agent;
-    private GameObject destination;
-    public int vidaDragon;
+    private GameObject dragonDestination;
+
     int scream;
 	int basicAttack;
 	int clawAttack;
@@ -26,13 +24,12 @@ public class dragonController : MonoBehaviour, HealthInterface
 
     private bool dracMort = false;
     private Rigidbody rb;
-    public float velocitatMoviment;
 
 
     void Awake () 
 	{
         agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 		scream = Animator.StringToHash("Scream");
 		basicAttack = Animator.StringToHash("Basic Attack");
 		clawAttack = Animator.StringToHash("Claw Attack");
@@ -52,7 +49,7 @@ public class dragonController : MonoBehaviour, HealthInterface
 
     }
     private void Start() {
-        destination = GameObject.Find("Player");
+        dragonDestination = GameObject.Find("Player");
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
@@ -60,16 +57,25 @@ public class dragonController : MonoBehaviour, HealthInterface
     {
         if (!dracMort)
         {
-            agent.SetDestination(destination.transform.position);
-            
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
+            agent.SetDestination(dragonDestination.transform.position);
+
+            AudioSource asource = gameObject.GetComponent<AudioSource>();
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
+            {
+                if (asource.clip.name == "Roar")
+                {
+                    asource.enabled = false;
+                }
+            }
+
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
             {
                 agent.speed = velocitatMoviment + 1;
             }else agent.speed = velocitatMoviment;
             //   transform.Translate(transform.up*5);
             //     FlyForward();
         }//MORT
-        else if (transform.position.y < 0.9f)
+        else if (transform.position.y < 1f)
         {
             rb.useGravity = false;
             rb.isKinematic = true;
@@ -78,88 +84,88 @@ public class dragonController : MonoBehaviour, HealthInterface
 
     public void Scream ()
 	{
-		anim.SetTrigger(scream);
+        animator.SetTrigger(scream);
 	}
 
 	public void BasicAttack ()
 	{
-		anim.SetTrigger(basicAttack);
+        animator.SetTrigger(basicAttack);
 	}
 
 	public void ClawAttack ()
 	{
-		anim.SetTrigger(clawAttack);
+        animator.SetTrigger(clawAttack);
 	}
 
 	public void FlameAttack ()
 	{
-		anim.SetTrigger(flameAttack);
+        animator.SetTrigger(flameAttack);
 	}
 
 	public void Defend ()
 	{
-		anim.SetTrigger(defend);
+        animator.SetTrigger(defend);
 	}
 
 	public void GetHit ()
 	{
-		anim.SetTrigger(getHit);
+        animator.SetTrigger(getHit);
 	}
 
 	public void Sleep ()
 	{
-		anim.SetTrigger(sleep);
+        animator.SetTrigger(sleep);
 	}
 
 	public void Walk ()
 	{
-		anim.SetTrigger(walk);
+        animator.SetTrigger(walk);
 	}
 
 	public void Run ()
 	{
-		anim.SetTrigger(run);
+        animator.SetTrigger(run);
 	}
 
 	public void TakeOff ()
 	{
-		anim.SetTrigger(takeOff);
+        animator.SetTrigger(takeOff);
 	}
 
 	public void FlyFlameAttack ()
 	{
-		anim.SetTrigger(flyFlameAttack);
+        animator.SetTrigger(flyFlameAttack);
 	}
 
 	public void FlyForward ()
 	{
-		anim.SetTrigger(flyForward);
+        animator.SetTrigger(flyForward);
 	}
 
 	public void FlyGlide ()
 	{
-		anim.SetTrigger(flyGlide);
+        animator.SetTrigger(flyGlide);
 	}
 
 	public void Land ()
 	{
-		anim.SetTrigger(land);
+        animator.SetTrigger(land);
 	}
 
 	public void Die ()
 	{
-		anim.SetTrigger(die);
+        animator.SetTrigger(die);
 	}
 
 	public void Idle02 ()
 	{
-		anim.SetTrigger(idle02);
+        animator.SetTrigger(idle02);
 	}
 
     public void restarVida()
     {
-        vidaDragon -= 1;
-        if (vidaDragon == 0)
+        health -= 1;
+        if (health == 0)
         {
             dracMort = true;
             gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -173,6 +179,6 @@ public class dragonController : MonoBehaviour, HealthInterface
 
     public int getVida()
     {
-        return vidaDragon;
+        return health;
     }
 }

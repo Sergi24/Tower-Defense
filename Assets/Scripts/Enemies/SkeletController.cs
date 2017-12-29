@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletController : MonoBehaviour, HealthInterface {
+public class SkeletController : EnemyGeneralControl, HealthInterface {
 
-	private UnityEngine.AI.NavMeshAgent agent;
-	private Animator animator;
-	public GameObject destination;
-    public int vidaEsquelet;
-	private bool objectiveReached = false;
-    public float velocitatMoviment;
+    public int rotationSpeed;
+    public int attackRange;
+    public GameObject explosion;
+    private bool skeletDie = false;
 
     // Use this for initialization
     void Start () {
@@ -17,41 +15,62 @@ public class SkeletController : MonoBehaviour, HealthInterface {
 		animator = this.gameObject.GetComponent<Animator>();
         destination = GameObject.Find("Player");
 		agent.destination = destination.transform.position;
-	//	agent.Move();
 	}
 	
 	void Update () {
-		if (agent.remainingDistance<3) {
-			animator.SetBool("Attack", true);
-			agent.speed=0;
-			objectiveReached=true;
-		}
-		else {
-			animator.SetBool("Attack", false);
-			if(objectiveReached) {
-				Invoke("tornarAMoure", 1);
-				objectiveReached=false;
-			}
-		}
-		agent.destination = destination.transform.position;
-	
+
+        if (!skeletDie)
+        {
+            findClosestTarget("Caballero", maximBusqueda);
+            agent.destination = destination.transform.position;
+
+            if (agent.remainingDistance < attackRange)
+            {
+                agent.speed = 0;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(agent.destination - transform.position), Time.deltaTime * rotationSpeed);
+                animator.SetBool("Attack", true);
+
+                if (contador > velocitatAtac)
+                {
+                    destination.GetComponent<HealthInterface>().restarVida();
+                    contador = 0;
+                } else contador++;
+            }
+            else
+            {
+                animator.SetBool("Attack", false);
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+                {
+                    moure();
+                }
+            }
+        }
+        else
+        {
+            transform.Translate(Vector3.down*0.03f);
+        }
 	}
-	void tornarAMoure(){
+
+	void moure(){
 		agent.speed=velocitatMoviment;
 	}
 
     public void restarVida()
     {
-        vidaEsquelet -= 1;
-        if (vidaEsquelet == 0)
+        health -= 1;
+        if (health == 0)
         {
+            skeletDie = true;
+            Instantiate(explosion, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), explosion.transform.rotation);
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(1);
-            Destroy(gameObject);
+            agent.enabled = false;
+            animator.SetBool("Death", true);
+            Destroy(gameObject, 1f);
         }
     }
 
     public int getVida()
     {
-        return vidaEsquelet;
+        return health;
     }
 }
