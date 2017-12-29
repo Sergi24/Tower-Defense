@@ -77,7 +77,7 @@ public class MovArrow : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "Dragon")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Dragon")
         {
             collision.gameObject.GetComponent<HealthInterface>().restarVida();
         }

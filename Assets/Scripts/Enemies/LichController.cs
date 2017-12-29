@@ -20,6 +20,7 @@ public class LichController : MonoBehaviour, HealthInterface
     private int contador = 0;
     private bool destinationNova;
     private Vector3 destination;
+    private bool objectiveReached = false;
 
     // Use this for initialization
     void Start()
@@ -30,6 +31,7 @@ public class LichController : MonoBehaviour, HealthInterface
         animator = this.gameObject.GetComponent<Animator>();
         animator.SetBool("Attack", false);
         animator.SetBool("Death", false);
+        animator.SetBool("Hit", false);
         // agent.Move(new Vector3(0f, 0f, 0f));
     }
    
@@ -62,6 +64,7 @@ public class LichController : MonoBehaviour, HealthInterface
                 {
                     animator.SetBool("Attack", true);
                     agent.speed = 0;
+                    objectiveReached = true;
 
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(agent.destination - transform.position), Time.deltaTime * rotationSpeed);
 
@@ -83,7 +86,16 @@ public class LichController : MonoBehaviour, HealthInterface
                 else
                 {
                     animator.SetBool("Attack", false);
-                    Invoke("tornarAMoure", 0.5f);
+                   
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
+                    {
+                        animator.SetBool("Hit", false);
+                        agent.speed = 0;
+                    }
+                    else
+                    {
+                        agent.speed = velocitatMoviment;
+                    }
                 }
             }
             else
@@ -99,6 +111,9 @@ public class LichController : MonoBehaviour, HealthInterface
 
     public void restarVida()
     {
+        animator.SetBool("Hit", true);
+        agent.speed = 0;
+        Invoke("tornarAMoure", 2);
         vidaLich -= 1;
         if (vidaLich == 0)
         {
@@ -109,7 +124,7 @@ public class LichController : MonoBehaviour, HealthInterface
             agent.enabled = false;
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(3);
             Destroy(gameObject, 3);
-        }
+        } 
     }
 
     public int getVida()
