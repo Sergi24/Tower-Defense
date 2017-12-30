@@ -24,16 +24,15 @@ public class WaveManager : MonoBehaviour {
 	}
 
     void Update() {
-
-        if(enemyNumber == 0  &&  currentWave<=maxWaves ) {
-            StartWave(currentWave++);
-        }
-        else if (castle.getVida() < 0) {
-            FinalState("Game Over");
-        }
-        else if (enemyNumber <= 0  &&  currentWave==maxWaves+1) {
-            FinalState("You win");
-        }
+            if(enemyNumber == 0  &&  currentWave<=maxWaves ) {
+                StartWave(currentWave++);
+            }
+            else if (castle.getVida() < 0 ) {
+                FinalState("Game Over");
+            }
+            else if (enemyNumber <= 0  &&  currentWave==maxWaves+1) {
+                FinalState("You win");
+            }
     }
 
     public void notifyDeath() {
@@ -61,6 +60,8 @@ public class WaveManager : MonoBehaviour {
 
         ShowcaseWave(waveNumber);
 
+        Time.timeScale = 0.5f; 
+
         switch (waveNumber) {
             case 1:
                 castle.sumarDiners(100);
@@ -75,6 +76,8 @@ public class WaveManager : MonoBehaviour {
                 ThirdWave();
                 break;
         }
+
+        Time.timeScale = 1f;
 
     }
 
