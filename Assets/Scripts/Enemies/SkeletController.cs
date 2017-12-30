@@ -6,6 +6,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
 
     public GameObject explosion;
     private bool skeletDie = false;
+    public int damage;
 
     // Use this for initialization
     void Start () {
@@ -30,7 +31,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
 
                 if (contador > velocitatAtac)
                 {
-                    destination.GetComponent<HealthInterface>().restarVida(1);
+                    destination.GetComponent<HealthInterface>().restarVida(damage);
                     contador = 0;
                 } else contador++;
             }
@@ -56,7 +57,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
     public void restarVida(int vidaARestar)
     {
         health -= vidaARestar;
-        if (health < 0)
+        if (health <= 0&&!skeletDie)
         {
             skeletDie = true;
             Instantiate(explosion, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), explosion.transform.rotation);

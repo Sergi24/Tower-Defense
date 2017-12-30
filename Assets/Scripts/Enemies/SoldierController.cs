@@ -67,7 +67,7 @@ public class SoldierController : TroopGeneralControl, HealthInterface
     public void restarVida(int vidaARestar)
     {
         health -= vidaARestar;
-        if (health < 0)
+        if (health <= 0&&!soldatMort)
         {
             soldatMort = true;
             animator.SetBool("Death", true);

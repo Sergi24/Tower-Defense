@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4686990709664908}
   - component: {fileID: 65423669999904136}
   - component: {fileID: 114161284466191432}
+  - component: {fileID: 114917365870565786}
   m_Layer: 0
   m_Name: torre_arqueros_madera
   m_TagString: Defensa
@@ -182,3 +183,15 @@ MonoBehaviour:
   velocitatDisparo: 3
   rangTorre: 20
   castillo: 0
+--- !u!114 &114917365870565786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347276335232540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abc91bd5c88a614bb31b11a7b5416aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaTorre: 6

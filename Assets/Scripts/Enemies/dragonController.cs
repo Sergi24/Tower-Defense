@@ -64,7 +64,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
         {
             agent.SetDestination(dragonDestination.transform.position);
 
-            AudioSource asource = gameObject.GetComponent<AudioSource>();
+          //  AudioSource asource = gameObject.GetComponent<AudioSource>();
             /*   if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
                {
                    if (asource.clip.name == "Roar")
@@ -114,7 +114,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
 
     public void makeDamage()
     {
-        destination.GetComponent<HealthInterface>().restarVida(damage);
+        GameObject.Find("Player").GetComponent<HealthInterface>().restarVida(damage);
     }
 
     public void Scream ()
@@ -200,7 +200,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
     public void restarVida(int vidaARestar)
     {
         health -= vidaARestar;
-        if (health < 0)
+        if (health <= 0&&!dracMort)
         {
             dracMort = true;
             gameObject.GetComponent<BoxCollider>().enabled = false;

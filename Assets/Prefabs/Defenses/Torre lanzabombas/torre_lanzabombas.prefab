@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4255957783807088}
   - component: {fileID: 65756551160830764}
   - component: {fileID: 114784371967744506}
+  - component: {fileID: 114058906953327654}
   m_Layer: 0
   m_Name: torre_lanzabombas
   m_TagString: Defensa
@@ -155,6 +156,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2239017, y: 2.3582869, z: 1.1153107}
   m_Center: {x: 0.018658638, y: 1.2015843, z: -0.057655334}
+--- !u!114 &114058906953327654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1675937372395534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abc91bd5c88a614bb31b11a7b5416aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaTorre: 8
 --- !u!114 &114664765829784270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,8 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomba: {fileID: 1312887404792014, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
-  velocidadDisparo: 10
-  rangoTorre: 10
+  velocidadDisparo: 7
+  rangoTorre: 8
 --- !u!114 &114784371967744506
 MonoBehaviour:
   m_ObjectHideFlags: 1

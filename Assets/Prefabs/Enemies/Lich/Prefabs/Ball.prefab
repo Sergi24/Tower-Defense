@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1514453101811260, guid: 34f738face1feb744b99a3f70819830b, type: 2}
   destroyTime: 6
+  damage: 2
   moveSpeed: 2
   tempsEspera: 1
   rotationSpeed: 1

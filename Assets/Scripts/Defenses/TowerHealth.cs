@@ -2,19 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TorreArquerosController : MonoBehaviour, HealthInterface {
+public class TowerHealth : MonoBehaviour, HealthInterface {
 
-    public int vidaTorre;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public int vidaTorre = 0;
 
     public int getVida()
     {
