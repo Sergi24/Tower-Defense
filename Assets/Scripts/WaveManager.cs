@@ -9,6 +9,9 @@ public class WaveManager : MonoBehaviour {
     public GameObject spawnLocation;
     public CastleHealth castle;
 
+    public GameObject wavePanel;
+    public TMPro.TextMeshProUGUI waveText;
+
     private int currentWave;
     private int enemyNumber;
     private int maxWaves;
@@ -21,23 +24,20 @@ public class WaveManager : MonoBehaviour {
 	}
 
     void Update() {
-
-        if(enemyNumber == 0  &&  currentWave<maxWaves ) {
-            StartWave(currentWave++);
-        }
-        else if (castle.getVida() < 0) {
-            Debug.Log("Game Over");
-        }
-        else if (enemyNumber <= 0  &&  currentWave==maxWaves) {
-            Debug.Log("You win");
-        }
-        
+            if(enemyNumber == 0  &&  currentWave<=maxWaves ) {
+                StartWave(currentWave++);
+            }
+            else if (castle.getVida() < 0 ) {
+                FinalState("Game Over");
+            }
+            else if (enemyNumber <= 0  &&  currentWave==maxWaves+1) {
+                FinalState("You win");
+            }
     }
 
     public void notifyDeath() {
         enemyNumber--;
     } 
-    
 
 
 
@@ -56,6 +56,10 @@ public class WaveManager : MonoBehaviour {
     void StartWave (int waveNumber) {
         enemyNumber = 0;
 
+        ShowcaseWave(waveNumber);
+
+        Time.timeScale = 0.5f; 
+
         switch (waveNumber) {
             case 1:
                 castle.sumarDiners(100);
@@ -71,15 +75,36 @@ public class WaveManager : MonoBehaviour {
                 break;
         }
 
+        Time.timeScale = 1f;
+
     }
 
-  /*  void RemoveDefenses() {
+    void ShowcaseWave(int waveNumber) {
+        wavePanel.SetActive(true);
+        waveText.SetText("Wave " + waveNumber);
+        Invoke("HideWaveText", 1.3f);
+
+    }
+
+    void HideWaveText() {
+        wavePanel.SetActive(false);
+    }
+
+    void FinalState(string message) {
+        Time.timeScale = 0f;
+        wavePanel.SetActive(true);
+        waveText.SetText(message);
+    }
+
+
+  void RemoveDefenses() {
+
         GameObject[] slotList = GameObject.FindGameObjectsWithTag("Slot");
 
         for (int i=0; i< slotList.Length; i++) {
             slotList[i].GetComponent<Builder>().RestartSlot();
         }
-    }*/
+    }
 
     void FirstWave() {
         StartCoroutine(SpawnEnemy(0, soldier, 10, spawnLocation));
