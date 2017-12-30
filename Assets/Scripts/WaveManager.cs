@@ -21,21 +21,19 @@ public class WaveManager : MonoBehaviour {
         currentWave = 0;
         enemyNumber = 0;
         maxWaves = 3;
-
 	}
 
     void Update() {
 
-        if(enemyNumber == 0  &&  currentWave<maxWaves ) {
+        if(enemyNumber == 0  &&  currentWave<=maxWaves ) {
             StartWave(currentWave++);
         }
         else if (castle.getVida() < 0) {
             FinalState("Game Over");
         }
-        else if (enemyNumber <= 0  &&  currentWave==maxWaves) {
+        else if (enemyNumber <= 0  &&  currentWave==maxWaves+1) {
             FinalState("You win");
         }
-
     }
 
     public void notifyDeath() {
