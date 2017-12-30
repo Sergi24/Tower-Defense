@@ -35,8 +35,8 @@ public class WaveManager : MonoBehaviour {
     }
 
     public void notifyDeath() {
-        Debug.Log(enemyNumber);
         enemyNumber--;
+        Debug.Log(enemyNumber);
     } 
     
 
@@ -56,34 +56,31 @@ public class WaveManager : MonoBehaviour {
 
     void StartWave (int waveNumber) {
         enemyNumber = 0;
-        castle.reiniciarVida();
-
-        RemoveDefenses();
 
         switch (waveNumber) {
             case 1:
-                castle.setDiners(200);
+                castle.sumarDiners(100);
                 FirstWave();
                 break;
             case 2:
-                castle.setDiners(300);
+                castle.sumarDiners(200);
                 SecondWave();
                 break;
             case 3:
-                castle.setDiners(320);
+                castle.sumarDiners(300);
                 ThirdWave();
                 break;
         }
 
     }
 
-    void RemoveDefenses() {
+  /*  void RemoveDefenses() {
         GameObject[] slotList = GameObject.FindGameObjectsWithTag("Slot");
 
         for (int i=0; i< slotList.Length; i++) {
             slotList[i].GetComponent<Builder>().RestartSlot();
         }
-    }
+    }*/
 
     void FirstWave() {
         StartCoroutine(SpawnEnemy(0, soldier, 10, spawnLocation));

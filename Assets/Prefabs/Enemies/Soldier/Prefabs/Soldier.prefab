@@ -927,6 +927,8 @@ MonoBehaviour:
   maximBusqueda: 10
   velocitatMoviment: 2
   velocitatAtac: 0
+  rangAtac: 3
+  rotationSpeed: 5
 --- !u!136 &136615414860608176
 CapsuleCollider:
   m_ObjectHideFlags: 1

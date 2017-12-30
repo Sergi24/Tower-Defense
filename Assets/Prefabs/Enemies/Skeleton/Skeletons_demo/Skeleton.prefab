@@ -1021,9 +1021,10 @@ MonoBehaviour:
   maximBusqueda: 4
   velocitatMoviment: 4
   velocitatAtac: 30
+  rangAtac: 3
   rotationSpeed: 5
-  attackRange: 5
   explosion: {fileID: 1045058233731840, guid: df1a46d3b515e0b4595e55b0572a30cc, type: 2}
+  damage: 1
 --- !u!136 &136235088429031720
 CapsuleCollider:
   m_ObjectHideFlags: 1

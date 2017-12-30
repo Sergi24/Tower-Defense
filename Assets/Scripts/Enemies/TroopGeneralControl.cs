@@ -8,7 +8,7 @@ public class TroopGeneralControl : MonoBehaviour {
     private GameObject[] objectius;
     private bool destinationNova;
 
-    protected GameObject destination;
+    protected GameObject destination = null;
     protected int contador = 0;
     protected UnityEngine.AI.NavMeshAgent agent;
     protected Animator animator;
@@ -25,6 +25,29 @@ public class TroopGeneralControl : MonoBehaviour {
         //buscar objectiu mes proper
         objectius = GameObject.FindGameObjectsWithTag(tag);
         minim = maximBusqueda;
+
+        destinationNova = false;
+        for (int i = 0; i < objectius.Length; i++)
+        {
+            if ((objectius[i].transform.position - transform.position).magnitude < minim)
+            {
+                if (objectius[i].GetComponent<HealthInterface>().getVida() > 0)
+                {
+                    destinationNova = true;
+                    minim = (transform.position - objectius[i].transform.position).magnitude;
+                    destination = objectius[i];
+                }
+            }
+        }
+        if (!destinationNova) return false;
+        else return true;
+    }
+
+    protected bool findClosestTargetWithoutRange(string tag)
+    {
+        //buscar objectiu mes proper
+        objectius = GameObject.FindGameObjectsWithTag(tag);
+        minim = 100000;
         //Tot el mapa
         if (maximBusqueda == -1)
         {

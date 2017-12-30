@@ -954,12 +954,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 8
-  maximBusqueda: 10
+  maximBusqueda: 20
   velocitatMoviment: 1
   velocitatAtac: 90
-  rangAtac: 8
-  instantiatorBall: {fileID: 1610877735787856}
+  rangAtac: 20
   rotationSpeed: 10
+  instantiatorBall: {fileID: 1610877735787856}
 --- !u!136 &136712434082083430
 CapsuleCollider:
   m_ObjectHideFlags: 1
