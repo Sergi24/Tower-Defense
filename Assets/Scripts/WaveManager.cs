@@ -36,7 +36,6 @@ public class WaveManager : MonoBehaviour {
 
     public void notifyDeath() {
         enemyNumber--;
-        Debug.Log(enemyNumber);
     } 
     
 

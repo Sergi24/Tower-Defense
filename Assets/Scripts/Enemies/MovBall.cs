@@ -3,37 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MovBall : MonoBehaviour
+public class MovBall : TroopGeneralControl
 {
-    private GameObject[] objectius;
-    private GameObject destination = null;
     public GameObject explosion;
     private bool stopBola = false;
     public float destroyTime;
     public int damage;
-
-    public float moveSpeed; //velocidad de movimiento 
     private float velocitat;
+
     public int tempsEspera;
-    public float rotationSpeed; //Velocidad de rotación 
 
     // Use this for initialization
     void Start()
     {
-        objectius = GameObject.FindGameObjectsWithTag("Defensa");
-
-        //buscar objectiu mes proper
-        float minim = 100f;
-        for (int i = 0; i < objectius.Length; i++)
-        {
-            if ((transform.position - objectius[i].transform.position).magnitude < minim)
-            {
-                minim = (transform.position - objectius[i].transform.position).magnitude;
-                destination = objectius[i];
-            }
-        }
+        if (!findClosestTarget("Caballero", rangAtac))
+            if (!findClosestTarget("Defensa", rangAtac)) destination = GameObject.Find("Player");
         velocitat = 0;
-        Invoke("fixarVelocitat", tempsEspera);
+        Invoke("fixarvelocitat", tempsEspera);
         Invoke("destruirBola", destroyTime);
     }
 
@@ -41,6 +27,7 @@ public class MovBall : MonoBehaviour
     {
         if (!stopBola)
         {
+
             //Rotacion para mirar hacia el target(objetivo a seguir) 
             if (destination != null)
             {
@@ -54,10 +41,10 @@ public class MovBall : MonoBehaviour
 
     }
 
-    void fixarVelocitat()
+    void fixarvelocitat()
     {
         gameObject.GetComponent<SphereCollider>().enabled = true;
-        velocitat = moveSpeed;
+        velocitat = velocitatMoviment;
     }
 
     void destruirBola()
@@ -67,7 +54,7 @@ public class MovBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Defensa" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Defensa" || other.gameObject.tag == "Player" || other.gameObject.tag == "Caballero")
         {
             Instantiate(explosion, transform.position, transform.rotation);
             other.gameObject.GetComponent<HealthInterface>().restarVida(damage);

@@ -7,6 +7,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
     public GameObject explosion;
     private bool skeletDie = false;
     public int damage;
+    bool isAttacking = false;
 
     // Use this for initialization
     void Start () {
@@ -29,19 +30,20 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(agent.destination - transform.position), Time.deltaTime * rotationSpeed);
                 animator.SetBool("Attack", true);
 
-                if (contador > velocitatAtac)
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")&&!isAttacking)
                 {
+                    isAttacking = true;
                     destination.GetComponent<HealthInterface>().restarVida(damage);
-                    contador = 0;
-                } else contador++;
+                } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && isAttacking)
+                {
+                    isAttacking = false;
+                }
             }
             else
             {
                 animator.SetBool("Attack", false);
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
-                {
-                    moure();
-                }
+                moure();
+                isAttacking = false;
             }
         }
         else

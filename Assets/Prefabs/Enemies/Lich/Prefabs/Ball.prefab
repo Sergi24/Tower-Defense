@@ -111,12 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bccadc53e95e9b940a799f5bdb3e21c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  maximBusqueda: 0
+  velocitatMoviment: 3
+  velocitatAtac: 0
+  rangAtac: 20
+  rotationSpeed: 1
   explosion: {fileID: 1514453101811260, guid: 34f738face1feb744b99a3f70819830b, type: 2}
   destroyTime: 6
   damage: 2
-  moveSpeed: 2
   tempsEspera: 1
-  rotationSpeed: 1
 --- !u!135 &135675986137795620
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  maximBusqueda: 4
+  maximBusqueda: 5
   velocitatMoviment: 4
   velocitatAtac: 30
   rangAtac: 3

@@ -908,7 +908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  maximBusqueda: 20
+  maximBusqueda: -1
   velocitatMoviment: 2
   velocitatAtac: 35
   rangAtac: 5

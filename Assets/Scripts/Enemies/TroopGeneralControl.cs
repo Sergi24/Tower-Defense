@@ -48,12 +48,6 @@ public class TroopGeneralControl : MonoBehaviour {
         //buscar objectiu mes proper
         objectius = GameObject.FindGameObjectsWithTag(tag);
         minim = 100000;
-        //Tot el mapa
-        if (maximBusqueda == -1)
-        {
-            destination = objectius[0];
-            minim = 1000;
-        }
         destinationNova = false;
         for (int i = 0; i < objectius.Length; i++)
         {

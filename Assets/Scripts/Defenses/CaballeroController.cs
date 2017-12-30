@@ -52,26 +52,21 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
 
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack01") && !isAttack01)
                     {
-                        destination.GetComponent<HealthInterface>().restarVida(damage);
+                        Invoke("atacar", 0.5f);
                         animator.SetTrigger(attack02);
                         isAttack01 = true;
-
-                        asource.Play();
-
                     }
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack02") && isAttack01)
                     {
-                        destination.GetComponent<HealthInterface>().restarVida(damage);
+                        Invoke("atacar", 0.3f);
                         animator.SetTrigger(attack01);
                         isAttack01 = false;
-
-                        asource.Play();
                     }
                 }
                 else //si no s'ataca
                 {
                     animator.SetBool("Attack", false);
-                    Invoke("tornarAMoure", 0f);
+                    tornarAMoure();
                 }
             }
         }
@@ -86,6 +81,12 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
     void tornarAMoure()
     {
         agent.speed = velocitatMoviment;
+    }
+
+    void atacar()
+    {
+        destination.GetComponent<HealthInterface>().restarVida(damage);
+        asource.Play();
     }
 
     public void restarVida(int vidaARestar)

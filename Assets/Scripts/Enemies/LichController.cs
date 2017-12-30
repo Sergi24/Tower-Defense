@@ -24,16 +24,17 @@ public class LichController : TroopGeneralControl, HealthInterface
     {
         if (!lichMort)
         {
-         /*   if (!findClosestTarget("Caballero", maximBusqueda))
-                if (!findClosestTarget("Defensa", maximBusqueda)) */destination = GameObject.Find("Player"); 
+            if (!findClosestTarget("Caballero", maximBusqueda))
+                if (!findClosestTarget("Defensa", maximBusqueda)) destination = GameObject.Find("Player"); 
             agent.destination = destination.transform.position;
 
             if (agent.remainingDistance < rangAtac)
             {
                 animator.SetBool("Attack", true);
+                animator.SetBool("Hit", false);
                 agent.speed = 0;
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(agent.destination - transform.position), Time.deltaTime * rotationSpeed);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
                 {

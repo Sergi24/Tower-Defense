@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4255957783807088}
   - component: {fileID: 65756551160830764}
-  - component: {fileID: 114784371967744506}
   - component: {fileID: 114058906953327654}
   m_Layer: 0
   m_Name: torre_lanzabombas
@@ -181,16 +180,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomba: {fileID: 1312887404792014, guid: ab818a342158ec940b57bb76f8275c21, type: 2}
   velocidadDisparo: 7
-  rangoTorre: 8
---- !u!114 &114784371967744506
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1675937372395534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2f543a566a7644eb2bdf888edef941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaTorre: 8
+  rangoTorre: 9
