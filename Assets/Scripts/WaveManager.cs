@@ -9,6 +9,9 @@ public class WaveManager : MonoBehaviour {
     public GameObject spawnLocation;
     public CastleHealth castle;
 
+    public GameObject wavePanel;
+    public TMPro.TextMeshProUGUI waveText;
+
     private int currentWave;
     private int enemyNumber;
     private int maxWaves;
@@ -18,6 +21,7 @@ public class WaveManager : MonoBehaviour {
         currentWave = 0;
         enemyNumber = 0;
         maxWaves = 3;
+
 	}
 
     void Update() {
@@ -26,10 +30,10 @@ public class WaveManager : MonoBehaviour {
             StartWave(currentWave++);
         }
         else if (castle.getVida() < 0) {
-            Debug.Log("Game Over");
+            FinalState("Game Over");
         }
         else if (enemyNumber <= 0  &&  currentWave==maxWaves) {
-            Debug.Log("You win");
+            FinalState("You win");
         }
         
     }
@@ -60,6 +64,8 @@ public class WaveManager : MonoBehaviour {
 
         RemoveDefenses();
 
+        ShowcaseWave(waveNumber);
+
         switch (waveNumber) {
             case 1:
                 castle.setDiners(200);
@@ -76,6 +82,24 @@ public class WaveManager : MonoBehaviour {
         }
 
     }
+
+    void ShowcaseWave(int waveNumber) {
+        wavePanel.SetActive(true);
+        waveText.SetText("Wave " + waveNumber);
+        Invoke("HideWaveText", 1.3f);
+
+    }
+
+    void HideWaveText() {
+        wavePanel.SetActive(false);
+    }
+
+    void FinalState(string message) {
+        Time.timeScale = 0f;
+        wavePanel.SetActive(true);
+        waveText.SetText(message);
+    }
+
 
     void RemoveDefenses() {
         GameObject[] slotList = GameObject.FindGameObjectsWithTag("Slot");
