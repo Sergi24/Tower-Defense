@@ -18,15 +18,12 @@ public class WaveManager : MonoBehaviour {
         currentWave = 0;
         enemyNumber = 0;
         maxWaves = 3;
-        
-        FirstWave();
 	}
 
     void Update() {
 
         if(enemyNumber == 0  &&  currentWave<maxWaves ) {
-            currentWave++;
-            StartWave(currentWave);
+            StartWave(currentWave++);
         }
         else if (castle.getVida() < 0) {
             Debug.Log("Game Over");
@@ -50,7 +47,7 @@ public class WaveManager : MonoBehaviour {
         yield return new WaitForSeconds(delay);
         for (int i=0; i< number; i++) {
             Instantiate(enemy, location.transform.position, location.transform.rotation);
-            //new WaitForSeconds(1);
+            yield return new WaitForSeconds(1);
         }
     }
 
@@ -86,20 +83,13 @@ public class WaveManager : MonoBehaviour {
     }
 
     void FirstWave() {
-        /*StartCoroutine(SpawnEnemy(0, soldier, 10, spawnLocation));
+        StartCoroutine(SpawnEnemy(0, soldier, 10, spawnLocation));
         StartCoroutine(SpawnEnemy(5, skeleton, 10, spawnLocation));
         StartCoroutine(SpawnEnemy(10, soldier, 20, spawnLocation));
 
         StartCoroutine(SpawnEnemy(30, skeleton, 10, spawnLocation));
         StartCoroutine(SpawnEnemy(35, skeleton, 5, spawnLocation));
         StartCoroutine(SpawnEnemy(35, soldier, 7, spawnLocation));
-        */
-        StartCoroutine(SpawnEnemy(0, skeleton, 10, spawnLocation));
-        StartCoroutine(SpawnEnemy(5, skeleton, 10, spawnLocation));
-        StartCoroutine(SpawnEnemy(10, skeleton, 10, spawnLocation));
-        StartCoroutine(SpawnEnemy(15, skeleton, 10, spawnLocation));
-
-        Debug.Log("Enemy" + enemyNumber);
     }
 
     void SecondWave() {
