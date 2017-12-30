@@ -30,7 +30,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
 
                 if (contador > velocitatAtac)
                 {
-                    destination.GetComponent<HealthInterface>().restarVida();
+                    destination.GetComponent<HealthInterface>().restarVida(1);
                     contador = 0;
                 } else contador++;
             }
@@ -53,10 +53,10 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
 		agent.speed=velocitatMoviment;
 	}
 
-    public void restarVida()
+    public void restarVida(int vidaARestar)
     {
-        health -= 1;
-        if (health == 0)
+        health -= vidaARestar;
+        if (health < 0)
         {
             skeletDie = true;
             Instantiate(explosion, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), explosion.transform.rotation);

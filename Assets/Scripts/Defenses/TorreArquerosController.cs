@@ -21,10 +21,10 @@ public class TorreArquerosController : MonoBehaviour, HealthInterface {
         return vidaTorre;
     }
 
-    public void restarVida()
+    public void restarVida(int vidaARestar)
     {
-        vidaTorre -= 1;
-        if (vidaTorre == 0)
+        vidaTorre -= vidaARestar;
+        if (vidaTorre < 0)
         {
             Destroy(gameObject);
         }

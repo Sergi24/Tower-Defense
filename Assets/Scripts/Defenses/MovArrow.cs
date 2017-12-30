@@ -10,6 +10,7 @@ public class MovArrow : MonoBehaviour
     private GameObject destinationDrac;
     private bool stopArrow = false;
     public float destroyTime;
+    public int damage;
     Rigidbody rb;
 
     public float moveSpeed; //velocidad de movimiento 
@@ -80,7 +81,7 @@ public class MovArrow : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Dragon")
         {
-            collision.gameObject.GetComponent<HealthInterface>().restarVida();
+            collision.gameObject.GetComponent<HealthInterface>().restarVida(damage);
         }
         stopArrow = true;
         gameObject.GetComponent<BoxCollider>().enabled = false;

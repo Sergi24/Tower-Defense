@@ -26,6 +26,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
     private Rigidbody rb;
     private bool haTiratFoc = true;
     private bool isFlyForward = true;
+    public int damage;
 
 
 
@@ -87,6 +88,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
                     FlyForward();
                     haTiratFoc = true;
                     gameObject.GetComponentInChildren<FireInstantiator>().instantiateFire();
+                    Invoke("makeDamage", 2);
                 }
 
             } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && isFlyForward)
@@ -108,6 +110,11 @@ public class dragonController : TroopGeneralControl, HealthInterface
             rb.useGravity = false;
             rb.isKinematic = true;
         }
+    }
+
+    public void makeDamage()
+    {
+        destination.GetComponent<HealthInterface>().restarVida(damage);
     }
 
     public void Scream ()
@@ -190,10 +197,10 @@ public class dragonController : TroopGeneralControl, HealthInterface
         animator.SetTrigger(idle02);
 	}
 
-    public void restarVida()
+    public void restarVida(int vidaARestar)
     {
-        health -= 1;
-        if (health == 0)
+        health -= vidaARestar;
+        if (health < 0)
         {
             dracMort = true;
             gameObject.GetComponent<BoxCollider>().enabled = false;

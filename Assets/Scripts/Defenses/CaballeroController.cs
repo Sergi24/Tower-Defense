@@ -8,6 +8,7 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
     private bool caballerMort=false;
     private bool attack01 = false;
     private bool canviAtac;
+    public int damage;
 
     // Use this for initialization
     void Start()
@@ -66,14 +67,14 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
                 {
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01") && !attack01)
                     {
-                        destination.GetComponent<HealthInterface>().restarVida();
+                        destination.GetComponent<HealthInterface>().restarVida(damage);
                         asource.Play();
                         attack01 = true;
                         canviAtac = true;
                     }
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02") && attack01)
                     {
-                        destination.GetComponent<HealthInterface>().restarVida();
+                        destination.GetComponent<HealthInterface>().restarVida(damage);
                         asource.Play();
                         attack01 = false;
                         canviAtac = true;
@@ -101,10 +102,10 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
         agent.speed = velocitatMoviment;
     }
 
-    public void restarVida()
+    public void restarVida(int vidaARestar)
     {
-        health -= 1;
-        if (health == 0)
+        health -= vidaARestar;
+        if (health < 0)
         {
             caballerMort = true;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;

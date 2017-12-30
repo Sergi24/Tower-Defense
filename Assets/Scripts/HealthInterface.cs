@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface HealthInterface {
 
-    void restarVida();
+    void restarVida(int vidaARestar);
     int getVida();
 }

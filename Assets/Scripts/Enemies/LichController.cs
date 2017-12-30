@@ -72,13 +72,13 @@ public class LichController : TroopGeneralControl, HealthInterface
         agent.speed = velocitatMoviment;
     }
 
-    public void restarVida()
+    public void restarVida(int vidaARestar)
     {
         animator.SetBool("Hit", true);
         agent.speed = 0;
         Invoke("tornarAMoure", 2);
-        health -= 1;
-        if (health == 0)
+        health -= vidaARestar;
+        if (health < 0)
         {
             lichMort = true;
             animator.SetBool("Death", true);

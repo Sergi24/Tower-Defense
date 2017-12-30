@@ -10,6 +10,7 @@ public class MovBall : MonoBehaviour
     public GameObject explosion;
     private bool stopBola = false;
     public float destroyTime;
+    public int damage;
 
     public float moveSpeed; //velocidad de movimiento 
     private float velocitat;
@@ -66,19 +67,14 @@ public class MovBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Defensa")
+        if (other.gameObject.tag == "Defensa" || other.gameObject.tag == "Player")
         {
             Instantiate(explosion, transform.position, transform.rotation);
-            other.gameObject.GetComponent<HealthInterface>().restarVida();
+            other.gameObject.GetComponent<HealthInterface>().restarVida(damage);
+            Destroy(gameObject);
         }
         if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")
         {
-            Destroy(gameObject);
-        }
-        if (other.gameObject.tag == "Player")
-        {
-            GameObject.Find("Player").GetComponent<HealthInterface>().restarVida();
-            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

@@ -10,6 +10,7 @@ public class MovBomb : MonoBehaviour {
     public float destroyTime;
     public float areaDany;
     public GameObject explosion1;
+    public int damage;
 
     public float moveSpeed; //velocidad de movimiento 
     public float rotationSpeed; //Velocidad de rotación 
@@ -66,7 +67,7 @@ public class MovBomb : MonoBehaviour {
         {
             if ((objectius[i].transform.position - transform.position).magnitude < areaDany)
             {
-                objectius[i].GetComponent<HealthInterface>().restarVida();
+                objectius[i].GetComponent<HealthInterface>().restarVida(damage);
             }
         }
         Instantiate(explosion1, transform.position, transform.rotation);

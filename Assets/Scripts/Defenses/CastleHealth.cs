@@ -32,17 +32,21 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
         vidaCastell = 100;
     }
 
-    public void restarVida()
+    public void restarVida(int vidaARestar)
     {
-        vidaCastell -= 1;
-        textVida.text = vidaCastell.ToString();
 
-        barraVida.value = vidaCastell;
-        if (vidaCastell == 0)
+        if (vidaCastell - vidaARestar > 0)
         {
-          //  Destroy(gameObject);
+            vidaCastell -= vidaARestar;
+            textVida.text = vidaCastell.ToString();
+            barraVida.value = vidaCastell;
+            //  Destroy(gameObject);
+        } else
+        {
+            //PERDUT
+            textVida.text = 0.ToString();
+            barraVida.value = 0;
         }
-        barraVida.value = vidaCastell;
     }
 
     public bool restarDiners(int dinersARestar)
