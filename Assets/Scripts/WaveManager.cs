@@ -46,7 +46,10 @@ public class WaveManager : MonoBehaviour {
         enemyNumber += number;
         yield return new WaitForSeconds(delay);
         for (int i=0; i< number; i++) {
-            Instantiate(enemy, location.transform.position, location.transform.rotation);
+            if (enemy == dragon) {
+                Instantiate(enemy, location.transform.position + new Vector3(0, 5, 0), location.transform.rotation);
+            }
+            else Instantiate(enemy, location.transform.position, location.transform.rotation);
             yield return new WaitForSeconds(1);
         }
     }
