@@ -74,6 +74,7 @@ public class SoldierController : EnemyGeneralControl , HealthInterface
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(2);
+            notifyDeath();
             Destroy(gameObject, 3);
         }
         else

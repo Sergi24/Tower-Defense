@@ -20,6 +20,13 @@ public class Builder : MonoBehaviour {
         castleHealth = GameObject.Find("Player").GetComponent<CastleHealth>();
     }
 
+    public void RestartSlot () {
+        //Start();
+        Destroy(defense);
+        defense = null;
+        rend.material.color = initialColor;
+    }
+
     void Update()
     {
         if (defense == null && !apuntant)

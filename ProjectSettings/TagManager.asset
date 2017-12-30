@@ -11,6 +11,7 @@ TagManager:
   - CaballeroInstantiator
   - Dragon
   - Caballero
+  - Slot
   layers:
   - Default
   - TransparentFX

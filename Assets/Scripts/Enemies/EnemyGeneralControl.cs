@@ -38,5 +38,9 @@ public class EnemyGeneralControl : MonoBehaviour {
         }
         if (!destinationNova) destination = GameObject.Find("Player");
     }
-    
+
+    protected void notifyDeath() {
+        GameObject.Find("InstantiatorsEnemics").GetComponent<WaveManager>().notifyDeath();
+    }
+
 }
