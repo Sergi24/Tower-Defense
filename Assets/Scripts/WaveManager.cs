@@ -11,6 +11,7 @@ public class WaveManager : MonoBehaviour {
 
     public GameObject wavePanel;
     public TMPro.TextMeshProUGUI waveText;
+    public GameObject pauseMenu;
 
     private int currentWave;
     private int enemyNumber;
@@ -94,6 +95,7 @@ public class WaveManager : MonoBehaviour {
         Time.timeScale = 0f;
         wavePanel.SetActive(true);
         waveText.SetText(message);
+        pauseMenu.SetActive(true);
     }
 
 
