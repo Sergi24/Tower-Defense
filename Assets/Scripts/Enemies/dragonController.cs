@@ -1,56 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class dragonController : EnemyGeneralControl, HealthInterface 
+public class dragonController : TroopGeneralControl, HealthInterface
 {
     private GameObject dragonDestination;
 
     int scream;
-	int basicAttack;
-	int clawAttack;
-	int flameAttack;
-	int defend;
-	int getHit;
-	int sleep;
-	int walk;
-	int run;
-	int takeOff;
-	int flyFlameAttack;
-	int flyForward;
-	int flyGlide;
-	int land;
-	int die;
-	int idle02;
+    int basicAttack;
+    int clawAttack;
+    int flameAttack;
+    int defend;
+    int getHit;
+    int sleep;
+    int walk;
+    int run;
+    int takeOff;
+    int flyFlameAttack;
+    int flyForward;
+    int flyGlide;
+    int land;
+    int die;
+    int idle02;
 
     private bool dracMort = false;
     private Rigidbody rb;
+    private bool haTiratFoc = true;
+    private bool isFlyForward = true;
 
 
-    void Awake () 
-	{
+
+    void Awake()
+    {
         agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
         animator = GetComponent<Animator>();
-		scream = Animator.StringToHash("Scream");
-		basicAttack = Animator.StringToHash("Basic Attack");
-		clawAttack = Animator.StringToHash("Claw Attack");
-		flameAttack = Animator.StringToHash("Flame Attack");
-		defend = Animator.StringToHash("Defend");
-		getHit = Animator.StringToHash("Get Hit");
-		sleep = Animator.StringToHash("Sleep");
-		walk = Animator.StringToHash("Walk");
-		run = Animator.StringToHash("Run");
-		takeOff = Animator.StringToHash("Take Off");
-		flyFlameAttack = Animator.StringToHash("Fly Flame Attack");
-		flyForward = Animator.StringToHash("Fly Forward");
-		flyGlide = Animator.StringToHash("Fly Glide");
-		land = Animator.StringToHash("Land");
-		die = Animator.StringToHash("Die");
-		idle02 = Animator.StringToHash("Idle02");
-
+        scream = Animator.StringToHash("Scream");
+        basicAttack = Animator.StringToHash("Basic Attack");
+        clawAttack = Animator.StringToHash("Claw Attack");
+        flameAttack = Animator.StringToHash("Flame Attack");
+        defend = Animator.StringToHash("Defend");
+        getHit = Animator.StringToHash("Get Hit");
+        sleep = Animator.StringToHash("Sleep");
+        walk = Animator.StringToHash("Walk");
+        run = Animator.StringToHash("Run");
+        takeOff = Animator.StringToHash("Take Off");
+        flyFlameAttack = Animator.StringToHash("Fly Flame Attack");
+        flyForward = Animator.StringToHash("Fly Forward");
+        flyGlide = Animator.StringToHash("Fly Glide");
+        land = Animator.StringToHash("Land");
+        die = Animator.StringToHash("Die");
+        idle02 = Animator.StringToHash("Idle02");
     }
+
     private void Start() {
-        dragonDestination = GameObject.Find("Player");
+        dragonDestination = GameObject.Find("ObjectiuDrac");
         rb = gameObject.GetComponent<Rigidbody>();
+        agent.speed = velocitatMoviment;
     }
 
     private void Update()
@@ -60,20 +64,44 @@ public class dragonController : EnemyGeneralControl, HealthInterface
             agent.SetDestination(dragonDestination.transform.position);
 
             AudioSource asource = gameObject.GetComponent<AudioSource>();
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
+            /*   if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
+               {
+                   if (asource.clip.name == "Roar")
+                   {
+                       asource.enabled = false;
+                   }
+               }*/
+
+            if (agent.remainingDistance < rangAtac)
             {
-                if (asource.clip.name == "Roar")
+                agent.speed = 0;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(agent.destination - transform.position), Time.deltaTime * rotationSpeed);
+
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && haTiratFoc)
                 {
-                    asource.enabled = false;
+                    FlyGlide();
+                    haTiratFoc = false;
                 }
+                else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !haTiratFoc)
+                {
+                    FlyForward();
+                    haTiratFoc = true;
+                    gameObject.GetComponentInChildren<FireInstantiator>().instantiateFire();
+                }
+
+            } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && isFlyForward)
+            {
+                FlyGlide();
+                agent.speed = velocitatMoviment;
+                isFlyForward = false;
+            }
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !isFlyForward)
+            {
+                FlyForward();
+                agent.speed = velocitatMoviment + 1;
+                isFlyForward = true;
             }
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
-            {
-                agent.speed = velocitatMoviment + 1;
-            }else agent.speed = velocitatMoviment;
-            //   transform.Translate(transform.up*5);
-            //     FlyForward();
         }//MORT
         else if (transform.position.y < 1f)
         {

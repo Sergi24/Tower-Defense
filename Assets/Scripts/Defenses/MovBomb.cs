@@ -9,7 +9,7 @@ public class MovBomb : MonoBehaviour {
     private bool stopBomb = false;
     public float destroyTime;
     public float areaDany;
-    public GameObject explosion1, explosion2;
+    public GameObject explosion1;
 
     public float moveSpeed; //velocidad de movimiento 
     public float rotationSpeed; //Velocidad de rotación 
@@ -70,7 +70,6 @@ public class MovBomb : MonoBehaviour {
             }
         }
         Instantiate(explosion1, transform.position, transform.rotation);
-        Instantiate(explosion2, transform.position, transform.rotation);
 
         Destroy(gameObject);
     }

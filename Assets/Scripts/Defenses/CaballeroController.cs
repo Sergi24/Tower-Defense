@@ -2,23 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaballeroController : MonoBehaviour, HealthInterface {
+public class CaballeroController : TroopGeneralControl, HealthInterface {
 
-    private UnityEngine.AI.NavMeshAgent agent;
-    private Animator animator;
     private AudioSource asource;
-    private GameObject destination;
-    private GameObject[] objectius;
-    public float velocitatMoviment;
-    public int velocitatAtac;
-    public float rangAtac;
-    public int vidaCaballer;
-    public int rotationSpeed;
     private bool caballerMort=false;
-    private int contador = 0;
     private bool attack01 = false;
     private bool canviAtac;
-   
 
     // Use this for initialization
     void Start()
@@ -36,92 +25,77 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
     {
         if (!caballerMort)
         {
-            objectius = GameObject.FindGameObjectsWithTag("Enemy");
+            if (!findClosestTarget("Enemy", maximBusqueda)) destination = GameObject.Find("Player");
+            agent.destination = destination.transform.position;
+            animator.SetBool("Walk", true);
 
-            if (objectius.Length != 0)
+            //Si s'ataca ja
+            if (agent.remainingDistance < rangAtac)
             {
-                animator.SetBool("Walk", true);
-                //Buscar objectiu mes proper
-                float minim = 100f;
-                destination = objectius[0];
-                for (int i = 0; i < objectius.Length; i++)
+                animator.SetBool("Attack", true);
+                agent.speed = 0;
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
+
+                if (canviAtac)
                 {
-                    if ((objectius[i].transform.position - transform.position).magnitude < minim)
+                    if (attack01)
                     {
-                        if (objectius[i].GetComponent<HealthInterface>().getVida() > 0)
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01"))
                         {
-                            minim = (objectius[i].transform.position - transform.position).magnitude;
-                            destination = objectius[i];
-                        }
-                    }
-                }
-                agent.destination = destination.transform.position;
-
-                //Si s'ataca ja
-                if (agent.remainingDistance < rangAtac)
-                {
-                    animator.SetBool("Attack", true);
-                    agent.speed = 0;
-
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
-
-                    if (canviAtac)
-                    {
-                        if (attack01)
-                        {
-                            if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01"))
-                            {
-                                contador = 0;
-                            } else
-                            {
-                                canviAtac = false;
-                            }
+                            contador = 0;
                         }
                         else
                         {
-                            if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
-                            {
-                                contador = 0;
-                            }
-                            else
-                            {
-                                canviAtac = false;
-                            }
+                            canviAtac = false;
                         }
                     }
-                    if (contador > velocitatAtac)
+                    else
                     {
-                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01") && !attack01)
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
                         {
-                            destination.GetComponent<HealthInterface>().restarVida();
-                            asource.Play();
-                            attack01 = true;
-                            canviAtac = true;
+                            contador = 0;
                         }
-                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02") && attack01) {
-                            destination.GetComponent<HealthInterface>().restarVida();
-                            asource.Play();
-                            attack01 = false;
-                            canviAtac = true;
+                        else
+                        {
+                            canviAtac = false;
                         }
-                        contador = 0;
                     }
-                    else contador++;
                 }
-                else //si no s'ataca
+                if (contador > velocitatAtac)
                 {
-                    animator.SetBool("Attack", false);
-                    Invoke("tornarAMoure", 0f);
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01") && !attack01)
+                    {
+                        destination.GetComponent<HealthInterface>().restarVida();
+                        asource.Play();
+                        attack01 = true;
+                        canviAtac = true;
+                    }
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02") && attack01)
+                    {
+                        destination.GetComponent<HealthInterface>().restarVida();
+                        asource.Play();
+                        attack01 = false;
+                        canviAtac = true;
+                    }
+                    contador = 0;
                 }
+                else contador++;
             }
-            else
+            else //si no s'ataca
             {
-                animator.SetBool("Walk", false);
                 animator.SetBool("Attack", false);
-                agent.speed = 0;
+                Invoke("tornarAMoure", 0f);
             }
         }
+        else
+        {
+            animator.SetBool("Walk", false);
+            animator.SetBool("Attack", false);
+            agent.speed = 0;
+        }
     }
+
     void tornarAMoure()
     {
         agent.speed = velocitatMoviment;
@@ -129,8 +103,8 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
 
     public void restarVida()
     {
-        vidaCaballer -= 1;
-        if (vidaCaballer == 0)
+        health -= 1;
+        if (health == 0)
         {
             caballerMort = true;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
@@ -142,7 +116,7 @@ public class CaballeroController : MonoBehaviour, HealthInterface {
 
     public int getVida()
     {
-        return vidaCaballer;
+        return health;
     }
 
 }

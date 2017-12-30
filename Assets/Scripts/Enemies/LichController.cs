@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LichController : EnemyGeneralControl, HealthInterface
+public class LichController : TroopGeneralControl, HealthInterface
 {
     private bool lichMort = false;
-    public int rangAtac;
     public GameObject instantiatorBall;
-    public float rotationSpeed; //Velocidad de rotación 
 
     // Use this for initialization
     void Start()
@@ -26,8 +24,8 @@ public class LichController : EnemyGeneralControl, HealthInterface
     {
         if (!lichMort)
         {
-            findClosestTarget("Caballero", maximBusqueda);
-            if (destination.Equals(GameObject.Find("Player"))) findClosestTarget("Defensa", maximBusqueda);
+            if (!findClosestTarget("Caballero", maximBusqueda))
+                if (!findClosestTarget("Defensa", maximBusqueda)) destination = GameObject.Find("Player"); 
             agent.destination = destination.transform.position;
 
             if (agent.remainingDistance < rangAtac)

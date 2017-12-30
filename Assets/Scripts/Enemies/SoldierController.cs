@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoldierController : EnemyGeneralControl , HealthInterface
+public class SoldierController : TroopGeneralControl, HealthInterface
 {
     private bool soldatMort = false;
     private bool objectiveReached = false;
@@ -14,18 +14,19 @@ public class SoldierController : EnemyGeneralControl , HealthInterface
         agent.speed = velocitatMoviment;
         animator = this.gameObject.GetComponent<Animator>();
         agent.destination = GameObject.Find("Player").transform.position;
-        agent.Move(new Vector3(0f, 0f, 0f));
+        //agent.Move(new Vector3(0f, 0f, 0f));
     }
 
     void Update()
     {
         if (!soldatMort)
         {
-            findClosestTarget("Caballero", maximBusqueda);
+            if (!findClosestTarget("Caballero", maximBusqueda)) destination = GameObject.Find("Player");
             agent.destination = destination.transform.position;
 
-            if (agent.remainingDistance < 4)
+            if (agent.remainingDistance < rangAtac)
             {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(agent.destination - transform.position), Time.deltaTime * rotationSpeed);
                 animator.SetBool("Attack", true);
                 agent.speed = 0;
                 objectiveReached = true;

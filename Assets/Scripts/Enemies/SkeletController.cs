@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletController : EnemyGeneralControl, HealthInterface {
+public class SkeletController : TroopGeneralControl, HealthInterface {
 
-    public int rotationSpeed;
-    public int attackRange;
     public GameObject explosion;
     private bool skeletDie = false;
 
@@ -21,10 +19,10 @@ public class SkeletController : EnemyGeneralControl, HealthInterface {
 
         if (!skeletDie)
         {
-            findClosestTarget("Caballero", maximBusqueda);
+            if (!findClosestTarget("Caballero", maximBusqueda)) destination = GameObject.Find("Player");
             agent.destination = destination.transform.position;
 
-            if (agent.remainingDistance < attackRange)
+            if (agent.remainingDistance < rangAtac)
             {
                 agent.speed = 0;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(agent.destination - transform.position), Time.deltaTime * rotationSpeed);

@@ -69,15 +69,15 @@ public class MovBall : MonoBehaviour
         if (other.gameObject.tag == "Defensa")
         {
             Instantiate(explosion, transform.position, transform.rotation);
+            other.gameObject.GetComponent<HealthInterface>().restarVida();
         }
         if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")
         {
-            stopBola = true;
             Destroy(gameObject);
         }
         if (other.gameObject.tag == "Player")
         {
-            GameObject.Find("Player").GetComponent<CastleHealth>().restarVida();
+            GameObject.Find("Player").GetComponent<HealthInterface>().restarVida();
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
