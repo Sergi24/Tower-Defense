@@ -28,6 +28,10 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
         return vidaCastell;
     }
 
+    public void reiniciarVida() {
+        vidaCastell = 100;
+    }
+
     public void restarVida()
     {
         vidaCastell -= 1;
@@ -55,6 +59,11 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
     public void sumarDiners(int dinersASumar)
     {
         diners += dinersASumar;
+        textDiners.text = diners.ToString();
+    }
+
+    public void setDiners(int valor) {
+        diners = valor;
         textDiners.text = diners.ToString();
     }
 }

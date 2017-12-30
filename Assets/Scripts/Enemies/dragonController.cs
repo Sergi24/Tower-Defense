@@ -201,6 +201,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
             rb.useGravity = true;
             Die();
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(15);
+            notifyDeath();
             Destroy(gameObject, 7f);
         }
     }

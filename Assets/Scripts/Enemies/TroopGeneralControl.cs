@@ -65,5 +65,9 @@ public class TroopGeneralControl : MonoBehaviour {
             contador = 0;
         }
     }
-    
+
+    protected void notifyDeath() {
+        GameObject.Find("InstantiatorsEnemics").GetComponent<WaveManager>().notifyDeath();
+    }
+
 }

@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114178219848054876}
   m_Layer: 0
   m_Name: Slot
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8

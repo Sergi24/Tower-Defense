@@ -63,6 +63,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(1);
             agent.enabled = false;
             animator.SetBool("Death", true);
+            notifyDeath();
             Destroy(gameObject, 1f);
         }
     }
