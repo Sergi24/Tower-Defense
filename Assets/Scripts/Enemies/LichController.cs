@@ -25,7 +25,7 @@ public class LichController : TroopGeneralControl, HealthInterface
     {
         if (!lichMort)
         {
-            if (!findClosestTarget("Player", rangAtac))
+            if (!findClosestTarget("Player", rangAtac) || transform.position.z>-70)
                 if (!findClosestTarget("Caballero", rangAtac))
                     if (!findClosestTarget("Defensa", rangAtac)) destination = GameObject.Find("Player"); 
 

@@ -11,6 +11,14 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
     public Slider barraVida;
     private TMPro.TextMeshProUGUI textVida;
     private TMPro.TextMeshProUGUI textDiners;
+    public GameObject drippingFlames1;
+    public GameObject drippingFlames2;
+    public GameObject drippingFlames3;
+    public GameObject drippingFlames4;
+
+    public GameObject wavePanel;
+    public TMPro.TextMeshProUGUI waveText;
+
 
     void Start()
     {
@@ -23,9 +31,45 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
         textDiners.text = diners.ToString();
     }
 
-    public int getVida()
+    void Update()
+    {
+        if (vidaCastell < 60)
+        {
+            drippingFlames1.SetActive(true);
+        }
+        if (vidaCastell < 45)
+        {
+            drippingFlames2.SetActive(true);
+        }
+        if (vidaCastell < 25)
+        {
+            drippingFlames3.SetActive(true);
+        }
+        if (vidaCastell < 10)
+        {
+            drippingFlames4.SetActive(true);
+        }
+        if (vidaCastell <= 0)
+        {
+       //     partidaPerduda();
+        }
+    }
+
+        public int getVida()
     {
         return vidaCastell;
+    }
+
+    void partidaPerduda()
+    {
+        wavePanel.SetActive(true);
+        waveText.SetText("You lose");
+    //    Invoke("HideWaveText", 1.3f);
+    }
+
+    void HideWaveText()
+    {
+        wavePanel.SetActive(false);
     }
 
     public void reiniciarVida() {

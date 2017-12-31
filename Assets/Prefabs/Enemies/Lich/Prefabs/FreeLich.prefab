@@ -957,8 +957,9 @@ MonoBehaviour:
   maximBusqueda: -1
   velocitatMoviment: 2
   velocitatAtac: 90
-  rangAtac: 15
+  rangAtac: 18
   rotationSpeed: 10
+  damage: 0
   instantiatorBall: {fileID: 1610877735787856}
 --- !u!136 &136712434082083430
 CapsuleCollider:

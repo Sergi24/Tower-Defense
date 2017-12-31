@@ -31,10 +31,10 @@ public class WaveManager : MonoBehaviour {
             if(enemyNumber == 0  &&  currentWave<=maxWaves ) {
                 StartWave(currentWave++);
             }
-            else if (castle.getVida() < 0 ) {
+            if (castle.getVida() <= 0 ) {
                 FinalState("Game Over");
             }
-            else if (enemyNumber <= 0  &&  currentWave==maxWaves+1) {
+            if (enemyNumber <= 0  &&  currentWave==maxWaves+1) {
                 FinalState("You win");
             }
     }

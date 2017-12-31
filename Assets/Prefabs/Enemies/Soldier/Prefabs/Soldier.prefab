@@ -923,7 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a635c4a32ad894aa90bb4bb9440b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 6
   maximBusqueda: 10
   velocitatMoviment: 2
   velocitatAtac: 0

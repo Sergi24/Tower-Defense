@@ -1023,8 +1023,8 @@ MonoBehaviour:
   velocitatAtac: 30
   rangAtac: 3
   rotationSpeed: 5
-  explosion: {fileID: 1152153443168002, guid: 707e07fa3ebc7354abcc727a1cbbb408, type: 2}
   damage: 1
+  explosion: {fileID: 1152153443168002, guid: 707e07fa3ebc7354abcc727a1cbbb408, type: 2}
 --- !u!136 &136235088429031720
 CapsuleCollider:
   m_ObjectHideFlags: 1

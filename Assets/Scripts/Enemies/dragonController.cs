@@ -54,6 +54,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
         dragonDestination = GameObject.Find("ObjectiuDrac");
         agent.SetDestination(dragonDestination.transform.position);
         rb = gameObject.GetComponent<Rigidbody>();
+        rb.mass = 10000f;
         agent.speed = velocitatMoviment;
     }
 
@@ -75,7 +76,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
             {
                 agent.speed = 0;
                 atacant = true;
-             //   transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dragonDestination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dragonDestination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && haTiratFoc)
                 {
@@ -87,7 +88,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
                     FlyForward();
                     haTiratFoc = true;
                     gameObject.GetComponentInChildren<FireInstantiator>().instantiateFire();
-                    Invoke("makeDamage", 2);
+                    Invoke("makeDamage", 1f);
                 }
 
             } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && isFlyForward)
@@ -204,6 +205,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
             dracMort = true;
             gameObject.GetComponent<BoxCollider>().enabled = false;
             agent.enabled = false;
+            rb.mass = 0.5f;
             rb.useGravity = true;
             Die();
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(15);

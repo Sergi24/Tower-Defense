@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovBomb : MonoBehaviour {
 
+    
     private GameObject[] objectius;
     private GameObject destination = null;
     private bool stopBomb = false;
@@ -21,7 +22,7 @@ public class MovBomb : MonoBehaviour {
         objectius = GameObject.FindGameObjectsWithTag("Enemy");
 
         //buscar objectiu mes proper
-        float minim = 100f;
+        float minim = 10000f;
         for (int i = 0; i < objectius.Length; i++)
         {
             if ((transform.position - objectius[i].transform.position).magnitude < minim)
