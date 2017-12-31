@@ -19,6 +19,7 @@ public class TroopGeneralControl : MonoBehaviour {
     public int velocitatAtac;
     public int rangAtac;
     public float rotationSpeed;
+    public int damage;
 
     protected bool findClosestTarget(string tag, float maximBusqueda)
     {

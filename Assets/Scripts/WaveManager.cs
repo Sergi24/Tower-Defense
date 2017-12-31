@@ -5,9 +5,11 @@ public class WaveManager : MonoBehaviour {
     public GameObject skeleton;
     public GameObject lich;
     public GameObject dragon;
+    public GameObject giantSoldier;
 
     public GameObject spawnLocation;
     public CastleHealth castle;
+    public GameObject location2;
 
     public GameObject wavePanel;
     public TMPro.TextMeshProUGUI waveText;
@@ -16,6 +18,7 @@ public class WaveManager : MonoBehaviour {
     private int currentWave;
     private int enemyNumber;
     private int maxWaves;
+    private int changeLocation = 0;
 
     void Start () {
         castle = GameObject.Find("Player").GetComponent<CastleHealth>();
@@ -46,11 +49,27 @@ public class WaveManager : MonoBehaviour {
         enemyNumber += number;
         yield return new WaitForSeconds(delay);
         for (int i=0; i< number; i++) {
-            if (enemy == dragon) {
+            if (enemy == dragon)
+            {
                 Instantiate(enemy, location.transform.position + new Vector3(0, 5, 0), location.transform.rotation);
+            } else if (enemy == giantSoldier)
+            {
+                Instantiate(enemy, location.transform.position, location.transform.rotation);
             }
-            else Instantiate(enemy, location.transform.position, location.transform.rotation);
-            yield return new WaitForSeconds(1);
+            else
+            {
+                if (changeLocation>1)
+                {
+                    Instantiate(enemy, location2.transform.position, location.transform.rotation);
+                    changeLocation=0;
+                }
+                else
+                {
+                    Instantiate(enemy, location.transform.position, location.transform.rotation);
+                    changeLocation++;
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -109,13 +128,13 @@ public class WaveManager : MonoBehaviour {
     }
 
     void FirstWave() {
-        StartCoroutine(SpawnEnemy(0, soldier, 10, spawnLocation));
-        StartCoroutine(SpawnEnemy(5, skeleton, 10, spawnLocation));
+        StartCoroutine(SpawnEnemy(0, skeleton, 10, spawnLocation));
+        StartCoroutine(SpawnEnemy(5, soldier, 10, spawnLocation));
         StartCoroutine(SpawnEnemy(10, soldier, 20, spawnLocation));
 
-        StartCoroutine(SpawnEnemy(30, skeleton, 10, spawnLocation));
-        StartCoroutine(SpawnEnemy(35, skeleton, 5, spawnLocation));
-        StartCoroutine(SpawnEnemy(35, soldier, 7, spawnLocation));
+        StartCoroutine(SpawnEnemy(50, skeleton, 10, spawnLocation));
+        StartCoroutine(SpawnEnemy(55, skeleton, 5, spawnLocation));
+        StartCoroutine(SpawnEnemy(55, giantSoldier, 1, spawnLocation));
     }
 
     void SecondWave() {

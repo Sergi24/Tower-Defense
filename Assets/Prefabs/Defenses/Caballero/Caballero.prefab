@@ -907,10 +907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f3b2828cf686340b1b2a3f64d9b311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
   maximBusqueda: -1
   velocitatMoviment: 2
-  velocitatAtac: 35
+  velocitatAtac: -1
   rangAtac: 5
   rotationSpeed: 4
   damage: 3

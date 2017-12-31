@@ -114,7 +114,7 @@ MonoBehaviour:
   destroyTime: 5
   areaDany: 4
   explosion1: {fileID: 1779881074926358, guid: 7fdda3c6252719d43af5893ff316daa6, type: 2}
-  damage: 1
+  damage: 2
   moveSpeed: 10
   rotationSpeed: 10
 --- !u!135 &135467965920506048

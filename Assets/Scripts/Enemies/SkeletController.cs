@@ -6,7 +6,6 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
 
     public GameObject explosion;
     private bool skeletDie = false;
-    public int damage;
     bool isAttacking = false;
 
     // Use this for initialization

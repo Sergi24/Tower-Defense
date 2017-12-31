@@ -8,7 +8,6 @@ public class MovBall : TroopGeneralControl
     public GameObject explosion;
     private bool stopBola = false;
     public float destroyTime;
-    public int damage;
     private float velocitat;
 
     public int tempsEspera;
@@ -16,7 +15,8 @@ public class MovBall : TroopGeneralControl
     // Use this for initialization
     void Start()
     {
-        if (!findClosestTarget("Caballero", rangAtac))
+        if (!findClosestTarget("Player", rangAtac))
+          if (!findClosestTarget("Caballero", rangAtac))
             if (!findClosestTarget("Defensa", rangAtac)) destination = GameObject.Find("Player");
         velocitat = 0;
         Invoke("fixarvelocitat", tempsEspera);

@@ -6,6 +6,10 @@ public class SoldierController : TroopGeneralControl, HealthInterface
 {
     private bool soldatMort = false;
     private bool objectiveReached = false;
+    private bool isAttack01 = true;
+
+    private int attack01 = Animator.StringToHash("Attack01");
+    private int attack02 = Animator.StringToHash("Attack02");
 
     // Use this for initialization
     void Start()
@@ -30,10 +34,24 @@ public class SoldierController : TroopGeneralControl, HealthInterface
                 animator.SetBool("Attack", true);
                 agent.speed = 0;
                 objectiveReached = true;
+
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack01") && !isAttack01)
+                {
+                    Invoke("atacar", 0.5f);
+                    animator.SetTrigger(attack02);
+                    isAttack01 = true;
+                }
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack02") && isAttack01)
+                {
+                    Invoke("atacar", 0.3f);
+                    animator.SetTrigger(attack01);
+                    isAttack01 = false;
+                }
             }
             else
             {
                 animator.SetBool("Attack", false);
+                isAttack01 = false;
                 if (objectiveReached)
                 {
                     Invoke("tornarAMoure", 0.5f);
@@ -56,6 +74,11 @@ public class SoldierController : TroopGeneralControl, HealthInterface
     {
         agent.speed = velocitatMoviment;
         animator.SetBool("Run", true);
+    }
+
+    void atacar()
+    {
+        destination.GetComponent<HealthInterface>().restarVida(damage);
     }
 
     void parar()

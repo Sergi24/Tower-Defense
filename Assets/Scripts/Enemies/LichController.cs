@@ -18,17 +18,18 @@ public class LichController : TroopGeneralControl, HealthInterface
         animator.SetBool("Death", false);
         animator.SetBool("Hit", false);
         // agent.Move(new Vector3(0f, 0f, 0f));
+        agent.destination = GameObject.Find("Player").transform.position;
     }
 
     void Update()
     {
         if (!lichMort)
         {
-            if (!findClosestTarget("Caballero", maximBusqueda))
-                if (!findClosestTarget("Defensa", maximBusqueda)) destination = GameObject.Find("Player"); 
-            agent.destination = destination.transform.position;
+            if (!findClosestTarget("Player", rangAtac))
+                if (!findClosestTarget("Caballero", rangAtac))
+                    if (!findClosestTarget("Defensa", rangAtac)) destination = GameObject.Find("Player"); 
 
-            if (agent.remainingDistance < rangAtac)
+            if ((destination.transform.position-transform.position).magnitude < rangAtac)
             {
                 animator.SetBool("Attack", true);
                 animator.SetBool("Hit", false);
@@ -77,7 +78,6 @@ public class LichController : TroopGeneralControl, HealthInterface
     {
         animator.SetBool("Hit", true);
         agent.speed = 0;
-        Invoke("tornarAMoure", 2);
         health -= vidaARestar;
         if (health <= 0&&!lichMort)
         {

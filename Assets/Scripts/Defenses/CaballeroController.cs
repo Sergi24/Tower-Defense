@@ -8,7 +8,6 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
     private bool caballerMort=false;
     private bool isAttack01 = false;
     private bool canviAtac;
-    public int damage;
 
     private int attack01 = Animator.StringToHash("Attack01");
     private int attack02 = Animator.StringToHash("Attack02");
@@ -66,6 +65,7 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
                 else //si no s'ataca
                 {
                     animator.SetBool("Attack", false);
+                    isAttack01 = false;
                     tornarAMoure();
                 }
             }

@@ -181,4 +181,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abc91bd5c88a614bb31b11a7b5416aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaTorre: 6
+  vidaTorre: 8
