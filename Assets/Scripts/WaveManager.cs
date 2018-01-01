@@ -215,11 +215,38 @@ public class WaveManager : MonoBehaviour {
 
     void FourthWave()
     {
-        StartCoroutine(SpawnEnemy1(0, dragon, 1, false));
-        StartCoroutine(SpawnEnemy1(0, skeleton, 5, false));
-        StartCoroutine(SpawnEnemy1(20, lich, 4, false));
-        StartCoroutine(SpawnEnemy1(20, soldier, 5, false));
-        StartCoroutine(SpawnEnemy1(30, skeleton, 15, false));
+        StartCoroutine(SpawnEnemy1(0, skeleton, 10, false));
+        StartCoroutine(SpawnEnemy1(0, skeleton, 10, false));
+        StartCoroutine(SpawnEnemy1(5, giantSoldier, 2, true));
+        StartCoroutine(SpawnEnemy1(30, soldier, 10, true));
+        StartCoroutine(SpawnEnemy1(10, soldier, 3, true));
+        StartCoroutine(SpawnEnemy1(0, dragon, 1, true));
+        StartCoroutine(SpawnEnemy1(3, lich, 4, true));
+        StartCoroutine(SpawnEnemy1(40, soldier, 12, false));
+        StartCoroutine(SpawnEnemy1(5, skeleton, 6, false));
+        StartCoroutine(SpawnEnemy1(30, soldier, 12, false));
+        StartCoroutine(SpawnEnemy1(20, dragon, 1, true));
+        StartCoroutine(SpawnEnemy1(0, giantSoldier, 2, true));
+        StartCoroutine(SpawnEnemy1(2, skeleton, 10, false));
+        StartCoroutine(SpawnEnemy1(0, skeleton, 10, false));
+        StartCoroutine(SpawnEnemy1(4, skeleton, 40, false));
+        StartCoroutine(SpawnEnemy1(4, lich, 40, false));
+
+        StartCoroutine(SpawnEnemy2(5, skeleton, 15, true));
+        StartCoroutine(SpawnEnemy2(30, soldier, 8, true));
+        StartCoroutine(SpawnEnemy2(5, skeleton, 15, true));
+        StartCoroutine(SpawnEnemy2(5, soldier, 10, true));
+        StartCoroutine(SpawnEnemy2(0, soldier, 10, true));
+        StartCoroutine(SpawnEnemy2(0, soldier, 10, true));
+        StartCoroutine(SpawnEnemy2(15, lich, 4, true));
+        StartCoroutine(SpawnEnemy1(30, giantSoldier, 1, true));
+        StartCoroutine(SpawnEnemy2(10, skeleton, 15, true));
+        StartCoroutine(SpawnEnemy2(15, skeleton, 40, false));
+        StartCoroutine(SpawnEnemy2(5, skeleton, 40, false));
+        StartCoroutine(SpawnEnemy2(15, skeleton, 40, false));
+        StartCoroutine(SpawnEnemy2(20, dragon, 2, true));
+        StartCoroutine(SpawnEnemy2(40, giantSoldier, 2, true));
+        StartCoroutine(SpawnEnemy2(3, lich, 10, true));
     }
 
 }
