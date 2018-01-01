@@ -12,6 +12,7 @@ public class TroopGeneralControl : MonoBehaviour {
     protected int contador = 0;
     protected UnityEngine.AI.NavMeshAgent agent;
     protected Animator animator;
+    protected float vidaARestarDeBarra;
     
     public int health;
     public float maximBusqueda;
@@ -21,6 +22,19 @@ public class TroopGeneralControl : MonoBehaviour {
     public float rotationSpeed;
     public int damage;
     public int dinersASumar;
+    public GameObject barraVida;
+
+    protected void assignarVidaARestar()
+    {
+        barraVida.GetComponent<MeshRenderer>().enabled = false;
+        vidaARestarDeBarra = barraVida.transform.localScale.y/health;
+    }
+
+    protected void restarVidaBarra(int vidaARestar)
+    {
+        if (health>0) barraVida.GetComponent<MeshRenderer>().enabled = true;
+        barraVida.transform.localScale = new Vector3(barraVida.transform.localScale.x, barraVida.transform.localScale.y - (vidaARestarDeBarra * vidaARestar), barraVida.transform.localScale.z);
+    } 
 
     protected bool findClosestTarget(string tag, float maximBusqueda)
     {

@@ -112,4 +112,9 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
         diners = valor;
         textDiners.text = diners.ToString();
     }
+
+    public int getDiners()
+    {
+        return diners;
+    }
 }

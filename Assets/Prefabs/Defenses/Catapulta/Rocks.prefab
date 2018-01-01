@@ -340,8 +340,8 @@ MonoBehaviour:
   destroyTime: 5
   areaDany: 3
   explosion1: {fileID: 1035191905428976, guid: c22f1eebe1b44e24dbbfcc3bc709f1a5, type: 2}
-  damage: 2
-  moveSpeed: 0.45
+  damage: 1
+  moveSpeed: 0.47
 --- !u!114 &114618780705258192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,8 +360,8 @@ MonoBehaviour:
   destroyTime: 5
   areaDany: 3
   explosion1: {fileID: 1035191905428976, guid: c22f1eebe1b44e24dbbfcc3bc709f1a5, type: 2}
-  damage: 2
-  moveSpeed: 0.55
+  damage: 1
+  moveSpeed: 0.53
 --- !u!114 &114838567835055102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,7 +380,7 @@ MonoBehaviour:
   destroyTime: 5
   areaDany: 3
   explosion1: {fileID: 1035191905428976, guid: c22f1eebe1b44e24dbbfcc3bc709f1a5, type: 2}
-  damage: 2
+  damage: 1
   moveSpeed: 0.5
 --- !u!135 &135498230882852886
 SphereCollider:

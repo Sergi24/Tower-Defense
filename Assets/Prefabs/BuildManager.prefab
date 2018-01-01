@@ -55,3 +55,5 @@ MonoBehaviour:
     type: 2}
   bombTowerPrefab: {fileID: 1675937372395534, guid: ce7be379bdc86d940ae7fe3cfe9eb4c5,
     type: 2}
+  catapultPrefab: {fileID: 1831670143036348, guid: f5e00ddd44a6f3b459cb2358243bab3c,
+    type: 2}

@@ -56,6 +56,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
         rb = gameObject.GetComponent<Rigidbody>();
         rb.mass = 10000f;
         agent.speed = velocitatMoviment;
+        assignarVidaARestar();
     }
 
     private void Update()
@@ -200,6 +201,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
     public void restarVida(int vidaARestar)
     {
         health -= vidaARestar;
+        restarVidaBarra(vidaARestar);
         if (health <= 0&&!dracMort)
         {
             dracMort = true;

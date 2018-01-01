@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 65031939648625658}
   m_Layer: 0
   m_Name: Catapulta
-  m_TagString: Untagged
+  m_TagString: Defensa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,4 +431,4 @@ MonoBehaviour:
   rangoTorreMaximo: 80
   rotationSpeed: 0
   rock: {fileID: 1068326569113180, guid: 849482c1aa931b9408a4bfe1f3b013ab, type: 2}
-  velocidadDisparo: 10
+  velocidadDisparo: 12

@@ -19,6 +19,7 @@ public class LichController : TroopGeneralControl, HealthInterface
         animator.SetBool("Hit", false);
         // agent.Move(new Vector3(0f, 0f, 0f));
         agent.destination = GameObject.Find("Player").transform.position;
+        assignarVidaARestar();
     }
 
     void Update()
@@ -81,6 +82,7 @@ public class LichController : TroopGeneralControl, HealthInterface
         health -= vidaARestar;
         if (health <= 0&&!lichMort)
         {
+            barraVida.GetComponent<MeshRenderer>().enabled = false;
             lichMort = true;
             animator.SetBool("Death", true);
             agent.speed = 0;
@@ -89,7 +91,10 @@ public class LichController : TroopGeneralControl, HealthInterface
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(dinersASumar);
             notifyDeath();
             Destroy(gameObject, 3);
-        } 
+        } else
+        {
+            restarVidaBarra(vidaARestar);
+        }
     }
 
     public int getVida()

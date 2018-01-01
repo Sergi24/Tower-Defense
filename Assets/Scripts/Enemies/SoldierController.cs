@@ -24,6 +24,7 @@ public class SoldierController : TroopGeneralControl, HealthInterface
         animator = this.gameObject.GetComponent<Animator>();
         agent.destination = GameObject.Find("Player").transform.position;
         asource = gameObject.GetComponent<AudioSource>();
+        assignarVidaARestar();
     }
 
     void Update()
@@ -42,13 +43,13 @@ public class SoldierController : TroopGeneralControl, HealthInterface
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack01") && !isAttack01)
                 {
-                    Invoke("atacar", 0.2f);
+                    Invoke("atacar", 0.1f);
                     animator.SetTrigger(attack02);
                     isAttack01 = true;
                 }
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack02") && isAttack01)
                 {
-                    Invoke("atacar", 0.2f);
+                    Invoke("atacar", 0.1f);
                     animator.SetTrigger(attack01);
                     isAttack01 = false;
                 }
@@ -118,8 +119,11 @@ public class SoldierController : TroopGeneralControl, HealthInterface
     public void restarVida(int vidaARestar)
     {
         health -= vidaARestar;
+        restarVidaBarra(vidaARestar);
+
         if (health <= 0&&!soldatMort)
         {
+            barraVida.GetComponent<MeshRenderer>().enabled = false;
             soldatMort = true;
             animator.SetBool("Death", true);
             agent.speed = 0;

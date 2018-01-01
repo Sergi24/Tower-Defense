@@ -24,6 +24,7 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
         animator.SetBool("Attack", false);
         animator.SetBool("Death", false);
         animator.SetBool("Walk", false);
+        assignarVidaARestar();
     }
 
     void Update()
@@ -107,6 +108,7 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
     public void restarVida(int vidaARestar)
     {
         health -= vidaARestar;
+        restarVidaBarra(vidaARestar);
         if (health <= 0)
         {
             caballerMort = true;
