@@ -86,7 +86,7 @@ public class LichController : TroopGeneralControl, HealthInterface
             agent.speed = 0;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
-            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(3);
+            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(dinersASumar);
             notifyDeath();
             Destroy(gameObject, 3);
         } 

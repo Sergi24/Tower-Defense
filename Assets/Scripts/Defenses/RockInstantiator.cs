@@ -10,7 +10,7 @@ public class RockInstantiator : TorreBomba {
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("crearRoca", velocidadDisparo, velocidadDisparo);
+        InvokeRepeating("crearRoca", 2, velocidadDisparo);
     }
 
     void crearRoca()

@@ -55,7 +55,7 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
         }
     }
 
-        public int getVida()
+    public int getVida()
     {
         return vidaCastell;
     }
@@ -78,13 +78,11 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
 
     public void restarVida(int vidaARestar)
     {
-
+        vidaCastell -= vidaARestar;
         if (vidaCastell - vidaARestar > 0)
         {
-            vidaCastell -= vidaARestar;
             textVida.text = vidaCastell.ToString();
             barraVida.value = vidaCastell;
-            //  Destroy(gameObject);
         } else
         {
             //PERDUT

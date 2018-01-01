@@ -42,7 +42,8 @@ public class Builder : MonoBehaviour {
             if (castleHealth.restarDiners(buildManager.GetDefensePrice()))
             {
                 GameObject defenseToBuild = BuildManager.instance.GetDefenseToBuild();
-                defense = (GameObject)Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
+                defense = 
+                    Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
                 rend.material.color = hoverColor;
                 apuntant = false;
             }

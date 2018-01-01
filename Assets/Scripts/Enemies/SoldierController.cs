@@ -11,6 +11,11 @@ public class SoldierController : TroopGeneralControl, HealthInterface
     private int attack01 = Animator.StringToHash("Attack01");
     private int attack02 = Animator.StringToHash("Attack02");
 
+    private AudioSource asource;
+
+    public GameObject giantSoldier;
+    public int areaDany;
+
     // Use this for initialization
     void Start()
     {
@@ -18,7 +23,7 @@ public class SoldierController : TroopGeneralControl, HealthInterface
         agent.speed = velocitatMoviment;
         animator = this.gameObject.GetComponent<Animator>();
         agent.destination = GameObject.Find("Player").transform.position;
-        //agent.Move(new Vector3(0f, 0f, 0f));
+        asource = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -37,13 +42,13 @@ public class SoldierController : TroopGeneralControl, HealthInterface
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack01") && !isAttack01)
                 {
-                    Invoke("atacar", 0.5f);
+                    Invoke("atacar", 0.2f);
                     animator.SetTrigger(attack02);
                     isAttack01 = true;
                 }
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack02") && isAttack01)
                 {
-                    Invoke("atacar", 0.3f);
+                    Invoke("atacar", 0.2f);
                     animator.SetTrigger(attack01);
                     isAttack01 = false;
                 }
@@ -78,7 +83,30 @@ public class SoldierController : TroopGeneralControl, HealthInterface
 
     void atacar()
     {
-        destination.GetComponent<HealthInterface>().restarVida(damage);
+        if (gameObject == giantSoldier)
+        {
+            if (destination.tag == "Caballero")
+            {
+                GameObject[] objectius = GameObject.FindGameObjectsWithTag("Caballero");
+                for (int i = 0; i < objectius.Length; i++)
+                {
+                    if ((objectius[i].transform.position - destination.transform.position).magnitude < areaDany)
+                    {
+                        objectius[i].GetComponent<HealthInterface>().restarVida(damage);
+                    }
+                }
+            }
+            else
+            {
+                GameObject.Find("Player").GetComponent<HealthInterface>().restarVida(damage);
+            }
+        }
+        else
+        {
+            destination.GetComponent<HealthInterface>().restarVida(damage);
+        }
+
+        asource.Play();
     }
 
     void parar()
@@ -97,7 +125,7 @@ public class SoldierController : TroopGeneralControl, HealthInterface
             agent.speed = 0;
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
-            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(2);
+            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(dinersASumar);
             notifyDeath();
             Destroy(gameObject, 3);
         }

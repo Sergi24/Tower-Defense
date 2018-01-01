@@ -335,7 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaTorre: 0
   rangoTorreMinimo: 40
-  rangoTorreMaximo: 90
+  rangoTorreMaximo: 80
   rotationSpeed: 0
   destroyTime: 5
   areaDany: 3
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaTorre: 0
   rangoTorreMinimo: 40
-  rangoTorreMaximo: 90
+  rangoTorreMaximo: 80
   rotationSpeed: 0
   destroyTime: 5
   areaDany: 3
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaTorre: 0
   rangoTorreMinimo: 40
-  rangoTorreMaximo: 90
+  rangoTorreMaximo: 80
   rotationSpeed: 0
   destroyTime: 5
   areaDany: 3

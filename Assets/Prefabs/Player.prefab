@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290622014874386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.67, y: 2.53, z: -84.92}
+  m_LocalPosition: {x: 62.39, y: 2.11, z: -84.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,3 +108,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaCastell: 100
+  diners: 110
+  barraVida: {fileID: 0}
+  drippingFlames1: {fileID: 0}
+  drippingFlames2: {fileID: 0}
+  drippingFlames3: {fileID: 0}
+  drippingFlames4: {fileID: 0}
+  wavePanel: {fileID: 0}
+  waveText: {fileID: 0}

@@ -12,14 +12,15 @@ public class TroopGeneralControl : MonoBehaviour {
     protected int contador = 0;
     protected UnityEngine.AI.NavMeshAgent agent;
     protected Animator animator;
+    
     public int health;
-
     public float maximBusqueda;
     public float velocitatMoviment;
     public int velocitatAtac;
     public int rangAtac;
     public float rotationSpeed;
     public int damage;
+    public int dinersASumar;
 
     protected bool findClosestTarget(string tag, float maximBusqueda)
     {

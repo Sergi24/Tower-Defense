@@ -2736,6 +2736,7 @@ MonoBehaviour:
   rangAtac: 10
   rotationSpeed: 5
   damage: 5
+  dinersASumar: 20
 --- !u!114 &114805901057148084
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,5 +9,8 @@ public class CaballeroInstantiator : MonoBehaviour {
     public void crearCaballero()
     {
         Instantiate(caballero, transform.position, transform.rotation);
+        Instantiate(caballero, transform.position, transform.rotation);
+        Instantiate(caballero, transform.position, transform.rotation);
+        Instantiate(caballero, transform.position, transform.rotation);
     }
 }

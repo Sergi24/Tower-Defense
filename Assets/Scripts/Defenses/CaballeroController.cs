@@ -12,6 +12,9 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
     private int attack01 = Animator.StringToHash("Attack01");
     private int attack02 = Animator.StringToHash("Attack02");
 
+    public int areaDany;
+    public GameObject giantSoldier;
+
     // Use this for initialization
     void Start()
     {
@@ -21,7 +24,6 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
         animator.SetBool("Attack", false);
         animator.SetBool("Death", false);
         animator.SetBool("Walk", false);
-        //agent.Move();
     }
 
     void Update()
@@ -36,36 +38,21 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
             else
             {
                 animator.SetBool("Walk", false);
+                animator.SetBool("Attack", false);
                 destination = null;
+                agent.speed = 0;
             }
 
             if (destination != null)
             {
                 //Si s'ataca ja
-                if (agent.remainingDistance < rangAtac)
-                {
-                    animator.SetBool("Attack", true);
-                    agent.speed = 0;
-
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
-
-                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack01") && !isAttack01)
-                    {
-                        Invoke("atacar", 0.5f);
-                        animator.SetTrigger(attack02);
-                        isAttack01 = true;
-                    }
-                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack02") && isAttack01)
-                    {
-                        Invoke("atacar", 0.3f);
-                        animator.SetTrigger(attack01);
-                        isAttack01 = false;
-                    }
-                }
+                if ((destination.transform.position-transform.position).magnitude < rangAtac) estatAtacar();
+                else if (destination==giantSoldier && (destination.transform.position - transform.position).magnitude < rangAtac+3) estatAtacar(); 
                 else //si no s'ataca
                 {
                     animator.SetBool("Attack", false);
                     isAttack01 = false;
+                    animator.SetTrigger(attack01);
                     tornarAMoure();
                 }
             }
@@ -83,9 +70,37 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
         agent.speed = velocitatMoviment;
     }
 
+    void estatAtacar()
+    {
+        animator.SetBool("Attack", true);
+        agent.speed = 0;
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack01") && !isAttack01)
+        {
+            Invoke("atacar", 0.5f);
+            animator.SetTrigger(attack02);
+            isAttack01 = true;
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack02") && isAttack01)
+        {
+            Invoke("atacar", 0.3f);
+            animator.SetTrigger(attack01);
+            isAttack01 = false;
+        }
+    }
+
     void atacar()
     {
-        destination.GetComponent<HealthInterface>().restarVida(damage);
+        GameObject[] objectius = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < objectius.Length; i++)
+        {
+            if ((objectius[i].transform.position - destination.transform.position).magnitude < areaDany)
+            {
+                objectius[i].GetComponent<HealthInterface>().restarVida(damage);
+            }
+        }
         asource.Play();
     }
 

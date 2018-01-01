@@ -62,7 +62,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
         {
             skeletDie = true;
             Instantiate(explosion, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), explosion.transform.rotation);
-            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(1);
+            GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(dinersASumar);
             agent.enabled = false;
             animator.SetBool("Death", true);
             notifyDeath();

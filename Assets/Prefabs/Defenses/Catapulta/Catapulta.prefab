@@ -428,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaTorre: 0
   rangoTorreMinimo: 40
-  rangoTorreMaximo: 90
+  rangoTorreMaximo: 80
   rotationSpeed: 0
   rock: {fileID: 1068326569113180, guid: 849482c1aa931b9408a4bfe1f3b013ab, type: 2}
-  velocidadDisparo: 8
+  velocidadDisparo: 10
