@@ -16,6 +16,8 @@ public class MovArrow : MonoBehaviour
     public float moveSpeed; //velocidad de movimiento 
     public float rotationSpeed; //Velocidad de rotación 
 
+    private AudioSource asource;
+
     // Use this for initialization
     void Start()
     {
@@ -30,6 +32,7 @@ public class MovArrow : MonoBehaviour
         {
             destination = destinationDrac;
         } else destination = destinationEnemic;
+        asource = gameObject.GetComponent<AudioSource>();
 
         Invoke("DestruirFletxa", destroyTime);
     }
@@ -82,11 +85,12 @@ public class MovArrow : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Dragon")
         {
             collision.gameObject.GetComponent<HealthInterface>().restarVida(damage);
+            asource.Play();
         }
         stopArrow = true;
         gameObject.GetComponent<BoxCollider>().enabled = false;
         rb.useGravity = true;
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject, 0.5f);
     }
 
 }
