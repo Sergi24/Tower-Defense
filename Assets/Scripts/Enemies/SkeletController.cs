@@ -61,6 +61,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
         if (health <= 0&&!skeletDie)
         {
             skeletDie = true;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
             Instantiate(explosion, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), explosion.transform.rotation);
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(dinersASumar);
             agent.enabled = false;

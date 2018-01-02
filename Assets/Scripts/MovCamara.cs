@@ -18,6 +18,11 @@ public class MovCamara : MonoBehaviour {
         else if (Input.GetKey(KeyCode.S) && transform.position.z > limitEndarrera) transform.Translate(Vector3.back * Time.deltaTime * velocitatCamara);
         if (Input.GetKey(KeyCode.A) && transform.position.x > limitEsquerra) transform.Translate(Vector3.left * Time.deltaTime * velocitatCamara);
         else if (Input.GetKey(KeyCode.D) && transform.position.x < limitDreta) transform.Translate(Vector3.right * Time.deltaTime * velocitatCamara);
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && transform.position.y > limitBaix) // forward
+            transform.position = new Vector3 (transform.position.x, transform.position.y - velocitatCamara*.08f, transform.position.z);
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && transform.position.y < limitDalt) // backward
+            transform.position = new Vector3(transform.position.x, transform.position.y + velocitatCamara*.08f, transform.position.z);
         if (Input.GetKey(KeyCode.Q) && transform.position.y > limitBaix) transform.Translate(Vector3.down * Time.deltaTime * velocitatCamara);
         else if (Input.GetKey(KeyCode.E) && transform.position.y < limitDalt) transform.Translate(Vector3.up * Time.deltaTime * velocitatCamara);
     }

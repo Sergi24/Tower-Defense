@@ -26,7 +26,8 @@ public class dragonController : TroopGeneralControl, HealthInterface
     private Rigidbody rb;
     private bool haTiratFoc = true;
     private bool isFlyForward = true;
-    private bool atacant = false;
+    private bool atacantTorre = false;
+    private AudioSource fire;
 
     void Awake()
     {
@@ -51,44 +52,40 @@ public class dragonController : TroopGeneralControl, HealthInterface
     }
 
     private void Start() {
-        dragonDestination = GameObject.Find("ObjectiuDrac");
-        agent.SetDestination(dragonDestination.transform.position);
+        destination = GameObject.Find("ObjectiuDrac");
+        agent.SetDestination(destination.transform.position);
         rb = gameObject.GetComponent<Rigidbody>();
         rb.mass = 10000f;
         agent.speed = velocitatMoviment;
         assignarVidaARestar();
+
+        fire = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (!dracMort)
         {
-            
-          //  AudioSource asource = gameObject.GetComponent<AudioSource>();
-            /*   if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide"))
-               {
-                   if (asource.clip.name == "Roar")
-                   {
-                       asource.enabled = false;
-                   }
-               }*/
+            if (!findClosestTarget("Defensa", rangAtac) || atacantTorre) destination = GameObject.Find("ObjectiuDrac");
 
-            if ((dragonDestination.transform.position-transform.position).magnitude < rangAtac || atacant)
+            if ((destination.transform.position-transform.position).magnitude < rangAtac || atacantTorre)
             {
                 agent.speed = 0;
-                atacant = true;
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dragonDestination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
+                if (destination.tag == "ObjectiuDrac") atacantTorre = true;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && haTiratFoc)
                 {
                     FlyGlide();
                     haTiratFoc = false;
+                    fire.Stop();
                 }
                 else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !haTiratFoc)
                 {
                     FlyForward();
                     haTiratFoc = true;
                     gameObject.GetComponentInChildren<FireInstantiator>().instantiateFire();
+                    fire.Play();
                     Invoke("makeDamage", 1f);
                 }
 
@@ -97,6 +94,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
                 FlyGlide();
                 agent.speed = velocitatMoviment;
                 isFlyForward = false;
+                fire.Stop();
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !isFlyForward)
             {
@@ -115,7 +113,8 @@ public class dragonController : TroopGeneralControl, HealthInterface
 
     public void makeDamage()
     {
-        GameObject.Find("Player").GetComponent<HealthInterface>().restarVida(damage);
+        if (destination.tag=="ObjectiuDrac") GameObject.Find("Player").GetComponent<HealthInterface>().restarVida(damage);
+        else destination.GetComponent<HealthInterface>().restarVida(damage);
     }
 
     public void Scream ()

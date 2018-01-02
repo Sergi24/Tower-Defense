@@ -571,7 +571,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1149463607937254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.607697, y: 1.0115738, z: -86.62481}
+  m_LocalPosition: {x: 52.277252, y: 1.0115738, z: -85.16465}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4554032053053694}
@@ -810,7 +810,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1845247831485106}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.035, y: 0.915, z: 0.083}
+  m_LocalPosition: {x: 0.058, y: 0.915, z: 0.083}
   m_LocalScale: {x: 0.016666675, y: 0.2, z: 0.01666667}
   m_Children: []
   m_Father: {fileID: 4364679654177430}
@@ -844,7 +844,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 12a0b2fe5d732f14c9c64dd48e35d327, type: 2}
+  - {fileID: 2100000, guid: 1894009f3f3f4fd449d1d08739eb7036, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -882,7 +882,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: db1dc25927207ea40b147601727130b5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.032
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -979,7 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f3b2828cf686340b1b2a3f64d9b311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 35
   maximBusqueda: -1
   velocitatMoviment: 2
   velocitatAtac: -1

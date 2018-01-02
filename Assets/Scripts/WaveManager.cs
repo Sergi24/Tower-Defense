@@ -101,17 +101,17 @@ public class WaveManager : MonoBehaviour {
                 break;
             case 2:
                 castle.sumarDiners(250);
-                waveText2.SetText("Extra gold: " + 250);
+                waveText2.SetText("Extra gold: " + 150);
                 SecondWave();
                 break;
             case 3:
                 castle.sumarDiners(300);
-                waveText2.SetText("Extra gold: " + 300);
+                waveText2.SetText("Extra gold: " + 200);
                 ThirdWave();
                 break;
             case 4:
                 castle.sumarDiners(350);
-                waveText2.SetText("Extra gold: " + 350);
+                waveText2.SetText("Extra gold: " + 250);
                 FourthWave();
                 break;
         }
