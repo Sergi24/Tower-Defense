@@ -23,8 +23,6 @@ public class BombInstantiator : MonoBehaviour {
             Invoke("prepararBomba", velocidadDisparo);
             preparantBomba = true;
         }
-
-
     }
 
     void prepararBomba()

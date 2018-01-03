@@ -24,7 +24,7 @@ public class Shop : MonoBehaviour {
 
     pressedColorBlock = normalColorBlock;
     pressedColorBlock.normalColor = Color.white;
-    pressedColorBlock.pressedColor = Color.red;
+    pressedColorBlock.pressedColor = Color.gray;
 
     castleHealth = GameObject.Find("Player").GetComponent<CastleHealth>();
 
@@ -48,32 +48,43 @@ public class Shop : MonoBehaviour {
 
     public void PurchaseArrowTower()
     {
-        buildManager.SetDefenseToBuild(buildManager.arrowTowerPrefab, 20);
-        SelectButton("BuildArcherTower");
+        if (castleHealth.getDiners() >= 20)
+        {
+            buildManager.SetDefenseToBuild(buildManager.arrowTowerPrefab, 20);
+            SelectButton("BuildArcherTower");
+        }
     }
 
     public void PurchaseBombTower()
     {
-        buildManager.SetDefenseToBuild(buildManager.bombTowerPrefab, 50);
-        SelectButton("BuildBombTower");
+        if (castleHealth.getDiners() >= 50)
+        {
+            buildManager.SetDefenseToBuild(buildManager.bombTowerPrefab, 50);
+            SelectButton("BuildBombTower");
+        }
     }
 
     public void PurchaseCatapult()
     {
-        buildManager.SetDefenseToBuild(buildManager.catapultPrefab, 120);
-        SelectButton("BuildCatapult");
+        if (castleHealth.getDiners() >= 120)
+        {
+            buildManager.SetDefenseToBuild(buildManager.catapultPrefab, 120);
+            SelectButton("BuildCatapult");
+        }
     }
 
     public void PurchaseKnight()
     {
-        if (GameObject.Find("Player").GetComponent<CastleHealth>().restarDiners(200))
-        {
-            GameObject[] list = GameObject.FindGameObjectsWithTag("CaballeroInstantiator");
-            for (int i = 0; i < list.Length; i++)
+        if (castleHealth.getDiners() >= 200){
+            if (GameObject.Find("Player").GetComponent<CastleHealth>().restarDiners(200))
             {
-                list[i].GetComponent<CaballeroInstantiator>().crearCaballero();
+                GameObject[] list = GameObject.FindGameObjectsWithTag("CaballeroInstantiator");
+                for (int i = 0; i < list.Length; i++)
+                {
+                    list[i].GetComponent<CaballeroInstantiator>().crearCaballero();
+                }
+                SelectButton("clean pressed buttons");
             }
-            SelectButton("clean pressed buttons");
         }
     }
 
@@ -84,8 +95,13 @@ public class Shop : MonoBehaviour {
             if (b.name == buttonName)
             {
                 b.colors = pressedColorBlock;
+                b.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
             }
-            else b.colors = normalColorBlock;
+            else
+            {
+                b.colors = normalColorBlock;
+                b.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
         }
     }
 

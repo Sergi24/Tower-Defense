@@ -7,13 +7,28 @@ public class RockInstantiator : TorreBomba {
     public GameObject rock;
     public float velocidadDisparo;
 
-    // Use this for initialization
-    void Start()
+    private bool preparades = true, preparantRoques = false;
+
+    void Update()
     {
-        InvokeRepeating("crearRoca", 2, velocidadDisparo);
+        if (preparades)
+        {
+            crearRoques();
+        }
+        else if (!preparantRoques)
+        {
+            Invoke("prepararRoques", velocidadDisparo);
+            preparantRoques = true;
+        }
     }
 
-    void crearRoca()
+    void prepararRoques()
+    {
+        preparades = true;
+        preparantRoques = false;
+    }
+
+    void crearRoques()
     {
         objectius = GameObject.FindGameObjectsWithTag("Enemy");
         bool trobat = false;
@@ -29,6 +44,7 @@ public class RockInstantiator : TorreBomba {
                     {
                         Instantiate(rock, transform.position, transform.rotation);
                         trobat = true;
+                        preparades = false;
                     }
                 }
                 i++;
