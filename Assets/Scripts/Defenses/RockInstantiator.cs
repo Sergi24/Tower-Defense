@@ -7,7 +7,12 @@ public class RockInstantiator : TorreBomba {
     public GameObject rock;
     public float velocidadDisparo;
 
-    private bool preparades = true, preparantRoques = false;
+    private bool preparades = false, preparantRoques = false;
+
+    void Start()
+    {
+        Invoke("prepararRoquesInicial", 2);
+    }
 
     void Update()
     {
@@ -20,6 +25,11 @@ public class RockInstantiator : TorreBomba {
             Invoke("prepararRoques", velocidadDisparo);
             preparantRoques = true;
         }
+    }
+
+    void prepararRoquesInicial()
+    {
+        preparades = true;
     }
 
     void prepararRoques()

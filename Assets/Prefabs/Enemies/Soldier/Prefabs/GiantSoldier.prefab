@@ -1014,7 +1014,7 @@ MonoBehaviour:
   velocitatAtac: 0
   rangAtac: 10
   rotationSpeed: 5
-  damage: 5
+  damage: 4
   dinersASumar: 10
   barraVida: {fileID: 1545944692157574}
   giantSoldier: {fileID: 1381544197755258}
