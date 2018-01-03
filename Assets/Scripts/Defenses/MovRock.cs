@@ -23,9 +23,14 @@ public class MovRock : TorreBomba {
         else
         {
             Invoke("DestruirBomba", destroyTime);
-            rb.AddForce(Vector3.up * 50 * moveSpeed, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * 50 * moveSpeed * 0.0000001f, ForceMode.Impulse);
             zonaApuntada = destination.transform.position;
         }
+    }
+
+    void Update()
+    {
+     //   transform.Rotate(0.1f, 0.1f, 0.1f);
     }
 
     void FixedUpdate()
@@ -33,7 +38,7 @@ public class MovRock : TorreBomba {
         if (!stopBomb)
         {
             //Movimiento en dirección del target 
-           rb.AddForce(transform.forward * ((zonaApuntada - transform.position).magnitude) * moveSpeed);
+           rb.AddForce(transform.forward * ((zonaApuntada - transform.position).magnitude) * moveSpeed * 0.0000001f);
         }
     }
 

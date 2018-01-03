@@ -24,9 +24,11 @@ public class Shop : MonoBehaviour {
 
     pressedColorBlock = normalColorBlock;
     pressedColorBlock.normalColor = Color.white;
-    pressedColorBlock.pressedColor = Color.gray;
+    pressedColorBlock.pressedColor = Color.red;
 
     castleHealth = GameObject.Find("Player").GetComponent<CastleHealth>();
+
+    PurchaseArrowTower();
     }
 
     void Update()

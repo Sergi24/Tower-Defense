@@ -8,16 +8,32 @@ public class BombInstantiator : MonoBehaviour {
     public float velocidadDisparo;
     public int rangoTorre;
 
+    private bool preparat = true, preparantBomba = false;
+
     private GameObject[] objectius;
 
-    // Use this for initialization
-    void Start()
+    void Update()
     {
-        crearBomba();
-        InvokeRepeating("crearBomba", velocidadDisparo, velocidadDisparo);
+        if (preparat)
+        {
+            crearBomba();
+        }
+        else if (!preparantBomba)
+        {
+            Invoke("prepararBomba", velocidadDisparo);
+            preparantBomba = true;
+        }
+
+
     }
 
-    void crearBomba()
+    void prepararBomba()
+    {
+        preparat = true;
+        preparantBomba = false;
+    }
+
+        void crearBomba()
     {
         objectius = GameObject.FindGameObjectsWithTag("Enemy");
         if (objectius.Length != 0)
@@ -31,6 +47,7 @@ public class BombInstantiator : MonoBehaviour {
                     if ((objectius[i].transform.position - transform.position).magnitude < rangoTorre)
                     {
                         Instantiate(bomba, transform.position, transform.rotation);
+                        preparat = false;
                         trobat = true;
                     }
                 }

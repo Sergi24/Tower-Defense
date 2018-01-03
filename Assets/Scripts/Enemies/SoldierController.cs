@@ -63,7 +63,7 @@ public class SoldierController : TroopGeneralControl, HealthInterface
                     Invoke("tornarAMoure", 0.5f);
                     objectiveReached = false;
                 }
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit") && gameObject!=giantSoldier)
                 {
                     parar();
                     animator.SetBool("Hit", false);
@@ -135,7 +135,7 @@ public class SoldierController : TroopGeneralControl, HealthInterface
         }
         else
         {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit") && gameObject!=giantSoldier)
             {
                 animator.SetBool("Hit", true);
                 parar();

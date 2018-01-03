@@ -94,14 +94,7 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
 
     void atacar()
     {
-        GameObject[] objectius = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < objectius.Length; i++)
-        {
-            if ((objectius[i].transform.position - destination.transform.position).magnitude < areaDany)
-            {
-                objectius[i].GetComponent<HealthInterface>().restarVida(damage);
-            }
-        }
+        destination.GetComponent<HealthInterface>().restarVida(damage);
         asource.Play();
     }
 

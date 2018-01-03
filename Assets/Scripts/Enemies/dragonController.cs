@@ -86,7 +86,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
                     haTiratFoc = true;
                     gameObject.GetComponentInChildren<FireInstantiator>().instantiateFire();
                     fire.Play();
-                    Invoke("makeDamage", 1f);
+                    Invoke("makeDamage", 1.5f);
                 }
 
             } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && isFlyForward)
@@ -99,7 +99,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !isFlyForward)
             {
                 FlyForward();
-                agent.speed = velocitatMoviment + 1;
+                agent.speed = velocitatMoviment + 2;
                 isFlyForward = true;
             }
 

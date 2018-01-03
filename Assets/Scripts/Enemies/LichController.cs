@@ -7,6 +7,8 @@ public class LichController : TroopGeneralControl, HealthInterface
     private bool lichMort = false;
     public GameObject instantiatorBall;
 
+    private AudioSource asource;
+
     // Use this for initialization
     void Start()
     {
@@ -19,6 +21,7 @@ public class LichController : TroopGeneralControl, HealthInterface
         animator.SetBool("Hit", false);
         // agent.Move(new Vector3(0f, 0f, 0f));
         agent.destination = GameObject.Find("Player").transform.position;
+        asource = GetComponent<AudioSource>();
         assignarVidaARestar();
     }
 
@@ -40,6 +43,10 @@ public class LichController : TroopGeneralControl, HealthInterface
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
                 {
+                    if (contador == -1)
+                    {
+                        Invoke("sonidoBallCreation", 0.5f);
+                    }
                     if (contador > velocitatAtac)
                     {
                         gameObject.GetComponentInChildren<BallInstantiator>().crearBola();
@@ -50,12 +57,13 @@ public class LichController : TroopGeneralControl, HealthInterface
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01"))
                 {
-                    contador = 0;
+                    contador = -1;
                 }
             }
             else
             {
                 animator.SetBool("Attack", false);
+                contador = -1;
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
                 {
@@ -75,10 +83,17 @@ public class LichController : TroopGeneralControl, HealthInterface
         agent.speed = velocitatMoviment;
     }
 
-    public void restarVida(int vidaARestar)
+    void sonidoBallCreation()
     {
-        animator.SetBool("Hit", true);
-        agent.speed = 0;
+        asource.Play();
+    }
+
+        public void restarVida(int vidaARestar)
+    {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack01") && !animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
+        {
+            animator.SetBool("Hit", true);
+        }
         health -= vidaARestar;
         if (health <= 0&&!lichMort)
         {

@@ -73,6 +73,13 @@ public class MovArrow : MonoBehaviour
             //Movimiento en dirección del target 
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
+        else
+        {
+            if (transform.position.y < 0.5f)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void DestruirFletxa()
@@ -90,7 +97,7 @@ public class MovArrow : MonoBehaviour
         stopArrow = true;
         gameObject.GetComponent<BoxCollider>().enabled = false;
         rb.useGravity = true;
-        Destroy(gameObject, 0.5f);
+      //  Destroy(gameObject, 0.5f);
     }
 
 }
