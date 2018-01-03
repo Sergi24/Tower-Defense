@@ -123,7 +123,7 @@ public class WaveManager : MonoBehaviour {
     void ShowcaseWave(int waveNumber) {
         wavePanel.SetActive(true);
         waveText.SetText("Wave " + waveNumber);
-        Invoke("HideWaveText", 1.3f);
+        Invoke("HideWaveText", 4f);
 
     }
 
