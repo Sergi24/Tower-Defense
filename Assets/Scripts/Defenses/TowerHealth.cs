@@ -9,9 +9,19 @@ public class TowerHealth : MonoBehaviour, HealthInterface {
 
     protected float vidaARestarDeBarra;
 
+    private bool destroyed = false;
+
     void Start()
     {
         assignarVidaARestar();
+    }
+
+    void Update()
+    {
+        if (destroyed)
+        {
+            transform.Translate(0f, -0.1f, 0f);
+        }
     }
 
     public int getVida()
@@ -25,7 +35,9 @@ public class TowerHealth : MonoBehaviour, HealthInterface {
         restarVidaBarra(vidaARestar);
         if (vidaTorre <= 0)
         {
-            Destroy(gameObject);
+            destroyed = true;
+            Destroy(gameObject, 2f);
+            barraVida.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 

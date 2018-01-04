@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Builder : MonoBehaviour {
 
     public Color hoverColor;
+    public Color temporalColor;
     public Vector3 positionOffset;
 
     private Color initialColor;
@@ -42,8 +43,7 @@ public class Builder : MonoBehaviour {
             if (castleHealth.restarDiners(buildManager.GetDefensePrice()))
             {
                 GameObject defenseToBuild = BuildManager.instance.GetDefenseToBuild();
-                defense = 
-                    Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
+                defense = Instantiate(defenseToBuild, transform.position + positionOffset, transform.rotation);
                 rend.material.color = hoverColor;
                 apuntant = false;
             }
@@ -54,7 +54,7 @@ public class Builder : MonoBehaviour {
     void OnMouseEnter() {
         if ((defense == null) && (!IsBelowUI())) {
             apuntant = true;
-            rend.material.color = hoverColor;
+            rend.material.color = temporalColor;
         }
     }
 
