@@ -5,15 +5,8 @@ using UnityEngine;
 public class BallInstantiator : MonoBehaviour {
 
     public GameObject ball;
-    public float velocitatDisparo;
 
     private GameObject[] objectius;
-
-    // Use this for initialization
-    void Start()
-    {
-      //  InvokeRepeating("crearBola", velocitatDisparo, velocitatDisparo);
-    }
 
     public void crearBola()
     {

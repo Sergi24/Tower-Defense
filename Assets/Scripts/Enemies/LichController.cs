@@ -38,6 +38,7 @@ public class LichController : TroopGeneralControl, HealthInterface
                 animator.SetBool("Attack", true);
                 animator.SetBool("Hit", false);
                 agent.speed = 0;
+           //     Debug.Log("Contador: "+contador);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
 
@@ -49,10 +50,9 @@ public class LichController : TroopGeneralControl, HealthInterface
                     }
                     if (contador > velocitatAtac)
                     {
-                        gameObject.GetComponentInChildren<BallInstantiator>().crearBola();
+                        instantiatorBall.GetComponent<BallInstantiator>().crearBola();
                         contador = 0;
-                    }
-                    else contador++;
+                    } else contador++;
                 }
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01"))
@@ -62,8 +62,9 @@ public class LichController : TroopGeneralControl, HealthInterface
             }
             else
             {
+              //  Debug.Log("NO ATACANT");
                 animator.SetBool("Attack", false);
-                contador = -1;
+               // contador = -1;
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
                 {
@@ -88,7 +89,7 @@ public class LichController : TroopGeneralControl, HealthInterface
         asource.Play();
     }
 
-        public void restarVida(int vidaARestar)
+    public void restarVida(int vidaARestar)
     {
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("attack01") && !animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
         {

@@ -11,7 +11,7 @@ public class RockInstantiator : TorreBomba {
 
     void Start()
     {
-        Invoke("prepararRoquesInicial", 2);
+        Invoke("prepararRoquesInicial", 1);
     }
 
     void Update()
@@ -76,6 +76,7 @@ public class RockInstantiator : TorreBomba {
                         {
                             Instantiate(rock, transform.position, transform.rotation);
                             trobat = true;
+                            preparades = false;
                         }
                     }
                     i++;

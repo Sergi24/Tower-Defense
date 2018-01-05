@@ -67,7 +67,7 @@ public class SkeletController : TroopGeneralControl, HealthInterface {
             agent.enabled = false;
             animator.SetBool("Death", true);
             notifyDeath();
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 1.4f);
         }
     }
 

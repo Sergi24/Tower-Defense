@@ -60,9 +60,9 @@ public class MovBall : TroopGeneralControl
             other.gameObject.GetComponent<HealthInterface>().restarVida(damage);
             Destroy(gameObject);
         }
-        if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")
-        {
-            Destroy(gameObject);
-        }
+    //    if (other.gameObject.tag != "Atac" && other.gameObject.tag != "Enemy")
+   //     {
+    //        Destroy(gameObject);
+   //     }
     }
 }

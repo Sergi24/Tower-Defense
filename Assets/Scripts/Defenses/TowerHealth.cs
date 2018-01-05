@@ -6,25 +6,34 @@ public class TowerHealth : MonoBehaviour, HealthInterface {
 
     public int vidaTorre;
     public GameObject barraVida;
-    private AudioSource asource;
+    protected AudioSource asource;
 
     protected float vidaARestarDeBarra;
-
-    private bool destroyed = false;
+    protected bool destroyed = false;
 
     void Start()
     {
         assignarVidaARestar();
-        asource = gameObject.GetComponent<AudioSource>();
-        asource.volume = 0.5f;
+        assignarSo();
     }
 
     void Update()
     {
         if (destroyed)
         {
-            transform.Translate(0f, -0.1f, 0f);
+            enterrarTorre();
         }
+    }
+
+    protected void enterrarTorre()
+    {
+        transform.Translate(0f, -0.1f, 0f);
+    }
+
+    protected void assignarSo()
+    {
+        asource = gameObject.GetComponent<AudioSource>();
+        asource.volume = 0.3f;
     }
 
     public int getVida()

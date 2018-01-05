@@ -13,13 +13,20 @@ public class TorreBomba : TowerHealth {
     // Use this for initialization
     void Start () {
         assignarVidaARestar();
+        assignarSo();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (objectiuMesProper()) {
-            Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(puntoDeChoque - transform.position), rotationSpeed * Time.deltaTime);
+        if (!destroyed) {
+            if (objectiuMesProper()) {
+                Vector3 puntoDeChoque = new Vector3(destination.transform.position.x, transform.position.y, destination.transform.position.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(puntoDeChoque - transform.position), rotationSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            enterrarTorre();
         }
     }
 
