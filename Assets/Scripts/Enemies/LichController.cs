@@ -38,7 +38,7 @@ public class LichController : TroopGeneralControl, HealthInterface
                 animator.SetBool("Attack", true);
                 animator.SetBool("Hit", false);
                 agent.speed = 0;
-           //     Debug.Log("Contador: "+contador);
+                Debug.Log("Contador: "+contador);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
 
@@ -62,7 +62,7 @@ public class LichController : TroopGeneralControl, HealthInterface
             }
             else
             {
-              //  Debug.Log("NO ATACANT");
+                Debug.Log("NO ATACANT");
                 animator.SetBool("Attack", false);
                // contador = -1;
 
