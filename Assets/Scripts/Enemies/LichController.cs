@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LichController : TroopGeneralControl, HealthInterface
 {
-    private bool lichMort = false;
+    private bool lichMort = false, lichCreantBall = false;
     public GameObject instantiatorBall;
 
     private AudioSource asource;
@@ -38,33 +38,28 @@ public class LichController : TroopGeneralControl, HealthInterface
                 animator.SetBool("Attack", true);
                 animator.SetBool("Hit", false);
                 agent.speed = 0;
-                Debug.Log("Contador: "+contador);
+            //    Debug.Log("Contador: "+contador);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
 
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02"))
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack02") && !lichCreantBall)
                 {
-                    if (contador == -1)
-                    {
-                        Invoke("sonidoBallCreation", 0.5f);
-                    }
-                    if (contador > velocitatAtac)
-                    {
-                        instantiatorBall.GetComponent<BallInstantiator>().crearBola();
-                        contador = 0;
-                    } else contador++;
+                    Debug.Log("ATTACK02");
+                    Invoke("crearBall", 1.5f);
+                    Invoke("sonidoBallCreation", 0.5f);
+                    lichCreantBall = true;
                 }
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("attack01"))
                 {
-                    contador = -1;
+                    lichCreantBall = false;
                 }
             }
             else
             {
                 Debug.Log("NO ATACANT");
                 animator.SetBool("Attack", false);
-               // contador = -1;
+                lichCreantBall = false;
 
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
                 {
@@ -79,14 +74,19 @@ public class LichController : TroopGeneralControl, HealthInterface
         }
     }
 
-    void tornarAMoure()
+    void crearBall()
     {
-        agent.speed = velocitatMoviment;
+        instantiatorBall.GetComponent<BallInstantiator>().crearBola();
     }
 
     void sonidoBallCreation()
     {
         asource.Play();
+    }
+
+    void tornarAMoure()
+    {
+        agent.speed = velocitatMoviment;
     }
 
     public void restarVida(int vidaARestar)

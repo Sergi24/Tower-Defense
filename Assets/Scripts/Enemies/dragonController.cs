@@ -28,8 +28,8 @@ public class dragonController : TroopGeneralControl, HealthInterface
     private void Start() {
         destination = GameObject.Find("ObjectiuDrac");
         agent.SetDestination(destination.transform.position);
-        rb = gameObject.GetComponent<Rigidbody>();
-        rb.mass = 10000f;
+    //    rb = gameObject.GetComponent<Rigidbody>();
+    //    rb.mass = 10000f;
         agent.speed = velocitatMoviment;
         assignarVidaARestar();
 
@@ -52,11 +52,13 @@ public class dragonController : TroopGeneralControl, HealthInterface
                 {
                     FlyGlide();
                     haTiratFoc = false;
+                    isFlyForward = false;
                     fire.Stop();
                 }
                 else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !haTiratFoc)
                 {
                     FlyForward();
+                    isFlyForward = true;
                     haTiratFoc = true;
                     gameObject.GetComponentInChildren<FireInstantiator>().instantiateFire();
                     fire.Play();
@@ -78,10 +80,11 @@ public class dragonController : TroopGeneralControl, HealthInterface
             }
 
         }//MORT
-        else if (transform.position.y < 1f)
+        else if (transform.position.y > 1f)
         {
-            rb.useGravity = false;
-            rb.isKinematic = true;
+            //    rb.useGravity = false;
+            //    rb.isKinematic = true;
+            transform.Translate(0f, -0.1f, 0f);
         }
     }
 
@@ -115,8 +118,8 @@ public class dragonController : TroopGeneralControl, HealthInterface
             dracMort = true;
             gameObject.GetComponent<BoxCollider>().enabled = false;
             agent.enabled = false;
-            rb.drag = 1f;
-            rb.useGravity = true;
+      //      rb.drag = 1f;
+      //      rb.useGravity = true;
             Die();
             GameObject.Find("Player").GetComponent<CastleHealth>().sumarDiners(dinersASumar);
             notifyDeath();

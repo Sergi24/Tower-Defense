@@ -159,6 +159,7 @@ public class WaveManager : MonoBehaviour {
         StartCoroutine(SpawnEnemy1(30, skeleton, 10, true));
         StartCoroutine(SpawnEnemy1(1, skeleton, 10, true));
 
+        StartCoroutine(SpawnEnemy2(0, lich, 3, true));
         StartCoroutine(SpawnEnemy2(25, soldier, 3, false));
         StartCoroutine(SpawnEnemy2(5, skeleton, 10, false));
         StartCoroutine(SpawnEnemy2(10, skeleton, 10, true));

@@ -9,7 +9,6 @@ public class TroopGeneralControl : MonoBehaviour {
     private bool destinationNova;
 
     protected GameObject destination = null;
-    protected int contador = 0;
     protected UnityEngine.AI.NavMeshAgent agent;
     protected Animator animator;
     protected float vidaARestarDeBarra;
@@ -17,7 +16,6 @@ public class TroopGeneralControl : MonoBehaviour {
     public int health;
     public float maximBusqueda;
     public float velocitatMoviment;
-    public int velocitatAtac;
     public int rangAtac;
     public float rotationSpeed;
     public int damage;
@@ -79,24 +77,6 @@ public class TroopGeneralControl : MonoBehaviour {
         }
         if (!destinationNova) return false;
         else return true;
-    }
-
-    protected void attackWithTwoAnimations(string tag1, string tag2)
-    {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(tag1))
-        {
-            if (contador > velocitatAtac)
-            {
-                gameObject.GetComponentInChildren<BallInstantiator>().crearBola();
-                contador = 0;
-            }
-            else contador++;
-        }
-
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName(tag2))
-        {
-            contador = 0;
-        }
     }
 
     protected void notifyDeath() {
