@@ -101,17 +101,17 @@ public class WaveManager : MonoBehaviour {
                 break;
             case 2:
                 castle.sumarDiners(250);
-                waveText2.SetText("Extra gold: " + 150);
+                waveText2.SetText("Extra gold: " + 250);
                 SecondWave();
                 break;
             case 3:
                 castle.sumarDiners(300);
-                waveText2.SetText("Extra gold: " + 200);
+                waveText2.SetText("Extra gold: " + 300);
                 ThirdWave();
                 break;
             case 4:
                 castle.sumarDiners(350);
-                waveText2.SetText("Extra gold: " + 250);
+                waveText2.SetText("Extra gold: " + 350);
                 FourthWave();
                 break;
         }
@@ -158,6 +158,9 @@ public class WaveManager : MonoBehaviour {
         StartCoroutine(SpawnEnemy1(5, skeleton, 10, false));
         StartCoroutine(SpawnEnemy1(30, skeleton, 10, true));
         StartCoroutine(SpawnEnemy1(1, skeleton, 10, true));
+        StartCoroutine(SpawnEnemy1(1, soldier, 3, true));
+        StartCoroutine(SpawnEnemy1(0, lich, 1, true));
+        StartCoroutine(SpawnEnemy1(1, soldier, 3, true));
 
         StartCoroutine(SpawnEnemy2(25, soldier, 3, false));
         StartCoroutine(SpawnEnemy2(5, skeleton, 10, false));
@@ -168,7 +171,7 @@ public class WaveManager : MonoBehaviour {
 
     void SecondWave() {
         StartCoroutine(SpawnEnemy1(0, skeleton, 30, false));
-        StartCoroutine(SpawnEnemy1(1, skeleton, 10, false));
+        StartCoroutine(SpawnEnemy1(0, skeleton, 30, false));
         StartCoroutine(SpawnEnemy1(5, soldier, 10, false));
         StartCoroutine(SpawnEnemy1(10, soldier, 3, true));
         StartCoroutine(SpawnEnemy1(3, lich, 1, true));
@@ -192,7 +195,9 @@ public class WaveManager : MonoBehaviour {
         StartCoroutine(SpawnEnemy1(0, skeleton, 10, false));
         StartCoroutine(SpawnEnemy1(0, skeleton, 10, false));
         StartCoroutine(SpawnEnemy1(0, skeleton, 50, false));
-        StartCoroutine(SpawnEnemy1(5, giantSoldier, 1, true));
+        StartCoroutine(SpawnEnemy1(4, skeleton, 10, true));
+        StartCoroutine(SpawnEnemy1(1, giantSoldier, 1, true));
+        StartCoroutine(SpawnEnemy1(1, skeleton, 10, true));
         StartCoroutine(SpawnEnemy1(30, soldier, 10, true));
         StartCoroutine(SpawnEnemy1(10, soldier, 3, true));
         StartCoroutine(SpawnEnemy1(3, lich, 2, true));
@@ -230,8 +235,10 @@ public class WaveManager : MonoBehaviour {
         StartCoroutine(SpawnEnemy1(2, skeleton, 10, false));
         StartCoroutine(SpawnEnemy1(0, skeleton, 10, false));
         StartCoroutine(SpawnEnemy1(4, skeleton, 40, false));
-        StartCoroutine(SpawnEnemy1(4, lich, 40, false));
+        StartCoroutine(SpawnEnemy1(4, lich, 30, false));
+        StartCoroutine(SpawnEnemy1(0, skeleton, 30, false));
         StartCoroutine(SpawnEnemy1(20, dragon, 1, true));
+        StartCoroutine(SpawnEnemy1(0, skeleton, 30, false));
 
         StartCoroutine(SpawnEnemy2(5, skeleton, 15, true));
         StartCoroutine(SpawnEnemy2(30, soldier, 8, true));
@@ -240,14 +247,16 @@ public class WaveManager : MonoBehaviour {
         StartCoroutine(SpawnEnemy2(0, soldier, 10, true));
         StartCoroutine(SpawnEnemy2(0, soldier, 10, true));
         StartCoroutine(SpawnEnemy2(15, lich, 4, true));
-        StartCoroutine(SpawnEnemy1(30, giantSoldier, 1, true));
+        StartCoroutine(SpawnEnemy2(30, giantSoldier, 1, true));
         StartCoroutine(SpawnEnemy2(10, skeleton, 15, true));
         StartCoroutine(SpawnEnemy2(15, skeleton, 40, false));
         StartCoroutine(SpawnEnemy2(5, skeleton, 40, false));
         StartCoroutine(SpawnEnemy2(15, skeleton, 40, false));
-        StartCoroutine(SpawnEnemy2(20, dragon, 2, true));
+        StartCoroutine(SpawnEnemy2(20, dragon, 1, true));
         StartCoroutine(SpawnEnemy2(40, giantSoldier, 2, true));
+        StartCoroutine(SpawnEnemy2(5, soldier, 4, true));
         StartCoroutine(SpawnEnemy2(3, lich, 10, true));
+        StartCoroutine(SpawnEnemy2(1, soldier, 4, true));
     }
 
 }

@@ -1011,8 +1011,7 @@ MonoBehaviour:
   health: 40
   maximBusqueda: 10
   velocitatMoviment: 4
-  velocitatAtac: 0
-  rangAtac: 10
+  rangAtac: 12
   rotationSpeed: 5
   damage: 4
   dinersASumar: 10

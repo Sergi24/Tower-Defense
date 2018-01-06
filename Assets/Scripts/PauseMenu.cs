@@ -6,6 +6,9 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenuPanel;
 
+    public GameObject textVelocitat;
+    private bool velocitatAumentada = false;
+
     void Start() {
         pauseMenuPanel.SetActive(false);
     }
@@ -22,6 +25,22 @@ public class PauseMenu : MonoBehaviour {
         }
 	}
 
+    public void AumentarVelocitat()
+    {
+        if (velocitatAumentada)
+        {
+            Time.timeScale = 1f;
+            velocitatAumentada = false;
+            textVelocitat.GetComponent<TMPro.TextMeshProUGUI>().SetText("x1");
+        }
+        else
+        {
+            Time.timeScale = 2f;
+            velocitatAumentada = true;
+            textVelocitat.GetComponent<TMPro.TextMeshProUGUI>().SetText("x2");
+        }
+    }
+
     void Pause() {
         pauseMenuPanel.SetActive(true);
         Time.timeScale= 0f;
@@ -37,6 +56,4 @@ public class PauseMenu : MonoBehaviour {
     public void Quit() {
         Application.Quit();
     }
-
-
 }

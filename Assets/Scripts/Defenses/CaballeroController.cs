@@ -94,7 +94,7 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
 
     void atacar()
     {
-        destination.GetComponent<HealthInterface>().restarVida(damage);
+        if (destination!=null) destination.GetComponent<HealthInterface>().restarVida(damage);
         asource.Play();
     }
 
@@ -108,6 +108,7 @@ public class CaballeroController : TroopGeneralControl, HealthInterface {
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
             agent.enabled = false;
             animator.SetBool("Death", true);
+            barraVida.GetComponent<MeshRenderer>().enabled = false;
             Destroy(gameObject, 6f);
         }
     }

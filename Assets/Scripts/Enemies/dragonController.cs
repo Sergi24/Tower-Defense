@@ -70,6 +70,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
                 FlyGlide();
                 agent.speed = velocitatMoviment;
                 isFlyForward = false;
+                haTiratFoc = true;
                 fire.Stop();
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !isFlyForward)
@@ -77,6 +78,7 @@ public class dragonController : TroopGeneralControl, HealthInterface
                 FlyForward();
                 agent.speed = velocitatMoviment + 2;
                 isFlyForward = true;
+                haTiratFoc = false;
             }
 
         }//MORT

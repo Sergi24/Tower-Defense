@@ -18,6 +18,7 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
 
     public GameObject wavePanel;
     public TMPro.TextMeshProUGUI waveText;
+    public GameObject fillBarraVida;
 
 
     void Start()
@@ -36,14 +37,17 @@ public class CastleHealth : MonoBehaviour, HealthInterface {
         if (vidaCastell < 60)
         {
             drippingFlames1.SetActive(true);
+            fillBarraVida.GetComponent<Image>().color = Color.yellow+new Color(0f, 0f, 0.5f, 1f);
         }
         if (vidaCastell < 45)
         {
             drippingFlames2.SetActive(true);
+            fillBarraVida.GetComponent<Image>().color = Color.yellow;
         }
         if (vidaCastell < 25)
         {
             drippingFlames3.SetActive(true);
+            fillBarraVida.GetComponent<Image>().color = Color.red;
         }
         if (vidaCastell < 10)
         {
