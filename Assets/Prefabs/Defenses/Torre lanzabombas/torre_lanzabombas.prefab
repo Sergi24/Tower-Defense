@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abc91bd5c88a614bb31b11a7b5416aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaTorre: 8
+  vidaTorre: 12
   barraVida: {fileID: 1365885700783552}
 --- !u!114 &114664765829784270
 MonoBehaviour:

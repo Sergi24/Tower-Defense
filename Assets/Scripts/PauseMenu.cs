@@ -15,7 +15,6 @@ public class PauseMenu : MonoBehaviour {
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
-            Debug.Log("Escape");
             if(GameIsPaused) {
                 Resume();
             }
@@ -38,6 +37,22 @@ public class PauseMenu : MonoBehaviour {
             Time.timeScale = 2f;
             velocitatAumentada = true;
             textVelocitat.GetComponent<TMPro.TextMeshProUGUI>().SetText("x2");
+        }
+    }
+
+    public void SetVelocitatActual(float velocitat)
+    {
+        if (velocitat == 1)
+        {
+            velocitatAumentada = false;
+            Time.timeScale = 1f;
+            textVelocitat.GetComponent<TMPro.TextMeshProUGUI>().SetText("x1");
+        }
+        else
+        {
+            velocitatAumentada = true;
+            textVelocitat.GetComponent<TMPro.TextMeshProUGUI>().SetText("x2");
+            Time.timeScale = 2f;
         }
     }
 

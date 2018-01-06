@@ -15,6 +15,7 @@ public class WaveManager : MonoBehaviour {
     public TMPro.TextMeshProUGUI waveText;
     public TMPro.TextMeshProUGUI waveText2;
     public GameObject pauseMenu;
+    public GameObject canvas;
     private int relativeDelay1;
     private int relativeDelay2;
 
@@ -116,7 +117,7 @@ public class WaveManager : MonoBehaviour {
                 break;
         }
 
-        Time.timeScale = 1f;
+        canvas.GetComponent<PauseMenu>().SetVelocitatActual(1f);
 
     }
 

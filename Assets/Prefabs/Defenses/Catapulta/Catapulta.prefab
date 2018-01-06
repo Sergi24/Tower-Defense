@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4c1162122b44344a6847da2775baae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaTorre: 8
+  vidaTorre: 18
   barraVida: {fileID: 1916949971762562}
   rangoTorreMinimo: 40
   rangoTorreMaximo: 80

@@ -16,6 +16,8 @@ public class dragonController : TroopGeneralControl, HealthInterface
     private bool atacantTorre = false;
     private AudioSource fire;
 
+    private bool estatAtacant = false;
+
     void Awake()
     {
         agent = this.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -42,43 +44,45 @@ public class dragonController : TroopGeneralControl, HealthInterface
         {
             if (!findClosestTarget("Defensa", rangAtac) || atacantTorre) destination = GameObject.Find("ObjectiuDrac");
 
-            if ((destination.transform.position-transform.position).magnitude < rangAtac || atacantTorre)
+            if ((destination.transform.position - transform.position).magnitude < rangAtac || atacantTorre)
             {
                 agent.speed = 0;
                 if (destination.tag == "ObjectiuDrac") atacantTorre = true;
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destination.transform.position - transform.position), Time.deltaTime * rotationSpeed);
 
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && haTiratFoc)
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && (haTiratFoc || !estatAtacant))
                 {
                     FlyGlide();
                     haTiratFoc = false;
-                    isFlyForward = false;
                     fire.Stop();
                 }
-                else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !haTiratFoc)
+                else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && (!haTiratFoc || !estatAtacant))
                 {
                     FlyForward();
-                    isFlyForward = true;
                     haTiratFoc = true;
                     gameObject.GetComponentInChildren<FireInstantiator>().instantiateFire();
                     fire.Play();
                     Invoke("makeDamage", 1.5f);
                 }
+                estatAtacant = true;
 
-            } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && isFlyForward)
-            {
-                FlyGlide();
-                agent.speed = velocitatMoviment;
-                isFlyForward = false;
-                haTiratFoc = true;
-                fire.Stop();
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && !isFlyForward)
+            else
             {
-                FlyForward();
-                agent.speed = velocitatMoviment + 2;
-                isFlyForward = true;
-                haTiratFoc = false;
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Forward") && (isFlyForward || estatAtacant))
+                {
+                    FlyGlide();
+                    agent.speed = velocitatMoviment;
+                    isFlyForward = false;
+                    fire.Stop();
+                }
+                else if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fly Glide") && (!isFlyForward || estatAtacant))
+                {
+                    FlyForward();
+                    agent.speed = velocitatMoviment + 2;
+                    isFlyForward = true;
+                }
+                estatAtacant = false;
             }
 
         }//MORT
