@@ -335,8 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaTorre: 0
   barraVida: {fileID: 0}
-  rangoTorreMinimo: 40
-  rangoTorreMaximo: 80
+  rangoTorreMinimo: 30
+  rangoTorreMaximo: 70
   rotationSpeed: 0
   destroyTime: 5
   areaDany: 3
@@ -356,8 +356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaTorre: 0
   barraVida: {fileID: 0}
-  rangoTorreMinimo: 40
-  rangoTorreMaximo: 80
+  rangoTorreMinimo: 30
+  rangoTorreMaximo: 70
   rotationSpeed: 0
   destroyTime: 5
   areaDany: 3
@@ -377,8 +377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vidaTorre: 0
   barraVida: {fileID: 0}
-  rangoTorreMinimo: 40
-  rangoTorreMaximo: 80
+  rangoTorreMinimo: 30
+  rangoTorreMaximo: 70
   rotationSpeed: 0
   destroyTime: 5
   areaDany: 3
