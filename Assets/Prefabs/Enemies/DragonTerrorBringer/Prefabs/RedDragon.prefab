@@ -2869,7 +2869,7 @@ MonoBehaviour:
   health: 40
   maximBusqueda: 20
   velocitatMoviment: 3
-  rangAtac: 16
+  rangAtac: 15
   rotationSpeed: 5
   damage: 8
   dinersASumar: 30
